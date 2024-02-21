@@ -9,6 +9,7 @@
             InitializeComponent();
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.ShowIcon = false;
 
             this.mainMenu = mainMenu;
         }

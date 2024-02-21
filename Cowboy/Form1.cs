@@ -37,7 +37,7 @@ namespace Cowboy
             // remove buttons
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-
+            this.ShowIcon = false;
             this.Text = "Game";
         }
 
@@ -98,7 +98,7 @@ namespace Cowboy
 
         private void MainGame_Update(object sender, EventArgs e)
         {
-            // PLAYER MOVEMENT CORRECTION \\
+            // PLAYER MOVEMENT "border" \\
             for (int i = 0; i < GameComponents[0].Count; i++)
             {
                 if (GameComponents[0][i].pictureBox.Location.Y < 0)

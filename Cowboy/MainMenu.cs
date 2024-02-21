@@ -20,6 +20,7 @@ namespace Cowboy
             InitializeComponent();
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.ShowIcon = false;
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
