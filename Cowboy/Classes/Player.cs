@@ -1,6 +1,4 @@
 ﻿using Cowboy.Interfaces;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Cowboy.Classes
 {

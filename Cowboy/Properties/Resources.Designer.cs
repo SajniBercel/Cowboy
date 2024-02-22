@@ -73,6 +73,16 @@ namespace Cowboy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap expl {
+            get {
+                object obj = ResourceManager.GetObject("expl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PlayerBeta {
             get {
                 object obj = ResourceManager.GetObject("PlayerBeta", resourceCulture);

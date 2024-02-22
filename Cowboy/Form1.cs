@@ -11,6 +11,8 @@ namespace Cowboy
 
         private List<List<GameComponent>> GameComponents = new List<List<GameComponent>>();
 
+        private int GC_count = 0;
+
         public Form1(GameSettings gameSettings)
         {
             InitializeComponent();
@@ -92,26 +94,26 @@ namespace Cowboy
             GameComponents.Add(Players);
             // index 1: Bullets
             GameComponents.Add(new List<GameComponent>());
+            // index 2: Explosions
+            GameComponents.Add(new List<GameComponent>());
 
             MainGameTimer.Enabled = true;
         }
 
         private void MainGame_Update(object sender, EventArgs e)
         {
-            // PLAYER MOVEMENT "border" \\
+            // --- PLAYER --- \\
             for (int i = 0; i < GameComponents[0].Count; i++)
             {
                 if (GameComponents[0][i].pictureBox.Location.Y < 0)
                     ((Player)GameComponents[0][i]).MoveUp = false;
 
                 if (GameComponents[0][i].pictureBox.Location.Y + GameComponents[0][i].pictureBox.Size.Height > this.Height)
-                    ((Player)GameComponents[0][i]).MoveDown = false;
-
-                ((IUpdate)GameComponents[0][i]).Update();
+                    ((Player)GameComponents[0][i]).MoveDown = false;;
             }
 
-            // MOVEMENT UPDATE \\
-            for (int i = 1; i < GameComponents.Count; i++)
+            // --- MAIN UPDATE --- \\
+            for (int i = 0; i < GameComponents.Count; i++)
             {
                 for (int j = 0; j < GameComponents[i].Count; j++)
                 {
@@ -120,7 +122,7 @@ namespace Cowboy
                 }
             }
 
-            // BULLET EVENTS \\
+            // --- BULLET --- \\
             for (int i = 0; i < GameComponents[1].Count; i++)
             {
                 Bullet bullet = ((Bullet)GameComponents[1][i]);
@@ -130,6 +132,7 @@ namespace Cowboy
                 {
                     Controls.Remove(((Bullet)GameComponents[1][i]).pictureBox);
                     GameComponents[1].RemoveAt(i);
+                    GC_count++;
                 }
 
                 //player hit
@@ -142,10 +145,10 @@ namespace Cowboy
 
                         Controls.Remove(GameComponents[1][i].pictureBox);
                         GameComponents[1].RemoveAt(i);
+                        GC_count++;
 
                         WinCheck();
                     }
-
                 }
 
                 //bullet hit TODO (az a terv hogy osztály lesz csak létrehozva és akkor nem lesz minden update-nél comp)
@@ -157,17 +160,43 @@ namespace Cowboy
                         if (bullet.pictureBox.Bounds.IntersectsWith(tempBullet.pictureBox.Bounds) &&
                             bullet.PlayerID != tempBullet.PlayerID)
                         {
+                            Explosion explo = new Explosion(-1, 
+                                Create.pictureBox("explo", new Size(20, 20), new Point(0, 0), Properties.Resources.expl), 
+                                bullet, tempBullet, 20);
+
+                            GameComponents[2].Add((GameComponent)explo);
+                            Controls.Add(explo.pictureBox);
+
                             Controls.Remove(bullet.pictureBox);
                             Controls.Remove(tempBullet.pictureBox);
 
                             GameComponents[1].Remove(bullet);
                             GameComponents[1].Remove(tempBullet);
+
+                            //GC.Collect(); // valamit ezzel kezdeni kell
+                            //TODO osztály dolog megint mint feljebb
+                            GC_count++;
                         }
                     }
                 }
 
-                //TODO osztály dolog megint mint feljebb
+            }
+            // --- EXPLOSION --- \\
+            for (int i = 0; i < GameComponents[2].Count; i++)
+            {
+                Explosion explo = (Explosion)GameComponents[2][i];
+                if(explo.UpdatesLeft == 0)
+                {
+                    Controls.Remove(explo.pictureBox);
+                    GameComponents[2].RemoveAt(i);
+                    GC_count++;
+                }
+            }
 
+            if (GC_count > 15)
+            {
+                GC.Collect();
+                GC_count = 0;
             }
         }
 
@@ -286,6 +315,7 @@ namespace Cowboy
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            GameComponents.Clear();
             mainMenu.Show();
         }
     }

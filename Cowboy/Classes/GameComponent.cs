@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Cowboy
+﻿namespace Cowboy
 {
     public class GameComponent
     {

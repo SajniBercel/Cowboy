@@ -18,6 +18,7 @@
             BulletDamage = bulletDamage;
             ReloadSpeed = reloadSpeed;
         }
+
         public PlayerSetting(PlayerSetting playerS)
         {
             PlayerName = playerS.PlayerName;
@@ -33,7 +34,6 @@
             
         }
 
-        // itt ebben help
         public PlayerSetting SetDefaultValues()
         {
             PlayerName = "Player";
@@ -45,6 +45,7 @@
 
             return this;
         }
+
         public PlayerSetting SetPlayerName(string name)
         {
             PlayerName = name;

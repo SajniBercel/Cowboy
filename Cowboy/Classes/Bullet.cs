@@ -1,5 +1,4 @@
 ﻿using Cowboy.Interfaces;
-using System.Windows.Forms;
 
 namespace Cowboy.Classes
 {
@@ -20,6 +19,7 @@ namespace Cowboy.Classes
         {
             pictureBox.Left += Speed;
         }
+
         public bool IsInTheSreen(int width)
         {
             if (pictureBox.Left < -pictureBox.Size.Width || pictureBox.Left > width)

@@ -22,6 +22,7 @@
         { 
             
         }
+
         public GameSettings SetDefaultSettings()
         {
             BulletCollision = false;

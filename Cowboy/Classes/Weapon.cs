@@ -25,6 +25,7 @@ namespace Cowboy.Classes
             MyTimer.Tick += new EventHandler(SetShootTrue);
             MyTimer.Start();
         }
+
         public Bullet Shoot()
         {
             if (CanShoot)
@@ -40,7 +41,8 @@ namespace Cowboy.Classes
             }
             return null;
         }
-        public void SetShootTrue(object sender, EventArgs args)
+
+        public void SetShootTrue(object? sender, EventArgs args)
         {
             CanShoot = true;
             MyTimer.Stop();

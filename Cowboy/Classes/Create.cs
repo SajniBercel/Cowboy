@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace Cowboy.Classes
+﻿namespace Cowboy.Classes
 {
     public class Create
     {
@@ -20,6 +17,7 @@ namespace Cowboy.Classes
             Form.ActiveForm.Controls.Add(pic);
             return pic;
         }
+
         public static ProgressBar progressBar(string name, Size size, Point loc, int max)
         {
             ProgressBar progBar = new ProgressBar
