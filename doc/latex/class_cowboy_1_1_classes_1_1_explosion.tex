@@ -1,0 +1,71 @@
+\doxysection{Cowboy.\+Classes.\+Explosion osztályreferencia}
+\hypertarget{class_cowboy_1_1_classes_1_1_explosion}{}\label{class_cowboy_1_1_classes_1_1_explosion}\index{Cowboy.Classes.Explosion@{Cowboy.Classes.Explosion}}
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cowboy_1_1_classes_1_1_explosion_a3443d8627c1b3a5a6fd923790993b29b}{Explosion}} (int player\+ID, Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}}, \mbox{\hyperlink{class_cowboy_1_1_game_component}{Game\+Component}} bulletA, \mbox{\hyperlink{class_cowboy_1_1_game_component}{Game\+Component}} bulletB, int updates\+Berfore\+Destory)
+\begin{DoxyCompactList}\small\item\em Létrehoz egy robbanás effektet 2 "{}\+Game\+Component"{} között (magának kiszámolja hogy hol kell lennie) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_explosion_ad5096324825391f0e30c4e820091cefa}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Publikus tagfüggvények a(z) \mbox{\hyperlink{class_cowboy_1_1_game_component}{Cowboy.\+Game\+Component}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cowboy_1_1_game_component_a5e9ecf9c4847af7cd39f0e7531eb64e3}{Game\+Component}} (int player\+ID, Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}})
+\begin{DoxyCompactList}\small\item\em Minden játékelemnek ezn az ősösztálya, tartalmazza hogy egy komponens melyik "{}id"{}-\/jú player-\/hez tartozik, tartalmaz egy Picture\+Box-\/ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Tulajdonságok}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_explosion_a2d25197665be0a9c426035aba5b890f0}{Updates\+Left}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Tulajdonságok a(z) \mbox{\hyperlink{class_cowboy_1_1_game_component}{Cowboy.\+Game\+Component}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_cowboy_1_1_game_component_a3be33b2eba22a9f32c69bf3ca2c91520}{Player\+ID}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Konstruktorok és destruktorok dokumentációja}
+\Hypertarget{class_cowboy_1_1_classes_1_1_explosion_a3443d8627c1b3a5a6fd923790993b29b}\label{class_cowboy_1_1_classes_1_1_explosion_a3443d8627c1b3a5a6fd923790993b29b} 
+\index{Cowboy.Classes.Explosion@{Cowboy.Classes.Explosion}!Explosion@{Explosion}}
+\index{Explosion@{Explosion}!Cowboy.Classes.Explosion@{Cowboy.Classes.Explosion}}
+\doxysubsubsection{\texorpdfstring{Explosion()}{Explosion()}}
+{\footnotesize\ttfamily Cowboy.\+Classes.\+Explosion.\+Explosion (\begin{DoxyParamCaption}\item[{int}]{player\+ID,  }\item[{Picture\+Box}]{picture\+Box,  }\item[{\mbox{\hyperlink{class_cowboy_1_1_game_component}{Game\+Component}}}]{bulletA,  }\item[{\mbox{\hyperlink{class_cowboy_1_1_game_component}{Game\+Component}}}]{bulletB,  }\item[{int}]{updates\+Berfore\+Destory }\end{DoxyParamCaption})}
+
+
+
+Létrehoz egy robbanás effektet 2 "{}\+Game\+Component"{} között (magának kiszámolja hogy hol kell lennie) 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em updates\+Berfore\+Destory} & Hány "{}\+Update"{} kell mielőtt törölhető\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_cowboy_1_1_classes_1_1_explosion_ad5096324825391f0e30c4e820091cefa}\label{class_cowboy_1_1_classes_1_1_explosion_ad5096324825391f0e30c4e820091cefa} 
+\index{Cowboy.Classes.Explosion@{Cowboy.Classes.Explosion}!Update@{Update}}
+\index{Update@{Update}!Cowboy.Classes.Explosion@{Cowboy.Classes.Explosion}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Cowboy.\+Classes.\+Explosion.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Megvalósítja a következőket\+: \mbox{\hyperlink{interface_cowboy_1_1_interfaces_1_1_i_update_a270bda75711c8facbc5f243d406dae44}{Cowboy.\+Interfaces.\+IUpdate}}.
+
+
+
+\doxysubsection{Tulajdonságok dokumentációjka}
+\Hypertarget{class_cowboy_1_1_classes_1_1_explosion_a2d25197665be0a9c426035aba5b890f0}\label{class_cowboy_1_1_classes_1_1_explosion_a2d25197665be0a9c426035aba5b890f0} 
+\index{Cowboy.Classes.Explosion@{Cowboy.Classes.Explosion}!UpdatesLeft@{UpdatesLeft}}
+\index{UpdatesLeft@{UpdatesLeft}!Cowboy.Classes.Explosion@{Cowboy.Classes.Explosion}}
+\doxysubsubsection{\texorpdfstring{UpdatesLeft}{UpdatesLeft}}
+{\footnotesize\ttfamily int Cowboy.\+Classes.\+Explosion.\+Updates\+Left\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Ez a dokumentáció az osztályról a következő fájl alapján készült\+:\begin{DoxyCompactItemize}
+\item 
+Cowboy/\+Classes/\mbox{\hyperlink{_explosion_8cs}{Explosion.\+cs}}\end{DoxyCompactItemize}

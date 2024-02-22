@@ -1,0 +1,149 @@
+\doxysection{Cowboy.\+Classes.\+Player osztályreferencia}
+\hypertarget{class_cowboy_1_1_classes_1_1_player}{}\label{class_cowboy_1_1_classes_1_1_player}\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection*{Publikus tagfüggvények}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_a1a823aabd6892fa9141250a0bfb70a8c}{Player}} (int player\+ID, Picture\+Box \+\_\+picture\+Box, Player\+Setting player\+Setting)
+\begin{DoxyCompactList}\small\item\em tud fel/le mozogni, lőni, őt írányitja a felhasználó input-\/okkal \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_ad3bf9df8cd83e1b1bce574554da2f16e}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_ae254cabefe9b62e826eeea0b6dd4527c}{Set\+Weapon\+Off\+Set}} (Point point)
+\item 
+Point \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_a059c169fe8161f52885eec6f73de6124}{Get\+Weapon\+Off\+Set\+Point}} ()
+\item 
+void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_abc307a9e7261c2c47528f723caf4ead8}{Hit}} (\mbox{\hyperlink{class_cowboy_1_1_game_component}{Game\+Component}} Sender)
+\end{DoxyCompactItemize}
+\doxysubsection*{Publikus tagfüggvények a(z) \mbox{\hyperlink{class_cowboy_1_1_game_component}{Cowboy.\+Game\+Component}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cowboy_1_1_game_component_a5e9ecf9c4847af7cd39f0e7531eb64e3}{Game\+Component}} (int player\+ID, Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}})
+\begin{DoxyCompactList}\small\item\em Minden játékelemnek ezn az ősösztálya, tartalmazza hogy egy komponens melyik "{}id"{}-\/jú player-\/hez tartozik, tartalmaz egy Picture\+Box-\/ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Publikus attribútumok}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_a11f050c0ecf8ea2bc46fde02c1f73bd2}{Move\+Up}} = false
+\begin{DoxyCompactList}\small\item\em MOVES the player UP in every UPDATE. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_aeb9312beae18742e5b507422f4d3f8b4}{Move\+Down}} = false
+\begin{DoxyCompactList}\small\item\em MOVES the player DOWN in every UPDATE. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Tulajdonságok}
+\begin{DoxyCompactItemize}
+\item 
+Progress\+Bar \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_ae1efd28c3abe160f033f37a3b5144ad6}{Hpbar}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{class_cowboy_1_1_classes_1_1_weapon}{Weapon}} \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_ab71b54c02feab96c49ad95281c4e1dfc}{weapon}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_a28b8816f29dae924098d79ddb22e95ea}{HP}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Tulajdonságok a(z) \mbox{\hyperlink{class_cowboy_1_1_game_component}{Cowboy.\+Game\+Component}} osztályból származnak}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_cowboy_1_1_game_component_a3be33b2eba22a9f32c69bf3ca2c91520}{Player\+ID}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Konstruktorok és destruktorok dokumentációja}
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_a1a823aabd6892fa9141250a0bfb70a8c}\label{class_cowboy_1_1_classes_1_1_player_a1a823aabd6892fa9141250a0bfb70a8c} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!Player@{Player}}
+\index{Player@{Player}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Cowboy.\+Classes.\+Player.\+Player (\begin{DoxyParamCaption}\item[{int}]{player\+ID,  }\item[{Picture\+Box}]{\+\_\+picture\+Box,  }\item[{Player\+Setting}]{player\+Setting }\end{DoxyParamCaption})}
+
+
+
+tud fel/le mozogni, lőni, őt írányitja a felhasználó input-\/okkal 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em player\+ID} & ezt kapja majd meg az összes hozzá tartozó komponens\\
+\hline
+{\em \+\_\+picture\+Box} & tartalmazza a kinézetét/megjelenését\\
+\hline
+{\em player\+Setting} & ebből épül fel, innen szedi össze a tulajdonságait\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Tagfüggvények dokumentációja}
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_a059c169fe8161f52885eec6f73de6124}\label{class_cowboy_1_1_classes_1_1_player_a059c169fe8161f52885eec6f73de6124} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!GetWeaponOffSetPoint@{GetWeaponOffSetPoint}}
+\index{GetWeaponOffSetPoint@{GetWeaponOffSetPoint}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{GetWeaponOffSetPoint()}{GetWeaponOffSetPoint()}}
+{\footnotesize\ttfamily Point Cowboy.\+Classes.\+Player.\+Get\+Weapon\+Off\+Set\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_abc307a9e7261c2c47528f723caf4ead8}\label{class_cowboy_1_1_classes_1_1_player_abc307a9e7261c2c47528f723caf4ead8} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!Hit@{Hit}}
+\index{Hit@{Hit}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{Hit()}{Hit()}}
+{\footnotesize\ttfamily void Cowboy.\+Classes.\+Player.\+Hit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cowboy_1_1_game_component}{Game\+Component}}}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Megvalósítja a következőket\+: \mbox{\hyperlink{interface_cowboy_1_1_interfaces_1_1_i_hitable_a352e4db8d22d9482e72d1237d4687ebf}{Cowboy.\+Interfaces.\+IHitable}}.
+
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_ae254cabefe9b62e826eeea0b6dd4527c}\label{class_cowboy_1_1_classes_1_1_player_ae254cabefe9b62e826eeea0b6dd4527c} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!SetWeaponOffSet@{SetWeaponOffSet}}
+\index{SetWeaponOffSet@{SetWeaponOffSet}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{SetWeaponOffSet()}{SetWeaponOffSet()}}
+{\footnotesize\ttfamily void Cowboy.\+Classes.\+Player.\+Set\+Weapon\+Off\+Set (\begin{DoxyParamCaption}\item[{Point}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_ad3bf9df8cd83e1b1bce574554da2f16e}\label{class_cowboy_1_1_classes_1_1_player_ad3bf9df8cd83e1b1bce574554da2f16e} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!Update@{Update}}
+\index{Update@{Update}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Cowboy.\+Classes.\+Player.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Megvalósítja a következőket\+: \mbox{\hyperlink{interface_cowboy_1_1_interfaces_1_1_i_update_a270bda75711c8facbc5f243d406dae44}{Cowboy.\+Interfaces.\+IUpdate}}.
+
+
+
+\doxysubsection{Adattagok dokumentációja}
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_aeb9312beae18742e5b507422f4d3f8b4}\label{class_cowboy_1_1_classes_1_1_player_aeb9312beae18742e5b507422f4d3f8b4} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!MoveDown@{MoveDown}}
+\index{MoveDown@{MoveDown}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{MoveDown}{MoveDown}}
+{\footnotesize\ttfamily bool Cowboy.\+Classes.\+Player.\+Move\+Down = false}
+
+
+
+MOVES the player DOWN in every UPDATE. 
+
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_a11f050c0ecf8ea2bc46fde02c1f73bd2}\label{class_cowboy_1_1_classes_1_1_player_a11f050c0ecf8ea2bc46fde02c1f73bd2} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!MoveUp@{MoveUp}}
+\index{MoveUp@{MoveUp}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{MoveUp}{MoveUp}}
+{\footnotesize\ttfamily bool Cowboy.\+Classes.\+Player.\+Move\+Up = false}
+
+
+
+MOVES the player UP in every UPDATE. 
+
+
+
+\doxysubsection{Tulajdonságok dokumentációjka}
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_a28b8816f29dae924098d79ddb22e95ea}\label{class_cowboy_1_1_classes_1_1_player_a28b8816f29dae924098d79ddb22e95ea} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!HP@{HP}}
+\index{HP@{HP}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{HP}{HP}}
+{\footnotesize\ttfamily int Cowboy.\+Classes.\+Player.\+HP\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_ae1efd28c3abe160f033f37a3b5144ad6}\label{class_cowboy_1_1_classes_1_1_player_ae1efd28c3abe160f033f37a3b5144ad6} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!Hpbar@{Hpbar}}
+\index{Hpbar@{Hpbar}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{Hpbar}{Hpbar}}
+{\footnotesize\ttfamily Progress\+Bar Cowboy.\+Classes.\+Player.\+Hpbar\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_cowboy_1_1_classes_1_1_player_ab71b54c02feab96c49ad95281c4e1dfc}\label{class_cowboy_1_1_classes_1_1_player_ab71b54c02feab96c49ad95281c4e1dfc} 
+\index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!weapon@{weapon}}
+\index{weapon@{weapon}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
+\doxysubsubsection{\texorpdfstring{weapon}{weapon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_weapon}{Weapon}} Cowboy.\+Classes.\+Player.\+weapon\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Ez a dokumentáció az osztályról a következő fájl alapján készült\+:\begin{DoxyCompactItemize}
+\item 
+Cowboy/\+Classes/\mbox{\hyperlink{_player_8cs}{Player.\+cs}}\end{DoxyCompactItemize}

@@ -14,6 +14,10 @@ namespace Cowboy
         private int GC_count = 0;
         private bool IsPaused = false;
 
+        /// <summary>
+        /// Átveszi a Beállításokat, ha null akkor egy alapot generál/használ
+        /// </summary>
+        /// <param name="gameSettings">beállítások</param>
         public Form1(GameSettings gameSettings)
         {
             InitializeComponent();
@@ -29,6 +33,11 @@ namespace Cowboy
             }
         }
 
+        /// <summary>
+        /// beállítja a form-ot
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             // "Render mod" \\
@@ -52,6 +61,9 @@ namespace Cowboy
         private Player player1;
         private Player player2;
 
+        /// <summary>
+        /// A konstruktorban átvett beállítások alapján elvégzi a szükséges beállítások / felépíti az alap komponenseket
+        /// </summary>
         public void Setup()
         {
             //window size
@@ -101,6 +113,9 @@ namespace Cowboy
             MainGameTimer.Enabled = true;
         }
 
+        /// <summary>
+        /// a szíve a játék folyásának, ez adja meg az idő múlását (10ms)
+        /// </summary>
         private void MainGame_Update(object sender, EventArgs e)
         {
             // --- PLAYER --- \\
@@ -201,6 +216,9 @@ namespace Cowboy
             }
         }
 
+        /// <summary>
+        /// Valós időben szedi be az Input-okat a user-től (Down)
+        /// </summary>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             // back to main menu
@@ -256,6 +274,9 @@ namespace Cowboy
             }
         }
 
+        /// <summary>
+        /// Valós időben szedi be az "Input"-okat a user-től (Up)
+        /// </summary>
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             // left player (player 1) input (up) management

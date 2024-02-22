@@ -1,4 +1,5 @@
 ﻿using Cowboy.Interfaces;
+using Cowboy.Settings;
 
 namespace Cowboy.Classes
 {
@@ -24,23 +25,9 @@ namespace Cowboy.Classes
         private int MaxHP { get; set; }
         public int HP { get; set; }
 
-        /*
-        public Player(int playerID, PictureBox _pictureBox, int moveLength, int hp) : base(playerID, _pictureBox)
-        {
-            MoveLength = moveLength;
-            MaxHP = hp;
-            HP = hp;
-
-
-            Hpbar = Create.progressBar("Player1HpBar", new Size(50, 10), new Point(0, 0), MaxHP);
-            Hpbar.Value = HP;
-        }
-        */
         /// <summary>
-        /// tud fel/le mozogni, lőni, őt írányitja a felhasználó input-okkal
+        /// tud fel/le mozogni, lőni, őt írányitja a felhasználó input-okkal, kezeli a hpbar-ját, a fegyvert
         /// </summary>
-        /// <param name="playerID">ezt kapja majd meg az összes hozzá tartozó komponens</param>
-        /// <param name="_pictureBox">tartalmazza a kinézetét/megjelenését</param>
         /// <param name="playerSetting">ebből épül fel, innen szedi össze a tulajdonságait</param>
         public Player(int playerID, PictureBox _pictureBox ,PlayerSetting playerSetting) : base(playerID, _pictureBox)
         {

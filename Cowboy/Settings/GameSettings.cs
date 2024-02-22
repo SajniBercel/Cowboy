@@ -31,6 +31,7 @@
             
         }
 
+        /// <returns>alap beállításokat ad vissza</returns>
         public GameSettings SetDefaultSettings()
         {
             BulletCollision = false;

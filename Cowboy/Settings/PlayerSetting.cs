@@ -1,4 +1,4 @@
-﻿namespace Cowboy
+﻿namespace Cowboy.Settings
 { 
     public class PlayerSetting
     {

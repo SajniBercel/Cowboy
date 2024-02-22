@@ -12,6 +12,13 @@ namespace Cowboy.Classes
         private bool CanShoot = false;
         private Timer MyTimer;
 
+        /// <summary>
+        /// Fegyver ami egy játékoshoz tartozik, ez kezeli közvetlen a lövés, ő hozza létre a töltényt minden tulajdonságával
+        /// </summary>
+        /// <param name="player">tulajdonos (használó)</param>
+        /// <param name="realoadSpeed">idő amennyinek el kell tellnie hogy újra lehessen lőni</param>
+        /// <param name="bulletSpeed">a töltény sebessége</param>
+        /// <param name="weaponDamage">Sebzés</param>
         public Weapon(Player player, int realoadSpeed, int bulletSpeed, int weaponDamage)
         {
             OwnerPlayer = player;

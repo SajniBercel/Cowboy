@@ -1,4 +1,6 @@
-﻿namespace Cowboy
+﻿using Cowboy.Settings;
+
+namespace Cowboy
 {
     public partial class AdvancedSettings : Form
     {

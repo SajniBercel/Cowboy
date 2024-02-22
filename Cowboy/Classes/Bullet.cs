@@ -7,7 +7,7 @@ namespace Cowboy.Classes
         private int Speed { get; set; }
         public int Damage { get; set; }
         /// <summary>
-        /// Létrehoz egy töltényt, az update-el halad magától nem kell kívülről mozgatni
+        /// Létrehoz egy töltényt, magában müködik nem kell kívülről mozgatni
         /// </summary>
         /// <param name="speed">"Update"-enként hány pontal kerüljön előrébb</param>
         /// <param name="damage">sebzése a játékosba</param>
@@ -20,11 +20,19 @@ namespace Cowboy.Classes
 
         }
 
+        /// <summary>
+        /// A mozgatást végzi
+        /// </summary>
         public void Update()
         {
             pictureBox.Left += Speed;
         }
 
+        /// <summary>
+        /// a törlésnél lesz szerepe
+        /// </summary>
+        /// <param name="width"></param>
+        /// <returns>bool, a képernyőn van-e</returns>
         public bool IsInTheSreen(int width)
         {
             if (pictureBox.Left < -pictureBox.Size.Width || pictureBox.Left > width)

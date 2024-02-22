@@ -8,7 +8,7 @@ namespace Cowboy.Classes
         public int UpdatesLeft { get; set; }
 
         /// <summary>
-        /// Létrehoz egy robbanás effektet 2 "GameComponent" között (magának kiszámolja hogy hol kell lennie)
+        /// Létrehoz egy robbanás effektet 2 "GameComponent" között
         /// </summary>
         /// <param name="updatesBerforeDestory">Hány "Update" kell mielőtt törölhető</param>
         public Explosion(int playerID, PictureBox pictureBox, GameComponent bulletA, GameComponent bulletB, int updatesBerforeDestory) : base(playerID, pictureBox)
@@ -18,6 +18,9 @@ namespace Cowboy.Classes
             this.pictureBox.Location = GetPicBoxPos(bulletA,bulletB);
         }
 
+        /// <summary>
+        /// intézi hogy csökkenjen a vissza lévő idő
+        /// </summary>
         public void Update()
         {
             if (UpdatesLeft > 0)
@@ -26,6 +29,12 @@ namespace Cowboy.Classes
             }
         }
 
+        /// <summary>
+        /// Középre (a 2 komponens közé) helyezi az effektet
+        /// </summary>
+        /// <param name="BulletA">komponens 1</param>
+        /// <param name="BulletB">komponens 2</param>
+        /// <returns>Point, középpont</returns>
         private Point GetPicBoxPos(GameComponent BulletA, GameComponent BulletB)
         {
             int x1 = BulletA.pictureBox.Location.X;
