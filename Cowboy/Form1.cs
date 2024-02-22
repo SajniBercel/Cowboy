@@ -231,7 +231,7 @@ namespace Cowboy
             //shoot
             else if (e.KeyCode == Keys.Left)
             {
-                Bullet bullet = player2.weapon.Shoot();
+                Bullet? bullet = player2.weapon.Shoot();
                 if (bullet != null)
                 {
                     bullet.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);

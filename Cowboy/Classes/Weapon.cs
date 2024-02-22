@@ -26,7 +26,7 @@ namespace Cowboy.Classes
             MyTimer.Start();
         }
 
-        public Bullet Shoot()
+        public Bullet? Shoot()
         {
             if (CanShoot)
             {

@@ -18,6 +18,7 @@ namespace Cowboy.Classes
         private int MaxHP { get; set; }
         public int HP { get; set; }
 
+        /*
         public Player(int playerID, PictureBox _pictureBox, int moveLength, int hp) : base(playerID, _pictureBox)
         {
             MoveLength = moveLength;
@@ -28,6 +29,7 @@ namespace Cowboy.Classes
             Hpbar = Create.progressBar("Player1HpBar", new Size(50, 10), new Point(0, 0), MaxHP);
             Hpbar.Value = HP;
         }
+        */
 
         public Player(int playerID, PictureBox _pictureBox ,PlayerSetting playerSetting) : base(playerID, _pictureBox)
         {
