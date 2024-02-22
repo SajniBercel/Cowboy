@@ -30,7 +30,12 @@ namespace Cowboy.Classes
             Hpbar.Value = HP;
         }
         */
-
+        /// <summary>
+        /// tud fel/le mozogni, lőni, őt írányitja a felhasználó input-okkal
+        /// </summary>
+        /// <param name="playerID">ezt kapja majd meg az összes hozzá tartozó komponens</param>
+        /// <param name="_pictureBox">tartalmazza a kinézetét/megjelenését</param>
+        /// <param name="playerSetting">ebből épül fel, innen szedi össze a tulajdonságait</param>
         public Player(int playerID, PictureBox _pictureBox ,PlayerSetting playerSetting) : base(playerID, _pictureBox)
         {
             MoveLength = playerSetting.PlayerSpeed;
@@ -49,7 +54,7 @@ namespace Cowboy.Classes
             MoveHpBar();
         }
 
-        public void Move()
+        private void Move()
         {
             if (MoveUp)
                 pictureBox.Top -= MoveLength;
@@ -63,7 +68,7 @@ namespace Cowboy.Classes
             Hpbar.Location = newPos;
         }
 
-        public void SetWeaponOffSet(Point point)
+        private void SetWeaponOffSet(Point point)
         {
             WeaponOffSet = point;
         }
@@ -71,11 +76,6 @@ namespace Cowboy.Classes
         public Point GetWeaponOffSetPoint()
         {
             return new Point(pictureBox.Location.X + WeaponOffSet.X, pictureBox.Location.Y + WeaponOffSet.Y);
-        }
-
-        public void SetWeapon(Weapon weapon)
-        {
-            this.weapon = weapon;
         }
 
         public void Hit(GameComponent Sender)

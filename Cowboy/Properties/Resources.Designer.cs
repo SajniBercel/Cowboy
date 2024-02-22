@@ -73,9 +73,9 @@ namespace Cowboy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap expl {
+        internal static System.Drawing.Bitmap explo {
             get {
-                object obj = ResourceManager.GetObject("expl", resourceCulture);
+                object obj = ResourceManager.GetObject("explo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

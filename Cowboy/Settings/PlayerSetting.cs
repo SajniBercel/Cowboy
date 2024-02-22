@@ -34,6 +34,7 @@
             
         }
 
+        /// <returns>PlayerSetting, "alap" beállításokkal</returns>
         public PlayerSetting SetDefaultValues()
         {
             PlayerName = "Player";

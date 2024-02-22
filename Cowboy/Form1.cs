@@ -161,8 +161,8 @@ namespace Cowboy
                             bullet.PlayerID != tempBullet.PlayerID)
                         {
                             Explosion explo = new Explosion(-1, 
-                                Create.pictureBox("explo", new Size(20, 20), new Point(0, 0), Properties.Resources.expl), 
-                                bullet, tempBullet, 20);
+                                Create.pictureBox("explo", new Size(40, 40), new Point(0, 0), Properties.Resources.explo), 
+                                bullet, tempBullet, 10);
 
                             GameComponents[2].Add((GameComponent)explo);
                             Controls.Add(explo.pictureBox);

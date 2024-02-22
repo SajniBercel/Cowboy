@@ -7,7 +7,11 @@ namespace Cowboy.Classes
     {
         public int UpdatesLeft { get; set; }
 
-        public Explosion(int playerID, PictureBox pictureBox, GameComponent bulletA , GameComponent bulletB ,int updatesBerforeDestory) : base(playerID, pictureBox)
+        /// <summary>
+        /// Létrehoz egy robbanás effektet 2 "GameComponent" között (magának kiszámolja hogy hol kell lennie)
+        /// </summary>
+        /// <param name="updatesBerforeDestory">Hány "Update" kell mielőtt törölhető</param>
+        public Explosion(int playerID, PictureBox pictureBox, GameComponent bulletA, GameComponent bulletB, int updatesBerforeDestory) : base(playerID, pictureBox)
         {
             UpdatesLeft = updatesBerforeDestory;
 
@@ -33,7 +37,7 @@ namespace Cowboy.Classes
             int x = (x1 + x2) / 2;
             int y = (y1 + y2) / 2;
 
-            x += this.pictureBox.Width / 2;
+            //x -= this.pictureBox.Width / 2; // na ezt mondjuk nem értem xd
             y -= this.pictureBox.Height / 2;
 
             return new Point(x,y);

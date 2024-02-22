@@ -26,6 +26,10 @@ namespace Cowboy.Classes
             MyTimer.Start();
         }
 
+        /// <summary>
+        /// Elsüti a fegyvert, tud "null"-t visszaadni amikor a fegyver éppen nem tud lőni
+        /// </summary>
+        /// <returns>Bullet</returns>
         public Bullet? Shoot()
         {
             if (CanShoot)

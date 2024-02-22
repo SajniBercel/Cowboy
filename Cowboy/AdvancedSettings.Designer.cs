@@ -175,11 +175,11 @@
             // 
             Nu_BulletSpeed_1.Location = new Point(152, 74);
             Nu_BulletSpeed_1.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
-            Nu_BulletSpeed_1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            Nu_BulletSpeed_1.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
             Nu_BulletSpeed_1.Name = "Nu_BulletSpeed_1";
             Nu_BulletSpeed_1.Size = new Size(42, 23);
             Nu_BulletSpeed_1.TabIndex = 2;
-            Nu_BulletSpeed_1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            Nu_BulletSpeed_1.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // Nu_PlayerHP_1
             // 
@@ -299,11 +299,11 @@
             // 
             Nu_BulletSpeed_2.Location = new Point(152, 74);
             Nu_BulletSpeed_2.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
-            Nu_BulletSpeed_2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            Nu_BulletSpeed_2.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
             Nu_BulletSpeed_2.Name = "Nu_BulletSpeed_2";
             Nu_BulletSpeed_2.Size = new Size(42, 23);
             Nu_BulletSpeed_2.TabIndex = 3;
-            Nu_BulletSpeed_2.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            Nu_BulletSpeed_2.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // Nu_PlayerHP_2
             // 

@@ -6,6 +6,11 @@ namespace Cowboy.Classes
     {
         private int Speed { get; set; }
         public int Damage { get; set; }
+        /// <summary>
+        /// Létrehoz egy töltényt, az update-el halad magától nem kell kívülről mozgatni
+        /// </summary>
+        /// <param name="speed">"Update"-enként hány pontal kerüljön előrébb</param>
+        /// <param name="damage">sebzése a játékosba</param>
         public Bullet(int playerid, PictureBox pictureBox, int speed, int damage) : base(playerid, pictureBox)
         {
             this.pictureBox = pictureBox;
