@@ -109,7 +109,7 @@ namespace Cowboy
                 if (GameComponents[0][i].pictureBox.Location.Y < 0)
                     ((Player)GameComponents[0][i]).MoveUp = false;
 
-                if (GameComponents[0][i].pictureBox.Location.Y + GameComponents[0][i].pictureBox.Size.Height > this.Height)
+                if (GameComponents[0][i].pictureBox.Location.Y + 100 > this.Height)
                     ((Player)GameComponents[0][i]).MoveDown = false;;
             }
 
