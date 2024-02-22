@@ -1,4 +1,4 @@
-﻿namespace Cowboy
+﻿namespace Cowboy.Classes
 {
     public class GameComponent
     {

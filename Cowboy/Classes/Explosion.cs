@@ -1,5 +1,4 @@
 ﻿using Cowboy.Interfaces;
-using Timer = System.Windows.Forms.Timer;
 
 namespace Cowboy.Classes
 {

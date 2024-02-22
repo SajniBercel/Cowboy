@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using Timer = System.Windows.Forms.Timer;
+﻿using Timer = System.Windows.Forms.Timer;
 
 namespace Cowboy.Classes
 {

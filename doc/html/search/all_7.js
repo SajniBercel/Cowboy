@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gamecomponent_0',['GameComponent',['../class_cowboy_1_1_game_component.html',1,'Cowboy.GameComponent'],['../class_cowboy_1_1_game_component.html#a5e9ecf9c4847af7cd39f0e7531eb64e3',1,'Cowboy.GameComponent.GameComponent()']]],
+  ['gamecomponent_0',['GameComponent',['../class_cowboy_1_1_classes_1_1_game_component.html',1,'Cowboy.Classes.GameComponent'],['../class_cowboy_1_1_classes_1_1_game_component.html#a3fbc75c0e48eebd1e2ee5c653d6ec4f7',1,'Cowboy.Classes.GameComponent.GameComponent()']]],
   ['gamecomponent_2ecs_1',['GameComponent.cs',['../_game_component_8cs.html',1,'']]],
   ['gamesettings_2',['GameSettings',['../class_cowboy_1_1_settings_1_1_game_settings.html',1,'Cowboy.Settings.GameSettings'],['../class_cowboy_1_1_settings_1_1_game_settings.html#ad08bff57917d22c88e8181811fb5d259',1,'Cowboy.Settings.GameSettings.GameSettings(PlayerSetting[] playerSettings, Size windowSize, bool bulletCollision)'],['../class_cowboy_1_1_settings_1_1_game_settings.html#abbc60b24cfafb1e943dd1b20b6d6160d',1,'Cowboy.Settings.GameSettings.GameSettings(PlayerSetting[] playerSettings, bool bulletCollision)'],['../class_cowboy_1_1_settings_1_1_game_settings.html#a5e3ab017c665efc4788b4c03f25dc421',1,'Cowboy.Settings.GameSettings.GameSettings()']]],
   ['gamesettings_2ecs_3',['GameSettings.cs',['../_game_settings_8cs.html',1,'']]],

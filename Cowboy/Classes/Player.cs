@@ -29,7 +29,7 @@ namespace Cowboy.Classes
         /// tud fel/le mozogni, lőni, őt írányitja a felhasználó input-okkal, kezeli a hpbar-ját, a fegyvert
         /// </summary>
         /// <param name="playerSetting">ebből épül fel, innen szedi össze a tulajdonságait</param>
-        public Player(int playerID, PictureBox _pictureBox ,PlayerSetting playerSetting) : base(playerID, _pictureBox)
+        public Player(int playerID, PictureBox _pictureBox, PlayerSetting playerSetting) : base(playerID, _pictureBox)
         {
             MoveLength = playerSetting.PlayerSpeed;
             MaxHP = playerSetting.PlayerHP;
