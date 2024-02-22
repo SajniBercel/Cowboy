@@ -86,13 +86,14 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Publikus tagfüggvények</h2></td></tr>
 <tr class="memitem:a3443d8627c1b3a5a6fd923790993b29b" id="r_a3443d8627c1b3a5a6fd923790993b29b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3443d8627c1b3a5a6fd923790993b29b">Explosion</a> (int playerID, PictureBox <a class="el" href="class_cowboy_1_1_game_component.html#a72d73e573766247629490180490edaff">pictureBox</a>, <a class="el" href="class_cowboy_1_1_game_component.html">GameComponent</a> bulletA, <a class="el" href="class_cowboy_1_1_game_component.html">GameComponent</a> bulletB, int updatesBerforeDestory)</td></tr>
-<tr class="memdesc:a3443d8627c1b3a5a6fd923790993b29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Létrehoz egy robbanás effektet 2 "GameComponent" között (magának kiszámolja hogy hol kell lennie)  <br /></td></tr>
+<tr class="memdesc:a3443d8627c1b3a5a6fd923790993b29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Létrehoz egy robbanás effektet 2 "GameComponent" között.  <br /></td></tr>
 <tr class="separator:a3443d8627c1b3a5a6fd923790993b29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5096324825391f0e30c4e820091cefa" id="r_ad5096324825391f0e30c4e820091cefa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5096324825391f0e30c4e820091cefa">Update</a> ()</td></tr>
+<tr class="memdesc:ad5096324825391f0e30c4e820091cefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">intézi hogy csökkenjen a vissza lévő idő  <br /></td></tr>
 <tr class="separator:ad5096324825391f0e30c4e820091cefa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_cowboy_1_1_game_component"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_cowboy_1_1_game_component')"><img src="closed.png" alt="-"/>&#160;Publikus tagfüggvények a(z) <a class="el" href="class_cowboy_1_1_game_component.html">Cowboy.GameComponent</a> osztályból származnak</td></tr>
 <tr class="memitem:a5e9ecf9c4847af7cd39f0e7531eb64e3 inherit pub_methods_class_cowboy_1_1_game_component" id="r_a5e9ecf9c4847af7cd39f0e7531eb64e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cowboy_1_1_game_component.html#a5e9ecf9c4847af7cd39f0e7531eb64e3">GameComponent</a> (int playerID, PictureBox <a class="el" href="class_cowboy_1_1_game_component.html#a72d73e573766247629490180490edaff">pictureBox</a>)</td></tr>
-<tr class="memdesc:a5e9ecf9c4847af7cd39f0e7531eb64e3 inherit pub_methods_class_cowboy_1_1_game_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minden játékelemnek ezn az ősösztálya, tartalmazza hogy egy komponens melyik "id"-jú player-hez tartozik, tartalmaz egy PictureBox-ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt)  <br /></td></tr>
+<tr class="memdesc:a5e9ecf9c4847af7cd39f0e7531eb64e3 inherit pub_methods_class_cowboy_1_1_game_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minden játékelemnek ez az ősösztálya, tartalmazza hogy egy komponens melyik "id"-jú player-hez tartozik, tartalmaz egy PictureBox-ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt)  <br /></td></tr>
 <tr class="separator:a5e9ecf9c4847af7cd39f0e7531eb64e3 inherit pub_methods_class_cowboy_1_1_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
@@ -140,7 +141,7 @@ Tulajdonságok</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Létrehoz egy robbanás effektet 2 "GameComponent" között (magának kiszámolja hogy hol kell lennie) </p>
+<p>Létrehoz egy robbanás effektet 2 "GameComponent" között. </p>
 <dl class="params"><dt>Paraméterek</dt><dd>
   <table class="params">
     <tr><td class="paramname">updatesBerforeDestory</td><td>Hány "Update" kell mielőtt törölhető</td></tr>
@@ -165,6 +166,8 @@ Tulajdonságok</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>intézi hogy csökkenjen a vissza lévő idő </p>
 
 <p>Megvalósítja a következőket: <a class="el" href="interface_cowboy_1_1_interfaces_1_1_i_update.html#a270bda75711c8facbc5f243d406dae44">Cowboy.Interfaces.IUpdate</a>.</p>
 

@@ -4,16 +4,16 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_bullet_a6be6a496068ba93b11d9b902b7c9bdde}{Bullet}} (int playerid, Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}}, int speed, int damage)
-\begin{DoxyCompactList}\small\item\em Létrehoz egy töltényt, az update-\/el halad magától nem kell kívülről mozgatni. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Létrehoz egy töltényt, magában müködik nem kell kívülről mozgatni. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_bullet_a1dab6663125d2ed0d10d722d3e103035}{Update}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em A mozgatást végzi. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_bullet_a7710289ad0c540d34559446bfd4e743f}{Is\+In\+The\+Sreen}} (int width)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em a törlésnél lesz szerepe \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Publikus tagfüggvények a(z) \mbox{\hyperlink{class_cowboy_1_1_game_component}{Cowboy.\+Game\+Component}} osztályból származnak}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_cowboy_1_1_game_component_a5e9ecf9c4847af7cd39f0e7531eb64e3}{Game\+Component}} (int player\+ID, Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}})
-\begin{DoxyCompactList}\small\item\em Minden játékelemnek ezn az ősösztálya, tartalmazza hogy egy komponens melyik "{}id"{}-\/jú player-\/hez tartozik, tartalmaz egy Picture\+Box-\/ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Minden játékelemnek ez az ősösztálya, tartalmazza hogy egy komponens melyik "{}id"{}-\/jú player-\/hez tartozik, tartalmaz egy Picture\+Box-\/ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Tulajdonságok}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,7 +37,7 @@ Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e57376624762
 
 
 
-Létrehoz egy töltényt, az update-\/el halad magától nem kell kívülről mozgatni. 
+Létrehoz egy töltényt, magában müködik nem kell kívülről mozgatni. 
 
 
 \begin{DoxyParams}{Paraméterek}
@@ -55,11 +55,27 @@ Létrehoz egy töltényt, az update-\/el halad magától nem kell kívülről mo
 \doxysubsubsection{\texorpdfstring{IsInTheSreen()}{IsInTheSreen()}}
 {\footnotesize\ttfamily bool Cowboy.\+Classes.\+Bullet.\+Is\+In\+The\+Sreen (\begin{DoxyParamCaption}\item[{int}]{width }\end{DoxyParamCaption})}
 
+
+
+a törlésnél lesz szerepe 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em width} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Visszatérési érték}
+bool, a képernyőn van-\/e
+\end{DoxyReturn}
 \Hypertarget{class_cowboy_1_1_classes_1_1_bullet_a1dab6663125d2ed0d10d722d3e103035}\label{class_cowboy_1_1_classes_1_1_bullet_a1dab6663125d2ed0d10d722d3e103035} 
 \index{Cowboy.Classes.Bullet@{Cowboy.Classes.Bullet}!Update@{Update}}
 \index{Update@{Update}!Cowboy.Classes.Bullet@{Cowboy.Classes.Bullet}}
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily void Cowboy.\+Classes.\+Bullet.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A mozgatást végzi. 
 
 
 

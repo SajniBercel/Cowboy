@@ -3,8 +3,8 @@
 \doxysubsubsection*{Publikus tagfüggvények}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_a1a823aabd6892fa9141250a0bfb70a8c}{Player}} (int player\+ID, Picture\+Box \+\_\+picture\+Box, Player\+Setting player\+Setting)
-\begin{DoxyCompactList}\small\item\em tud fel/le mozogni, lőni, őt írányitja a felhasználó input-\/okkal \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_a1a823aabd6892fa9141250a0bfb70a8c}{Player}} (int player\+ID, Picture\+Box \+\_\+picture\+Box, \mbox{\hyperlink{class_cowboy_1_1_settings_1_1_player_setting}{Player\+Setting}} player\+Setting)
+\begin{DoxyCompactList}\small\item\em tud fel/le mozogni, lőni, őt írányitja a felhasználó input-\/okkal, kezeli a hpbar-\/ját, a fegyvert \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_ad3bf9df8cd83e1b1bce574554da2f16e}{Update}} ()
 \item 
 void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_ae254cabefe9b62e826eeea0b6dd4527c}{Set\+Weapon\+Off\+Set}} (Point point)
@@ -17,7 +17,7 @@ void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player_abc307a9e7261c2c47528f
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_cowboy_1_1_game_component_a5e9ecf9c4847af7cd39f0e7531eb64e3}{Game\+Component}} (int player\+ID, Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e573766247629490180490edaff}{picture\+Box}})
-\begin{DoxyCompactList}\small\item\em Minden játékelemnek ezn az ősösztálya, tartalmazza hogy egy komponens melyik "{}id"{}-\/jú player-\/hez tartozik, tartalmaz egy Picture\+Box-\/ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Minden játékelemnek ez az ősösztálya, tartalmazza hogy egy komponens melyik "{}id"{}-\/jú player-\/hez tartozik, tartalmaz egy Picture\+Box-\/ot (minden komponensnek van valami féle megjelenése ez tartalmazza ezt) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Publikus attribútumok}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,18 +48,14 @@ Picture\+Box \mbox{\hyperlink{class_cowboy_1_1_game_component_a72d73e57376624762
 \index{Cowboy.Classes.Player@{Cowboy.Classes.Player}!Player@{Player}}
 \index{Player@{Player}!Cowboy.Classes.Player@{Cowboy.Classes.Player}}
 \doxysubsubsection{\texorpdfstring{Player()}{Player()}}
-{\footnotesize\ttfamily Cowboy.\+Classes.\+Player.\+Player (\begin{DoxyParamCaption}\item[{int}]{player\+ID,  }\item[{Picture\+Box}]{\+\_\+picture\+Box,  }\item[{Player\+Setting}]{player\+Setting }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Cowboy.\+Classes.\+Player.\+Player (\begin{DoxyParamCaption}\item[{int}]{player\+ID,  }\item[{Picture\+Box}]{\+\_\+picture\+Box,  }\item[{\mbox{\hyperlink{class_cowboy_1_1_settings_1_1_player_setting}{Player\+Setting}}}]{player\+Setting }\end{DoxyParamCaption})}
 
 
 
-tud fel/le mozogni, lőni, őt írányitja a felhasználó input-\/okkal 
+tud fel/le mozogni, lőni, őt írányitja a felhasználó input-\/okkal, kezeli a hpbar-\/ját, a fegyvert 
 
 
 \begin{DoxyParams}{Paraméterek}
-{\em player\+ID} & ezt kapja majd meg az összes hozzá tartozó komponens\\
-\hline
-{\em \+\_\+picture\+Box} & tartalmazza a kinézetét/megjelenését\\
-\hline
 {\em player\+Setting} & ebből épül fel, innen szedi össze a tulajdonságait\\
 \hline
 \end{DoxyParams}

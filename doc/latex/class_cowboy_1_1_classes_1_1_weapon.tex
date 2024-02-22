@@ -4,7 +4,7 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_weapon_aec41b48b4553ddc9bd8c7dab3a64f627}{Weapon}} (\mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player}{Player}} player, int reaload\+Speed, int bullet\+Speed, int weapon\+Damage)
-\item 
+\begin{DoxyCompactList}\small\item\em Fegyver ami egy játékoshoz tartozik, ez kezeli közvetlen a lövés, ő hozza létre a töltényt minden tulajdonságával. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_bullet}{Bullet}}? \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_weapon_a92263b219406a9c4387d7e4282cbf9fb}{Shoot}} ()
 \begin{DoxyCompactList}\small\item\em Elsüti a fegyvert, tud "{}null"{}-\/t visszaadni amikor a fegyver éppen nem tud lőni. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_weapon_ae3fed5af6ab29fbdac973246f3781731}{Set\+Shoot\+True}} (object? sender, Event\+Args args)
@@ -23,6 +23,21 @@ int \mbox{\hyperlink{class_cowboy_1_1_classes_1_1_weapon_a0259fe4f71a2505c8d39dc
 \doxysubsubsection{\texorpdfstring{Weapon()}{Weapon()}}
 {\footnotesize\ttfamily Cowboy.\+Classes.\+Weapon.\+Weapon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cowboy_1_1_classes_1_1_player}{Player}}}]{player,  }\item[{int}]{reaload\+Speed,  }\item[{int}]{bullet\+Speed,  }\item[{int}]{weapon\+Damage }\end{DoxyParamCaption})}
 
+
+
+Fegyver ami egy játékoshoz tartozik, ez kezeli közvetlen a lövés, ő hozza létre a töltényt minden tulajdonságával. 
+
+
+\begin{DoxyParams}{Paraméterek}
+{\em player} & tulajdonos (használó)\\
+\hline
+{\em reaload\+Speed} & idő amennyinek el kell tellnie hogy újra lehessen lőni\\
+\hline
+{\em bullet\+Speed} & a töltény sebessége\\
+\hline
+{\em weapon\+Damage} & Sebzés\\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Tagfüggvények dokumentációja}
