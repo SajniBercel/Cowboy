@@ -12,6 +12,7 @@ namespace Cowboy
         private List<List<GameComponent>> GameComponents = new List<List<GameComponent>>();
 
         private int GC_count = 0;
+        private bool IsPaused = false;
 
         public Form1(GameSettings gameSettings)
         {
@@ -127,15 +128,15 @@ namespace Cowboy
             {
                 Bullet bullet = ((Bullet)GameComponents[1][i]);
 
-                //distruct
+                // Destruct
                 if (!bullet.IsInTheSreen(Width))
                 {
-                    Controls.Remove(((Bullet)GameComponents[1][i]).pictureBox);
+                    ((Bullet)GameComponents[1][i]).pictureBox.Dispose();
                     GameComponents[1].RemoveAt(i);
                     GC_count++;
                 }
 
-                //player hit
+                // Player hit
                 for (int j = 0; j < GameComponents[0].Count; j++)
                 {
                     if (GameComponents[0][j].pictureBox.Bounds.IntersectsWith(bullet.pictureBox.Bounds) &&
@@ -143,7 +144,7 @@ namespace Cowboy
                     {
                         ((Player)GameComponents[0][j]).Hit(bullet);
 
-                        Controls.Remove(GameComponents[1][i].pictureBox);
+                        GameComponents[1][i].pictureBox.Dispose();
                         GameComponents[1].RemoveAt(i);
                         GC_count++;
 
@@ -167,8 +168,8 @@ namespace Cowboy
                             GameComponents[2].Add((GameComponent)explo);
                             Controls.Add(explo.pictureBox);
 
-                            Controls.Remove(bullet.pictureBox);
-                            Controls.Remove(tempBullet.pictureBox);
+                            bullet.pictureBox.Dispose();
+                            tempBullet.pictureBox.Dispose();
 
                             GameComponents[1].Remove(bullet);
                             GameComponents[1].Remove(tempBullet);
@@ -179,15 +180,15 @@ namespace Cowboy
                         }
                     }
                 }
-
             }
+
             // --- EXPLOSION --- \\
             for (int i = 0; i < GameComponents[2].Count; i++)
             {
                 Explosion explo = (Explosion)GameComponents[2][i];
                 if(explo.UpdatesLeft == 0)
                 {
-                    Controls.Remove(explo.pictureBox);
+                    explo.pictureBox.Dispose();
                     GameComponents[2].RemoveAt(i);
                     GC_count++;
                 }
@@ -202,15 +203,30 @@ namespace Cowboy
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            // back to main menu \\
+            // back to main menu
             if (e.KeyCode == Keys.Escape)
             {
                 mainMenu.Show();
                 this.Hide();
                 MainGameTimer.Stop();
             }
+            if (e.KeyCode == Keys.Space)
+            {
+                if (IsPaused)
+                {
+                    MainGameTimer.Start();
+                    this.Text = "Game";
+                    IsPaused = false;
+                }
+                else
+                {
+                    MainGameTimer.Stop();
+                    this.Text = "Paused";
+                    IsPaused = true;
+                }
+            }
 
-            // left Player (player 1) input (down) management \\
+            // left Player (player 1) input (down) management
             if (e.KeyCode == Keys.W)
                 player1.MoveUp = true;
             else if (e.KeyCode == Keys.S)
@@ -223,7 +239,7 @@ namespace Cowboy
                     GameComponents[1].Add(bullet);
             }
 
-            // right Player (player 2) input (down) management \\
+            // right Player (player 2) input (down) management
             if (e.KeyCode == Keys.Up)
                 player2.MoveUp = true;
             else if (e.KeyCode == Keys.Down)
@@ -242,18 +258,19 @@ namespace Cowboy
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            // left player (player 1) input (up) management \\
+            // left player (player 1) input (up) management
             if (e.KeyCode == Keys.W)
                 player1.MoveUp = false;
             else if (e.KeyCode == Keys.S)
                 player1.MoveDown = false;
 
-            // rigth player (player 1) input (up) management \\
+            // rigth player (player 1) input (up) management
             if (e.KeyCode == Keys.Up)
                 player2.MoveUp = false;
             else if (e.KeyCode == Keys.Down)
                 player2.MoveDown = false;
         }
+
         private Point GetPlayerStartPos(Player player, string side)
         {
             // todo, nem jó ez így
@@ -270,6 +287,7 @@ namespace Cowboy
             }
             return new Point(0, 0);
         }
+
         private void WinCheck()
         {
             for (int i = 0; i < GameComponents[0].Count; i++)
@@ -281,10 +299,12 @@ namespace Cowboy
                     if (i == 0)
                     {
                         MessageBox.Show("Jobb oldali játékos nyert");
+                        // todo
                     }
                     else
                     {
                         MessageBox.Show("Bal oldali játékos nyert");
+                        // todo
                     }
                     Reset();
                     Setup();
@@ -294,25 +314,27 @@ namespace Cowboy
                 }
             }
         }
+
         private void Reset()
         {
-            // Removes every gamecomponents \\
+            // Removes every gamecomponent \\
             for (int i = 0; i < GameComponents.Count; i++)
             {
                 for (int j = 0; j < GameComponents[i].Count; j++)
                 {
-                    Controls.Remove(GameComponents[i][j].pictureBox);
+                    GameComponents[i][j].pictureBox.Dispose();
                 }
             }
 
             for (int i = 0; i < GameComponents[0].Count; i++)
             {
                 Player player = (Player)GameComponents[0][i];
-                Controls.Remove(player.Hpbar);
+                player.Hpbar.Dispose();
             }
 
             GameComponents.Clear();
         }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             GameComponents.Clear();

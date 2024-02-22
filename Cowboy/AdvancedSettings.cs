@@ -13,7 +13,7 @@
 
             this.mainMenu = mainMenu;
         }
-        public void LoadData(PlayerSetting[] playerS)
+        public void LoadData(PlayerSetting[]? playerS)
         {
             // átveszi vagy load-oldja az alap beállításokat \\
             if (playerS == null)

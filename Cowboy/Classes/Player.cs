@@ -10,7 +10,13 @@ namespace Cowboy.Classes
         private Point WeaponOffSet;
 
         //move
+        /// <summary>
+        /// MOVES the player UP in every UPDATE
+        /// </summary>
         public bool MoveUp = false;
+        /// <summary>
+        /// MOVES the player DOWN in every UPDATE
+        /// </summary>
         public bool MoveDown = false;
         private int MoveLength { get; set; }
 
@@ -68,7 +74,7 @@ namespace Cowboy.Classes
             Hpbar.Location = newPos;
         }
 
-        private void SetWeaponOffSet(Point point)
+        public void SetWeaponOffSet(Point point)
         {
             WeaponOffSet = point;
         }
