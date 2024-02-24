@@ -40,12 +40,11 @@ namespace Cowboy.Classes
             int y1 = BulletA.pictureBox.Location.Y + BulletA.pictureBox.Height / 2;
 
             int x2 = BulletB.pictureBox.Location.X;
-            int y2 = BulletB.pictureBox.Location.Y + BulletB.pictureBox.Height / 2; ;
+            int y2 = BulletB.pictureBox.Location.Y + BulletB.pictureBox.Height / 2;
 
             int x = (x1 + x2) / 2;
             int y = (y1 + y2) / 2;
 
-            //x -= this.pictureBox.Width / 2; // na ezt mondjuk nem értem xd
             y -= this.pictureBox.Height / 2;
 
             return new Point(x,y);

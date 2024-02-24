@@ -22,7 +22,7 @@ namespace Cowboy
         private void button1_Click(object sender, EventArgs e)
         {
             // open game \\
-            Form1 Game = new Form1(GetGameSettings());
+            Game Game = new Game(GetGameSettings());
 
             Game.Visible = true;
             Game.SetMainMenu(this);

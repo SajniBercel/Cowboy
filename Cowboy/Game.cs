@@ -4,7 +4,7 @@ using Cowboy.Settings;
 
 namespace Cowboy
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
         private MainMenu mainMenu { get; set; }
         private GameSettings gameSettings { get; set; }
@@ -18,7 +18,7 @@ namespace Cowboy
         /// Átveszi a Beállításokat, ha null akkor egy alapot generál/használ
         /// </summary>
         /// <param name="gameSettings">beállítások</param>
-        public Form1(GameSettings gameSettings)
+        public Game(GameSettings gameSettings)
         {
             InitializeComponent();
 
@@ -49,7 +49,9 @@ namespace Cowboy
             // remove buttons
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
             this.ShowIcon = false;
+
             this.Text = "Game";
         }
 
