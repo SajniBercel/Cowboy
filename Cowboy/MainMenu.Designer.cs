@@ -65,7 +65,7 @@
             numericUpDown1.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(87, 23);
-            numericUpDown1.TabIndex = 2;
+            numericUpDown1.TabIndex = 1;
             numericUpDown1.Value = new decimal(new int[] { 600, 0, 0, 0 });
             // 
             // numericUpDown2
@@ -75,7 +75,7 @@
             numericUpDown2.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(87, 23);
-            numericUpDown2.TabIndex = 3;
+            numericUpDown2.TabIndex = 2;
             numericUpDown2.Value = new decimal(new int[] { 600, 0, 0, 0 });
             // 
             // checkBox1
@@ -84,7 +84,7 @@
             checkBox1.Location = new Point(12, 65);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(80, 19);
-            checkBox1.TabIndex = 4;
+            checkBox1.TabIndex = 3;
             checkBox1.Text = "FullScreen";
             checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -94,7 +94,7 @@
             checkBox2.Location = new Point(98, 65);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(105, 19);
-            checkBox2.TabIndex = 5;
+            checkBox2.TabIndex = 4;
             checkBox2.Text = "Bullet Collision";
             checkBox2.UseVisualStyleBackColor = true;
             // 
@@ -113,7 +113,7 @@
             button2.Location = new Point(12, 89);
             button2.Name = "button2";
             button2.Size = new Size(254, 23);
-            button2.TabIndex = 7;
+            button2.TabIndex = 5;
             button2.Text = "Adavanced Settings";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;

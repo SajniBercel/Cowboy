@@ -9,7 +9,12 @@ namespace Cowboy
         private MainMenu mainMenu { get; set; }
         private GameSettings gameSettings { get; set; }
 
-        private List<List<GameComponent>> GameComponents = new List<List<GameComponent>>();
+        /// <summary>
+        /// Index 0: player;
+        /// Index 1: bullet;
+        /// Index 2: explosion;
+        /// </summary>
+        internal List<List<GameComponent>> GameComponents = new List<List<GameComponent>>();
 
         private int GC_count = 0;
         private bool IsPaused = false;
@@ -96,12 +101,14 @@ namespace Cowboy
             player1.pictureBox.Location = GetPlayerStartPos(player1, "left");
             player2.pictureBox.Location = GetPlayerStartPos(player2, "rigth");
 
+            Bot bot = new Bot(player2, player1, this);
+            bot.weapon.BulletSpeed *= -1;
 
             // Create the GameComponents List that holds all of the game objects \\
             List<GameComponent> Players = new List<GameComponent>
             {
                 player1,
-                player2
+                bot
             };
 
 
@@ -136,7 +143,13 @@ namespace Cowboy
                 for (int j = 0; j < GameComponents[i].Count; j++)
                 {
                     if (GameComponents[i][j] is IUpdate)
-                        (GameComponents[i][j] as IUpdate).Update();
+                    {
+                        ((IUpdate)GameComponents[i][j]).Update();
+                        if (GameComponents[i][j] is Bot)
+                        {
+                            //MessageBox.Show("bot");
+                        }
+                    }
                 }
             }
 
@@ -248,31 +261,35 @@ namespace Cowboy
 
             // left Player (player 1) input (down) management
             if (e.KeyCode == Keys.W)
-                player1.MoveUp = true;
+                ((Player)GameComponents[0][0]).MoveUp = true;
             else if (e.KeyCode == Keys.S)
-                player1.MoveDown = true;
+                ((Player)GameComponents[0][0]).MoveDown = true;
             //shoot
             else if (e.KeyCode == Keys.D)
             {
-                Bullet bullet = player1.weapon.Shoot();
-                if (bullet != null)
-                    GameComponents[1].Add(bullet);
+                Shoot((Player)GameComponents[0][0]);
             }
 
             // right Player (player 2) input (down) management
             if (e.KeyCode == Keys.Up)
-                player2.MoveUp = true;
+                ((Player)GameComponents[0][1]).MoveUp = true;
             else if (e.KeyCode == Keys.Down)
-                player2.MoveDown = true;
+                ((Player)GameComponents[0][1]).MoveDown = true;
             //shoot
             else if (e.KeyCode == Keys.Left)
             {
-                Bullet? bullet = player2.weapon.Shoot();
-                if (bullet != null)
-                {
+                Shoot((Player)GameComponents[0][1]);
+            }
+        }
+
+        internal void Shoot(Player player)
+        {
+            Bullet? bullet = player.weapon.Shoot();
+            if (bullet != null)
+            {
+                if(player.weapon.BulletSpeed<0)
                     bullet.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                    GameComponents[1].Add(bullet);
-                }
+                GameComponents[1].Add(bullet);
             }
         }
 

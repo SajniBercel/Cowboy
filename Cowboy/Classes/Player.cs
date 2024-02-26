@@ -7,6 +7,7 @@ namespace Cowboy.Classes
     {
         public ProgressBar Hpbar { get; set; }
         public Weapon weapon { get; set; }
+        public PlayerSetting PlayerSettings { get; }
 
         private Point WeaponOffSet;
 
@@ -39,23 +40,26 @@ namespace Cowboy.Classes
             Hpbar.Value = HP;
 
             weapon = new Weapon(this, playerSetting.ReloadSpeed*100, playerSetting.BulletSpeed, playerSetting.BulletDamage);
+
+            PlayerSettings = playerSetting;
         }
 
-        public void Update()
+        public virtual void Update()
         {
             Move();
-            MoveHpBar();
         }
 
-        private void Move()
+        protected void Move()
         {
             if (MoveUp)
                 pictureBox.Top -= MoveLength;
             if (MoveDown)
                 pictureBox.Top += MoveLength;
+
+            MoveHpBar();
         }
 
-        private void MoveHpBar()
+        protected void MoveHpBar()
         {
             Point newPos = new Point(pictureBox.Location.X, pictureBox.Location.Y - 30);
             Hpbar.Location = newPos;

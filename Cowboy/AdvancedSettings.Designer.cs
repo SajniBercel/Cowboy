@@ -168,7 +168,7 @@
             Nu_ReloadSpeed_1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             Nu_ReloadSpeed_1.Name = "Nu_ReloadSpeed_1";
             Nu_ReloadSpeed_1.Size = new Size(42, 23);
-            Nu_ReloadSpeed_1.TabIndex = 3;
+            Nu_ReloadSpeed_1.TabIndex = 5;
             Nu_ReloadSpeed_1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // Nu_BulletSpeed_1
@@ -178,7 +178,7 @@
             Nu_BulletSpeed_1.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
             Nu_BulletSpeed_1.Name = "Nu_BulletSpeed_1";
             Nu_BulletSpeed_1.Size = new Size(42, 23);
-            Nu_BulletSpeed_1.TabIndex = 2;
+            Nu_BulletSpeed_1.TabIndex = 3;
             Nu_BulletSpeed_1.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // Nu_PlayerHP_1
@@ -188,7 +188,7 @@
             Nu_PlayerHP_1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             Nu_PlayerHP_1.Name = "Nu_PlayerHP_1";
             Nu_PlayerHP_1.Size = new Size(42, 23);
-            Nu_PlayerHP_1.TabIndex = 1;
+            Nu_PlayerHP_1.TabIndex = 2;
             Nu_PlayerHP_1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // Nu_BulletDamage_1
@@ -198,7 +198,7 @@
             Nu_BulletDamage_1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             Nu_BulletDamage_1.Name = "Nu_BulletDamage_1";
             Nu_BulletDamage_1.Size = new Size(42, 23);
-            Nu_BulletDamage_1.TabIndex = 1;
+            Nu_BulletDamage_1.TabIndex = 4;
             Nu_BulletDamage_1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // Nu_PlayerSpeed_1
@@ -208,7 +208,7 @@
             Nu_PlayerSpeed_1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             Nu_PlayerSpeed_1.Name = "Nu_PlayerSpeed_1";
             Nu_PlayerSpeed_1.Size = new Size(42, 23);
-            Nu_PlayerSpeed_1.TabIndex = 0;
+            Nu_PlayerSpeed_1.TabIndex = 1;
             Nu_PlayerSpeed_1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // groupBox2
@@ -330,7 +330,7 @@
             button1.Location = new Point(180, 237);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
-            button1.TabIndex = 5;
+            button1.TabIndex = 6;
             button1.Text = "Mentés";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btn_AdvsSave_Click;
@@ -340,7 +340,7 @@
             button2.Location = new Point(180, 266);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
-            button2.TabIndex = 6;
+            button2.TabIndex = 7;
             button2.Text = "Reset";
             button2.UseVisualStyleBackColor = true;
             button2.Click += btn_advsReset_Click;
@@ -350,7 +350,7 @@
             button3.Location = new Point(180, 295);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
-            button3.TabIndex = 7;
+            button3.TabIndex = 8;
             button3.Text = "Vissza";
             button3.UseVisualStyleBackColor = true;
             button3.Click += btn_AdvsBack_Click;
