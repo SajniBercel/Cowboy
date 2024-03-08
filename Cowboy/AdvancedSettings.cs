@@ -35,6 +35,7 @@ namespace Cowboy
             Nu_BulletSpeed_1.Value = playerS[0].BulletSpeed;
             Nu_BulletDamage_1.Value = playerS[0].BulletDamage;
             Nu_ReloadSpeed_1.Value = playerS[0].ReloadSpeed;
+            Ch_Bot_1.Checked = playerS[0].Bot;
 
             // Player2 \\
             txt_PlayerName_2.Text = playerS[1].PlayerName;
@@ -44,6 +45,7 @@ namespace Cowboy
             Nu_BulletSpeed_2.Value = playerS[1].BulletSpeed;
             Nu_BulletDamage_2.Value = playerS[1].BulletDamage;
             Nu_ReloadSpeed_2.Value = playerS[1].ReloadSpeed;
+            Ch_Bot_2.Checked = playerS[1].Bot;
         }
         private void AdvancedSettings_Load(object sender, EventArgs e)
         {
@@ -71,12 +73,12 @@ namespace Cowboy
 
             // player 1
             playerSettings[0] = new PlayerSetting(txt_PlayerName_1.Text, (int)Nu_PlayerSpeed_1.Value, (int)Nu_PlayerHP_1.Value,
-                    (int)Nu_BulletSpeed_1.Value, (int)Nu_BulletDamage_1.Value, (int)Nu_ReloadSpeed_1.Value);
+                    (int)Nu_BulletSpeed_1.Value, (int)Nu_BulletDamage_1.Value, (int)Nu_ReloadSpeed_1.Value, Ch_Bot_1.Checked);
 
             // player 2 if it's different and clone player 1 if not
             if (PlayerClone.Checked)
                 playerSettings[1] = new PlayerSetting(txt_PlayerName_2.Text, (int)Nu_PlayerSpeed_2.Value, (int)Nu_PlayerHP_2.Value,
-                    (int)Nu_BulletSpeed_2.Value, (int)Nu_BulletDamage_2.Value, (int)Nu_ReloadSpeed_2.Value);
+                    (int)Nu_BulletSpeed_2.Value, (int)Nu_BulletDamage_2.Value, (int)Nu_ReloadSpeed_2.Value, Ch_Bot_2.Checked);
             else
             {
                 playerSettings[1] = new PlayerSetting(playerSettings[0]);

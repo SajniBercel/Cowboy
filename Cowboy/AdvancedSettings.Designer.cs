@@ -56,6 +56,8 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            Ch_Bot_1 = new CheckBox();
+            Ch_Bot_2 = new CheckBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Nu_ReloadSpeed_1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Nu_BulletSpeed_1).BeginInit();
@@ -355,11 +357,33 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += btn_AdvsBack_Click;
             // 
+            // Ch_Bot_1
+            // 
+            Ch_Bot_1.AutoSize = true;
+            Ch_Bot_1.Location = new Point(118, 39);
+            Ch_Bot_1.Name = "Ch_Bot_1";
+            Ch_Bot_1.Size = new Size(44, 19);
+            Ch_Bot_1.TabIndex = 9;
+            Ch_Bot_1.Text = "Bot";
+            Ch_Bot_1.UseVisualStyleBackColor = true;
+            // 
+            // Ch_Bot_2
+            // 
+            Ch_Bot_2.AutoSize = true;
+            Ch_Bot_2.Location = new Point(324, 39);
+            Ch_Bot_2.Name = "Ch_Bot_2";
+            Ch_Bot_2.Size = new Size(44, 19);
+            Ch_Bot_2.TabIndex = 10;
+            Ch_Bot_2.Text = "Bot";
+            Ch_Bot_2.UseVisualStyleBackColor = true;
+            // 
             // AdvancedSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(428, 334);
+            Controls.Add(Ch_Bot_2);
+            Controls.Add(Ch_Bot_1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -419,5 +443,7 @@
         private Label label10;
         private Label label8;
         private Label label6;
+        private CheckBox Ch_Bot_1;
+        private CheckBox Ch_Bot_2;
     }
 }

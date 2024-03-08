@@ -8,8 +8,9 @@
         public int BulletSpeed { get; set; }
         public int BulletDamage { get; set; }
         public int ReloadSpeed { get; set; }
+        public bool Bot { get; set; }
 
-        public PlayerSetting(string playerName ,int playerSpeed, int playerHP, int bulletSpeed, int bulletDamage, int reloadSpeed)
+        public PlayerSetting(string playerName ,int playerSpeed, int playerHP, int bulletSpeed, int bulletDamage, int reloadSpeed, bool bot)
         {
             PlayerName = playerName;
             PlayerSpeed = playerSpeed;
@@ -17,6 +18,7 @@
             BulletSpeed = bulletSpeed;
             BulletDamage = bulletDamage;
             ReloadSpeed = reloadSpeed;
+            Bot = bot;
         }
 
         public PlayerSetting(PlayerSetting playerS)
@@ -27,6 +29,7 @@
             BulletSpeed = playerS.BulletSpeed;
             BulletDamage = playerS.BulletDamage;
             ReloadSpeed = playerS.ReloadSpeed;
+            Bot = playerS.Bot;
         }
 
         public PlayerSetting()
@@ -43,6 +46,7 @@
             BulletSpeed = 5;
             BulletDamage = 1;
             ReloadSpeed = 5;
+            Bot = false;
 
             return this;
         }

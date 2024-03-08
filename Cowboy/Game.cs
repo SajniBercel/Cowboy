@@ -10,8 +10,8 @@ namespace Cowboy
         private GameSettings gameSettings { get; set; }
 
         /// <summary>
-        /// Index 0: player;
-        /// Index 1: bullet;
+        /// Index 0: player;<br/>
+        /// Index 1: bullet;<br/>
         /// Index 2: explosion;
         /// </summary>
         internal List<List<GameComponent>> GameComponents = new List<List<GameComponent>>();
@@ -84,31 +84,48 @@ namespace Cowboy
 
 
             // Create Player 1
-            player1 = new Player(1,
+            Player temp_player1 = new Player(1,
                 Create.pictureBox("PB_player1", new Size(60, 60), new Point(0, 0),
                 Properties.Resources.PlayerBeta),
-                gameSettings.PlayerSetting[0]);
+                gameSettings.PlayerSettings[0]);
 
 
             // Create Player 2 \\
-            player2 = new Player(2,
+            Player  temp_player2 = new Player(2,
                 Create.pictureBox("PB_player2", new Size(60, 60), new Point(0, 0),
                 Properties.Resources.PlayerBeta),
-                gameSettings.PlayerSetting[1]);
-            player2.weapon.BulletSpeed *= -1;
+                gameSettings.PlayerSettings[1]);
+
+
+
 
             // place to the correct pos \\
-            player1.pictureBox.Location = GetPlayerStartPos(player1, "left");
-            player2.pictureBox.Location = GetPlayerStartPos(player2, "rigth");
+            temp_player1.pictureBox.Location = GetPlayerStartPos(temp_player1, "left");
+            temp_player2.pictureBox.Location = GetPlayerStartPos(temp_player2, "rigth");
 
-            Bot bot = new Bot(player2, player1, this);
-            bot.weapon.BulletSpeed *= -1;
+
+            // átalakítás bot-nak ha kell \\
+            // player1
+            if (gameSettings.PlayerSettings[0].Bot)
+                player1 = new Bot(temp_player1, temp_player2, this);
+            else
+                player1 = temp_player1;
+
+            // player2
+            if (gameSettings.PlayerSettings[1].Bot)
+                player2 = new Bot(temp_player2, temp_player1, this);
+            else
+                player2 = temp_player2;
+
+            // Bullet haladás irány korrekció
+            player2.weapon.BulletSpeed *= -1;
+
 
             // Create the GameComponents List that holds all of the game objects \\
             List<GameComponent> Players = new List<GameComponent>
             {
                 player1,
-                bot
+                player2
             };
 
 

@@ -6,6 +6,7 @@ namespace Cowboy.Classes
     {
         private int Speed { get; set; }
         public int Damage { get; set; }
+
         /// <summary>
         /// Létrehoz egy töltényt, magában müködik nem kell kívülről mozgatni
         /// </summary>

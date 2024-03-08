@@ -11,15 +11,18 @@ namespace Cowboy.Classes
 
         private Point WeaponOffSet;
 
-        //move
+        //move\\
+
         /// <summary>
         /// MOVES the player UP in every UPDATE
         /// </summary>
         public bool MoveUp = false;
+
         /// <summary>
         /// MOVES the player DOWN in every UPDATE
         /// </summary>
         public bool MoveDown = false;
+
         private int MoveLength { get; set; }
 
         //hp
@@ -59,7 +62,7 @@ namespace Cowboy.Classes
             MoveHpBar();
         }
 
-        protected void MoveHpBar()
+        private void MoveHpBar()
         {
             Point newPos = new Point(pictureBox.Location.X, pictureBox.Location.Y - 30);
             Hpbar.Location = newPos;
