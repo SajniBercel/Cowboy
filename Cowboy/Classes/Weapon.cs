@@ -51,7 +51,7 @@ namespace Cowboy.Classes
             return null;
         }
 
-        public void SetShootTrue(object? sender, EventArgs args)
+        private void SetShootTrue(object? sender, EventArgs args)
         {
             CanShoot = true;
             MyTimer.Stop();
