@@ -14,7 +14,7 @@ namespace Cowboy
         /// Index 1: bullet;<br/>
         /// Index 2: explosion;
         /// </summary>
-        internal List<List<GameComponent>> GameComponents = new List<List<GameComponent>>();
+        private List<List<GameComponent>> GameComponents = new List<List<GameComponent>>();
 
         private int GC_count = 0;
         private bool IsPaused = false;
@@ -41,8 +41,6 @@ namespace Cowboy
         /// <summary>
         /// beállítja a form-ot
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             // "Render mod" \\
@@ -77,32 +75,26 @@ namespace Cowboy
             if (gameSettings.WindowSize.Width < 10 && gameSettings.WindowSize.Height < 10)
             {
                 this.WindowState = FormWindowState.Maximized;
-                
+                this.FormBorderStyle = FormBorderStyle.None;
             }
             else
                 this.Size = gameSettings.WindowSize;
 
-
             // Create Player 1
-            Player temp_player1 = new Player(1,
+            Player temp_player1 = new Player(1, gameSettings.PlayerSettings[0].PlayerName,
                 Create.pictureBox("PB_player1", new Size(60, 60), new Point(0, 0),
                 Properties.Resources.PlayerBeta),
                 gameSettings.PlayerSettings[0]);
 
-
             // Create Player 2 \\
-            Player  temp_player2 = new Player(2,
+            Player  temp_player2 = new Player(2, gameSettings.PlayerSettings[1].PlayerName,
                 Create.pictureBox("PB_player2", new Size(60, 60), new Point(0, 0),
                 Properties.Resources.PlayerBeta),
                 gameSettings.PlayerSettings[1]);
 
-
-
-
             // place to the correct pos \\
             temp_player1.pictureBox.Location = GetPlayerStartPos(temp_player1, "left");
             temp_player2.pictureBox.Location = GetPlayerStartPos(temp_player2, "rigth");
-
 
             // átalakítás bot-nak ha kell \\
             // player1
@@ -119,7 +111,6 @@ namespace Cowboy
 
             // Bullet haladás irány korrekció
             player2.weapon.BulletSpeed *= -1;
-
 
             // Create the GameComponents List that holds all of the game objects \\
             List<GameComponent> Players = new List<GameComponent>
@@ -241,6 +232,7 @@ namespace Cowboy
                 }
             }
 
+            // memoria használat csökkentés
             if (GC_count > 15)
             {
                 GC.Collect();
@@ -344,7 +336,7 @@ namespace Cowboy
             }
             return new Point(0, 0);
         }
-
+        
         private void WinCheck()
         {
             for (int i = 0; i < GameComponents[0].Count; i++)
@@ -387,6 +379,7 @@ namespace Cowboy
             {
                 Player player = (Player)GameComponents[0][i];
                 player.Hpbar.Dispose();
+                player.Name.Dispose();
             }
 
             GameComponents.Clear();

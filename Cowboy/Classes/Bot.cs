@@ -15,7 +15,7 @@ namespace Cowboy.Classes
         /// <param name="player">Őt Írányítja</param>
         /// <param name="target">őt Támadja</param>
         /// <param name="gameFrom">Aktuális Game Form (lövéshez)</param>
-        public Bot(Player player, Player target, Game gameFrom) : base(player.PlayerID, player.pictureBox, player.PlayerSettings)
+        public Bot(Player player, Player target, Game gameFrom) : base(player.PlayerID, player.Name.Text,player.pictureBox, player.PlayerSettings)
         {
             Target = target;
             GameForm = gameFrom;

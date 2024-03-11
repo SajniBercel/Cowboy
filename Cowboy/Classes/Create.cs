@@ -31,5 +31,18 @@
             Form.ActiveForm.Controls.Add(progBar);
             return progBar;
         }
+
+        public static Label label(string name, string text ,Point loc)
+        {
+            Label label = new Label
+            {
+                Name = name,
+                Text = text,
+                BackColor = Color.Transparent,
+                Location = loc
+            };
+            Form.ActiveForm.Controls.Add(label);
+            return label;
+        }
     }
 }
