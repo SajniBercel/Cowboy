@@ -153,10 +153,6 @@ namespace Cowboy
                     if (GameComponents[i][j] is IUpdate)
                     {
                         ((IUpdate)GameComponents[i][j]).Update();
-                        if (GameComponents[i][j] is Bot)
-                        {
-                            //MessageBox.Show("bot");
-                        }
                     }
                 }
             }

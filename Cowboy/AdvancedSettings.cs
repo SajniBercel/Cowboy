@@ -75,14 +75,17 @@ namespace Cowboy
             playerSettings[0] = new PlayerSetting(txt_PlayerName_1.Text, (int)Nu_PlayerSpeed_1.Value, (int)Nu_PlayerHP_1.Value,
                     (int)Nu_BulletSpeed_1.Value, (int)Nu_BulletDamage_1.Value, (int)Nu_ReloadSpeed_1.Value, Ch_Bot_1.Checked);
 
-            // player 2 if it's different and clone player 1 if not
+            // player 2 (ha más akkor azt kapja meg ha ugyan az akkor másolja)
             if (PlayerClone.Checked)
+            {
                 playerSettings[1] = new PlayerSetting(txt_PlayerName_2.Text, (int)Nu_PlayerSpeed_2.Value, (int)Nu_PlayerHP_2.Value,
                     (int)Nu_BulletSpeed_2.Value, (int)Nu_BulletDamage_2.Value, (int)Nu_ReloadSpeed_2.Value, Ch_Bot_2.Checked);
+            }
             else
             {
                 playerSettings[1] = new PlayerSetting(playerSettings[0]);
                 playerSettings[1].PlayerName = txt_PlayerName_2.Text;
+                playerSettings[1].Bot = Ch_Bot_2.Checked;
             }
 
             //adat visszaadás a main-re

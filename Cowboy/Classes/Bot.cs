@@ -7,6 +7,8 @@ namespace Cowboy.Classes
         private Player Target { get; set; }
         private Game GameForm { get; set; }
 
+        private int RandomMoveIteration = 0;
+
         /// <summary>
         /// A Player-ből örököl kell neki egy plalyer aki alapján felépíti magát,
         /// egy ellenfél akire tud támadni,
@@ -21,6 +23,7 @@ namespace Cowboy.Classes
             GameForm = gameFrom;
 
             player.Hpbar.Dispose();
+            player.Name.Dispose();
         }
 
         /// <summary>
@@ -38,15 +41,31 @@ namespace Cowboy.Classes
         /// </summary>
         public void Think()
         {
+
             if (Target.pictureBox.Location.Y + Target.pictureBox.Height < this.pictureBox.Location.Y)
                 Up();
             else if (Target.pictureBox.Location.Y - Target.pictureBox.Height > this.pictureBox.Location.Y)
                 Down();
-            else if(Target.pictureBox.Location.Y == this.pictureBox.Location.Y)
-                Stop();
 
-            if (Target.pictureBox.Location.Y - Target.pictureBox.Height < this.pictureBox.Location.Y && Target.pictureBox.Location.Y + Target.pictureBox.Height > this.pictureBox.Location.Y)
+            else if (Target.pictureBox.Location.Y - Target.pictureBox.Height/2 < this.pictureBox.Location.Y && Target.pictureBox.Location.Y + Target.pictureBox.Height/2 > this.pictureBox.Location.Y)
+            {
                 GameForm.Shoot(this);
+                Random rnd = new Random();
+                bool randomBool = rnd.Next(2)==1;
+                RandomMoveIteration++;
+                if (RandomMoveIteration == 50)
+                {
+                    if (randomBool)
+                    {
+                        Up();
+                    }
+                    else
+                    {
+                        Down();
+                    }
+                    RandomMoveIteration = 0;
+                }
+            }
         }
 
         private void Up()
@@ -59,12 +78,6 @@ namespace Cowboy.Classes
         {
             MoveUp = false;
             MoveDown = true;
-        }
-
-        private void Stop()
-        {
-            MoveUp = false;
-            MoveDown = false;
         }
     }
 }
