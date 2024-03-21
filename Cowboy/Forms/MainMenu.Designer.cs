@@ -36,6 +36,7 @@
             checkBox2 = new CheckBox();
             btn_Start = new Button();
             btn_AdvancedSettings = new Button();
+            btn_InputSettings = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
@@ -101,7 +102,7 @@
             // 
             // btn_Start
             // 
-            btn_Start.Location = new Point(12, 118);
+            btn_Start.Location = new Point(12, 147);
             btn_Start.Name = "btn_Start";
             btn_Start.Size = new Size(254, 23);
             btn_Start.TabIndex = 6;
@@ -117,13 +118,24 @@
             btn_AdvancedSettings.TabIndex = 5;
             btn_AdvancedSettings.Text = "Adavanced Settings";
             btn_AdvancedSettings.UseVisualStyleBackColor = true;
-            btn_AdvancedSettings.Click += button2_Click;
+            btn_AdvancedSettings.Click += btn_Advnaced_Click;
+            // 
+            // btn_InputSettings
+            // 
+            btn_InputSettings.Location = new Point(12, 118);
+            btn_InputSettings.Name = "btn_InputSettings";
+            btn_InputSettings.Size = new Size(254, 23);
+            btn_InputSettings.TabIndex = 7;
+            btn_InputSettings.Text = "Input Settings";
+            btn_InputSettings.UseVisualStyleBackColor = true;
+            btn_InputSettings.Click += btn_InputSettings_Click;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(278, 153);
+            ClientSize = new Size(278, 178);
+            Controls.Add(btn_InputSettings);
             Controls.Add(btn_AdvancedSettings);
             Controls.Add(btn_Start);
             Controls.Add(checkBox2);
@@ -152,5 +164,6 @@
         private CheckBox checkBox2;
         private Button btn_Start;
         private Button btn_AdvancedSettings;
+        private Button btn_InputSettings;
     }
 }

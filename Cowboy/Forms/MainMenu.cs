@@ -1,10 +1,12 @@
-﻿using Cowboy.Settings;
+﻿using Cowboy.Forms;
+using Cowboy.Settings;
 
 namespace Cowboy
 {
     public partial class MainMenu : Form
     {
         private PlayerSetting[] playerSettings;
+        private InputSetting[] inputSettings;
         private bool playerClone;
         public MainMenu()
         {
@@ -30,11 +32,11 @@ namespace Cowboy
             Game.Setup();
         }
 
+        // player clone
         public void SetPlayerClone(bool value)
         {
             playerClone = value;
         }
-
         public bool GetPlayerClone()
         {
             return playerClone;
@@ -59,13 +61,24 @@ namespace Cowboy
             return new GameSettings(playerSettings, checkBox2.Checked);
         }
 
+        // player settings
         public void SetPlayerSettings(PlayerSetting[] playerSettings)
         {
             this.playerSettings = playerSettings;
         }
-        public PlayerSetting[] GetPlayerSettings()
+        public PlayerSetting[]? GetPlayerSettings()
         {
             return playerSettings;
+        }
+
+        // input settings
+        public void SetInputSettings(InputSetting[] inputSettings)
+        { 
+            this.inputSettings = inputSettings;
+        }
+        public InputSetting[]? GetInputSettings()
+        {
+            return this.inputSettings;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -74,7 +87,7 @@ namespace Cowboy
             numericUpDown2.Enabled = !checkBox1.Checked;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_Advnaced_Click(object sender, EventArgs e)
         {
             // open advanced setting \\
             AdvancedSettings advancedSettings = new AdvancedSettings(this);
@@ -84,6 +97,14 @@ namespace Cowboy
 
             advancedSettings.ShowDialog();
 
+        }
+
+        private void btn_InputSettings_Click(object sender, EventArgs e)
+        {
+            InputSettings inputSettingsForm = new InputSettings(this);
+            inputSettingsForm.LoadData(GetInputSettings());
+
+            inputSettingsForm.ShowDialog();
         }
     }
 }

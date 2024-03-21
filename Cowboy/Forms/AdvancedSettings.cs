@@ -5,7 +5,7 @@ namespace Cowboy
     public partial class AdvancedSettings : Form
     {
         public PlayerSetting[] playerSettings = new PlayerSetting[2];
-        MainMenu mainMenu;
+        private MainMenu mainMenu;
         public AdvancedSettings(MainMenu mainMenu)
         {
             InitializeComponent();

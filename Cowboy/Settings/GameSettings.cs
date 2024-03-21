@@ -3,6 +3,7 @@
     public class GameSettings
     {
         public PlayerSetting[] PlayerSettings { get; set; }
+        public InputSetting[] inputSettings { get; set; }
         public Size WindowSize { get; set; }
         public bool BulletCollision { get; set; }
 
