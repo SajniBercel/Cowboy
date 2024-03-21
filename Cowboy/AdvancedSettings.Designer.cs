@@ -53,9 +53,9 @@
             Nu_BulletSpeed_2 = new NumericUpDown();
             Nu_PlayerHP_2 = new NumericUpDown();
             Nu_PlayerSpeed_2 = new NumericUpDown();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btn_Save = new Button();
+            btn_Reset = new Button();
+            btn_Back = new Button();
             Ch_Bot_1 = new CheckBox();
             Ch_Bot_2 = new CheckBox();
             groupBox1.SuspendLayout();
@@ -327,35 +327,35 @@
             Nu_PlayerSpeed_2.TabIndex = 1;
             Nu_PlayerSpeed_2.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // button1
+            // btn_Save
             // 
-            button1.Location = new Point(180, 237);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "Mentés";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += btn_AdvsSave_Click;
+            btn_Save.Location = new Point(180, 237);
+            btn_Save.Name = "btn_Save";
+            btn_Save.Size = new Size(75, 23);
+            btn_Save.TabIndex = 6;
+            btn_Save.Text = "Mentés";
+            btn_Save.UseVisualStyleBackColor = true;
+            btn_Save.Click += btn_AdvsSave_Click;
             // 
-            // button2
+            // btn_Reset
             // 
-            button2.Location = new Point(180, 266);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 7;
-            button2.Text = "Reset";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += btn_advsReset_Click;
+            btn_Reset.Location = new Point(180, 266);
+            btn_Reset.Name = "btn_Reset";
+            btn_Reset.Size = new Size(75, 23);
+            btn_Reset.TabIndex = 7;
+            btn_Reset.Text = "Reset";
+            btn_Reset.UseVisualStyleBackColor = true;
+            btn_Reset.Click += btn_advsReset_Click;
             // 
-            // button3
+            // btn_Back
             // 
-            button3.Location = new Point(180, 295);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 8;
-            button3.Text = "Vissza";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += btn_AdvsBack_Click;
+            btn_Back.Location = new Point(180, 295);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(75, 23);
+            btn_Back.TabIndex = 8;
+            btn_Back.Text = "Vissza";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_AdvsBack_Click;
             // 
             // Ch_Bot_1
             // 
@@ -384,9 +384,9 @@
             ClientSize = new Size(428, 334);
             Controls.Add(Ch_Bot_2);
             Controls.Add(Ch_Bot_1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btn_Back);
+            Controls.Add(btn_Reset);
+            Controls.Add(btn_Save);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(txt_PlayerName_2);
@@ -430,9 +430,9 @@
         private NumericUpDown Nu_BulletSpeed_2;
         private NumericUpDown Nu_PlayerHP_2;
         private NumericUpDown Nu_PlayerSpeed_2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btn_Save;
+        private Button btn_Reset;
+        private Button btn_Back;
         private Label label3;
         private Label label1;
         private Label label4;

@@ -10,11 +10,12 @@ namespace Cowboy.Classes
         /// Létrehoz egy robbanás effektet 2 "GameComponent" között
         /// </summary>
         /// <param name="updatesBerforeDestory">Hány "Update" kell mielőtt törölhető</param>
-        public Explosion(int playerID, PictureBox pictureBox, GameComponent bulletA, GameComponent bulletB, int updatesBerforeDestory) : base(playerID, pictureBox)
+        /// <param name="pictureBox">Robbanás "effect" képe</param>
+        public Explosion(int playerID, PictureBox pictureBox, GameComponent GameComponentA, GameComponent GameComponentB, int updatesBerforeDestory) : base(playerID, pictureBox)
         {
             UpdatesLeft = updatesBerforeDestory;
 
-            this.pictureBox.Location = GetPicBoxPos(bulletA,bulletB);
+            this.pictureBox.Location = GetPicBoxPos(GameComponentA,GameComponentB);
         }
 
         /// <summary>

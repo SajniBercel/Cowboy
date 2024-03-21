@@ -47,6 +47,7 @@ namespace Cowboy
             Nu_ReloadSpeed_2.Value = playerS[1].ReloadSpeed;
             Ch_Bot_2.Checked = playerS[1].Bot;
         }
+
         private void AdvancedSettings_Load(object sender, EventArgs e)
         {
             PlayerClone.Checked = mainMenu.GetPlayerClone();
@@ -65,7 +66,7 @@ namespace Cowboy
 
         private void btn_AdvsSave_Click(object sender, EventArgs e)
         {
-            // eszméletlenül komoly validálás (nem sok értelme van)
+            // validálás? (nem sok értelme van)
             if (txt_PlayerName_1.Text == txt_PlayerName_2.Text)
             {
                 MessageBox.Show("!A két játékosnak nem lehet ugyan az a neve!");

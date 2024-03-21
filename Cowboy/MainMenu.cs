@@ -18,8 +18,7 @@ namespace Cowboy
         {
             playerClone = true;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Start_Click(object sender, EventArgs e)
         {
             // open game \\
             Game Game = new Game(GetGameSettings());
@@ -35,6 +34,7 @@ namespace Cowboy
         {
             playerClone = value;
         }
+
         public bool GetPlayerClone()
         {
             return playerClone;
@@ -58,6 +58,7 @@ namespace Cowboy
             }
             return new GameSettings(playerSettings, checkBox2.Checked);
         }
+
         public void SetPlayerSettings(PlayerSetting[] playerSettings)
         {
             this.playerSettings = playerSettings;

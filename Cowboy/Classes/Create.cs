@@ -2,13 +2,22 @@
 {
     public class Create
     {
-        public static PictureBox pictureBox(string name, Size size, Point loc, Image image)
+
+        /// <summary>
+        /// Létrehoz egy PictureBox-ot
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="size">Méret</param>
+        /// <param name="location">Hely</param>
+        /// <param name="image">Kép</param>
+        /// <returns></returns>
+        public static PictureBox pictureBox(string name, Size size, Point location, Image image)
         {
             PictureBox pic = new PictureBox
             {
                 Name = name,
                 Size = size,
-                Location = loc,
+                Location = location,
                 Image = image,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BorderStyle = BorderStyle.None
@@ -18,13 +27,21 @@
             return pic;
         }
 
-        public static ProgressBar progressBar(string name, Size size, Point loc, int max)
+        /// <summary>
+        /// Létrehoz egy ProgressBar-ot
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="size">Méret</param>
+        /// <param name="location">Hely</param>
+        /// <param name="max">Hány egységre oszlik</param>
+        /// <returns></returns>
+        public static ProgressBar progressBar(string name, Size size, Point location, int max)
         {
             ProgressBar progBar = new ProgressBar
             {
                 Name = name,
                 Size = size,
-                Location = loc,
+                Location = location,
                 Maximum = max
 
             };
@@ -32,14 +49,21 @@
             return progBar;
         }
 
-        public static Label label(string name, string text ,Point loc)
+        /// <summary>
+        /// Feliratot/(label)-t hoz létre
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="text">Felirat</param>
+        /// <param name="location">Hely</param>
+        /// <returns></returns>
+        public static Label label(string name, string text ,Point location)
         {
             Label label = new Label
             {
                 Name = name,
                 Text = text,
                 BackColor = Color.Transparent,
-                Location = loc
+                Location = location
             };
             Form.ActiveForm.Controls.Add(label);
             return label;

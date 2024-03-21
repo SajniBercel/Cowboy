@@ -12,7 +12,6 @@
         /// <param name="playerSettings">(2) játékos beállításai</param>
         /// <param name="windowSize">Ablak mérete</param>
         /// <param name="bulletCollision">Van-e ütközés a töltények között</param>
-
         public GameSettings(PlayerSetting[] playerSettings, Size windowSize, bool bulletCollision)
         {
             PlayerSettings = playerSettings;
@@ -31,7 +30,7 @@
             
         }
 
-        /// <returns>alap beállításokat ad vissza</returns>
+        /// <returns>alap beállításokat</returns>
         public GameSettings SetDefaultSettings()
         {
             BulletCollision = false;

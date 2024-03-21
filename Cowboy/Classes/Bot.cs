@@ -22,6 +22,7 @@ namespace Cowboy.Classes
             Target = target;
             GameForm = gameFrom;
 
+            //kész playeret kap de meghívja megint az ősozstály (player) konstruktorát, ezért törölni kell az eredeti hpbar-t és név feliratot
             player.Hpbar.Dispose();
             player.Name.Dispose();
         }
@@ -51,17 +52,15 @@ namespace Cowboy.Classes
             {
                 GameForm.Shoot(this);
                 Random rnd = new Random();
-                bool randomBool = rnd.Next(2)==1;
+                int randomMovement = rnd.Next(3);
                 RandomMoveIteration++;
-                if (RandomMoveIteration == 50)
+                if (RandomMoveIteration == 40)
                 {
-                    if (randomBool)
-                    {
-                        Up();
-                    }
-                    else
-                    {
-                        Down();
+                    switch (randomMovement)
+                    { 
+                        case 0: Up(); break;
+                        case 1: Down(); break;
+                        case 2: Stop(); break;
                     }
                     RandomMoveIteration = 0;
                 }
@@ -78,6 +77,11 @@ namespace Cowboy.Classes
         {
             MoveUp = false;
             MoveDown = true;
+        }
+        private void Stop()
+        {
+            MoveUp = false;
+            MoveDown = false;
         }
     }
 }

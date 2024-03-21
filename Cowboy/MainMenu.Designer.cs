@@ -34,8 +34,8 @@
             numericUpDown2 = new NumericUpDown();
             checkBox1 = new CheckBox();
             checkBox2 = new CheckBox();
-            button1 = new Button();
-            button2 = new Button();
+            btn_Start = new Button();
+            btn_AdvancedSettings = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
@@ -87,6 +87,7 @@
             checkBox1.TabIndex = 3;
             checkBox1.Text = "FullScreen";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // checkBox2
             // 
@@ -98,33 +99,33 @@
             checkBox2.Text = "Bullet Collision";
             checkBox2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_Start
             // 
-            button1.Location = new Point(12, 118);
-            button1.Name = "button1";
-            button1.Size = new Size(254, 23);
-            button1.TabIndex = 6;
-            button1.Text = "Start";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_Start.Location = new Point(12, 118);
+            btn_Start.Name = "btn_Start";
+            btn_Start.Size = new Size(254, 23);
+            btn_Start.TabIndex = 6;
+            btn_Start.Text = "Start";
+            btn_Start.UseVisualStyleBackColor = true;
+            btn_Start.Click += btn_Start_Click;
             // 
-            // button2
+            // btn_AdvancedSettings
             // 
-            button2.Location = new Point(12, 89);
-            button2.Name = "button2";
-            button2.Size = new Size(254, 23);
-            button2.TabIndex = 5;
-            button2.Text = "Adavanced Settings";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btn_AdvancedSettings.Location = new Point(12, 89);
+            btn_AdvancedSettings.Name = "btn_AdvancedSettings";
+            btn_AdvancedSettings.Size = new Size(254, 23);
+            btn_AdvancedSettings.TabIndex = 5;
+            btn_AdvancedSettings.Text = "Adavanced Settings";
+            btn_AdvancedSettings.UseVisualStyleBackColor = true;
+            btn_AdvancedSettings.Click += button2_Click;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(278, 153);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btn_AdvancedSettings);
+            Controls.Add(btn_Start);
             Controls.Add(checkBox2);
             Controls.Add(checkBox1);
             Controls.Add(numericUpDown2);
@@ -149,7 +150,7 @@
         private NumericUpDown numericUpDown2;
         private CheckBox checkBox1;
         private CheckBox checkBox2;
-        private Button button1;
-        private Button button2;
+        private Button btn_Start;
+        private Button btn_AdvancedSettings;
     }
 }

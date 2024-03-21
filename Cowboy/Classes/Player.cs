@@ -12,8 +12,6 @@ namespace Cowboy.Classes
 
         private Point WeaponOffSet;
 
-        //move\\
-
         /// <summary>
         /// MOVES the player UP in every UPDATE
         /// </summary>

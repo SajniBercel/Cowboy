@@ -186,7 +186,6 @@ namespace Cowboy
                     }
                 }
 
-                //bullet hit TODO (az a terv hogy osztály lesz csak létrehozva és akkor nem lesz minden update-nél comp)
                 if (gameSettings.BulletCollision)
                 {
                     for (int j = 0; j < GameComponents[1].Count; j++)
@@ -199,7 +198,7 @@ namespace Cowboy
                                 Create.pictureBox("explo", new Size(40, 40), new Point(0, 0), Properties.Resources.explo), 
                                 bullet, tempBullet, 10);
 
-                            GameComponents[2].Add((GameComponent)explo);
+                            GameComponents[2].Add(explo);
                             Controls.Add(explo.pictureBox);
 
                             bullet.pictureBox.Dispose();
@@ -208,8 +207,6 @@ namespace Cowboy
                             GameComponents[1].Remove(bullet);
                             GameComponents[1].Remove(tempBullet);
 
-                            //GC.Collect(); // valamit ezzel kezdeni kell
-                            //TODO osztály dolog megint mint feljebb
                             GC_count++;
                         }
                     }
@@ -229,7 +226,7 @@ namespace Cowboy
             }
 
             // memoria használat csökkentés
-            if (GC_count > 15)
+            if (GC_count > 10)
             {
                 GC.Collect();
                 GC_count = 0;
