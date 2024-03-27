@@ -78,7 +78,7 @@
             button3.Location = new Point(123, 73);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
-            button3.TabIndex = 4;
+            button3.TabIndex = 3;
             button3.UseVisualStyleBackColor = true;
             button3.Click += Set_Input;
             button3.KeyDown += Key_Down;
@@ -88,7 +88,7 @@
             button2.Location = new Point(123, 44);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
-            button2.TabIndex = 3;
+            button2.TabIndex = 2;
             button2.UseVisualStyleBackColor = true;
             button2.Click += Set_Input;
             button2.KeyDown += Key_Down;
@@ -132,7 +132,7 @@
             groupBox2.Location = new Point(222, 12);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(204, 108);
-            groupBox2.TabIndex = 6;
+            groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
             // 
@@ -150,7 +150,7 @@
             button4.Location = new Point(123, 15);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
-            button4.TabIndex = 4;
+            button4.TabIndex = 1;
             button4.UseVisualStyleBackColor = true;
             button4.Click += Set_Input;
             button4.KeyDown += Key_Down;
@@ -160,7 +160,7 @@
             button5.Location = new Point(123, 44);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
-            button5.TabIndex = 3;
+            button5.TabIndex = 2;
             button5.UseVisualStyleBackColor = true;
             button5.Click += Set_Input;
             button5.KeyDown += Key_Down;
@@ -179,7 +179,7 @@
             button6.Location = new Point(123, 73);
             button6.Name = "button6";
             button6.Size = new Size(75, 23);
-            button6.TabIndex = 1;
+            button6.TabIndex = 3;
             button6.UseVisualStyleBackColor = true;
             button6.Click += Set_Input;
             button6.KeyDown += Key_Down;
@@ -198,7 +198,7 @@
             button7.Location = new Point(179, 126);
             button7.Name = "button7";
             button7.Size = new Size(75, 23);
-            button7.TabIndex = 7;
+            button7.TabIndex = 3;
             button7.Text = "Mentés";
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
@@ -208,7 +208,7 @@
             button8.Location = new Point(179, 155);
             button8.Name = "button8";
             button8.Size = new Size(75, 23);
-            button8.TabIndex = 8;
+            button8.TabIndex = 4;
             button8.Text = "Reset";
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
@@ -218,7 +218,7 @@
             button9.Location = new Point(179, 184);
             button9.Name = "button9";
             button9.Size = new Size(75, 23);
-            button9.TabIndex = 9;
+            button9.TabIndex = 5;
             button9.Text = "Vissza";
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;

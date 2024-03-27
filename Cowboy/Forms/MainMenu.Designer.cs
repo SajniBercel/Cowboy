@@ -32,8 +32,8 @@
             label2 = new Label();
             numericUpDown1 = new NumericUpDown();
             numericUpDown2 = new NumericUpDown();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
+            chb_FullScreen = new CheckBox();
+            chb_BulletCollision = new CheckBox();
             btn_Start = new Button();
             btn_AdvancedSettings = new Button();
             btn_InputSettings = new Button();
@@ -79,33 +79,33 @@
             numericUpDown2.TabIndex = 2;
             numericUpDown2.Value = new decimal(new int[] { 600, 0, 0, 0 });
             // 
-            // checkBox1
+            // chb_FullScreen
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(12, 65);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(80, 19);
-            checkBox1.TabIndex = 3;
-            checkBox1.Text = "FullScreen";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            chb_FullScreen.AutoSize = true;
+            chb_FullScreen.Location = new Point(12, 65);
+            chb_FullScreen.Name = "chb_FullScreen";
+            chb_FullScreen.Size = new Size(80, 19);
+            chb_FullScreen.TabIndex = 3;
+            chb_FullScreen.Text = "FullScreen";
+            chb_FullScreen.UseVisualStyleBackColor = true;
+            chb_FullScreen.CheckedChanged += checkBox1_CheckedChanged;
             // 
-            // checkBox2
+            // chb_BulletCollision
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(98, 65);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(105, 19);
-            checkBox2.TabIndex = 4;
-            checkBox2.Text = "Bullet Collision";
-            checkBox2.UseVisualStyleBackColor = true;
+            chb_BulletCollision.AutoSize = true;
+            chb_BulletCollision.Location = new Point(98, 65);
+            chb_BulletCollision.Name = "chb_BulletCollision";
+            chb_BulletCollision.Size = new Size(105, 19);
+            chb_BulletCollision.TabIndex = 4;
+            chb_BulletCollision.Text = "Bullet Collision";
+            chb_BulletCollision.UseVisualStyleBackColor = true;
             // 
             // btn_Start
             // 
             btn_Start.Location = new Point(12, 147);
             btn_Start.Name = "btn_Start";
             btn_Start.Size = new Size(254, 23);
-            btn_Start.TabIndex = 6;
+            btn_Start.TabIndex = 7;
             btn_Start.Text = "Start";
             btn_Start.UseVisualStyleBackColor = true;
             btn_Start.Click += btn_Start_Click;
@@ -116,7 +116,7 @@
             btn_AdvancedSettings.Name = "btn_AdvancedSettings";
             btn_AdvancedSettings.Size = new Size(254, 23);
             btn_AdvancedSettings.TabIndex = 5;
-            btn_AdvancedSettings.Text = "Adavanced Settings";
+            btn_AdvancedSettings.Text = "Advanced Settings";
             btn_AdvancedSettings.UseVisualStyleBackColor = true;
             btn_AdvancedSettings.Click += btn_Advnaced_Click;
             // 
@@ -125,7 +125,7 @@
             btn_InputSettings.Location = new Point(12, 118);
             btn_InputSettings.Name = "btn_InputSettings";
             btn_InputSettings.Size = new Size(254, 23);
-            btn_InputSettings.TabIndex = 7;
+            btn_InputSettings.TabIndex = 6;
             btn_InputSettings.Text = "Input Settings";
             btn_InputSettings.UseVisualStyleBackColor = true;
             btn_InputSettings.Click += btn_InputSettings_Click;
@@ -138,8 +138,8 @@
             Controls.Add(btn_InputSettings);
             Controls.Add(btn_AdvancedSettings);
             Controls.Add(btn_Start);
-            Controls.Add(checkBox2);
-            Controls.Add(checkBox1);
+            Controls.Add(chb_BulletCollision);
+            Controls.Add(chb_FullScreen);
             Controls.Add(numericUpDown2);
             Controls.Add(numericUpDown1);
             Controls.Add(label2);
@@ -160,8 +160,8 @@
         private Label label2;
         private NumericUpDown numericUpDown1;
         private NumericUpDown numericUpDown2;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
+        private CheckBox chb_FullScreen;
+        private CheckBox chb_BulletCollision;
         private Button btn_Start;
         private Button btn_AdvancedSettings;
         private Button btn_InputSettings;

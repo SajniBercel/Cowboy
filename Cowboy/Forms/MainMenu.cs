@@ -1,5 +1,6 @@
 ﻿using Cowboy.Forms;
 using Cowboy.Settings;
+using System.Diagnostics;
 
 namespace Cowboy
 {
@@ -14,10 +15,22 @@ namespace Cowboy
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ShowIcon = false;
+
+
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            // player setting alapbeállítások
+            playerSettings = new PlayerSetting[2];
+            playerSettings[0] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player1");
+            playerSettings[1] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player2");
+
+            // input setting alapbeállítások
+            inputSettings = new InputSetting[2];
+            inputSettings[0] = new InputSetting(Keys.W, Keys.S, Keys.D);
+            inputSettings[1] = new InputSetting(Keys.NumPad8, Keys.NumPad5, Keys.NumPad4);
+
             playerClone = true;
         }
         private void btn_Start_Click(object sender, EventArgs e)
@@ -44,9 +57,10 @@ namespace Cowboy
 
         private GameSettings GetGameSettings()
         {
-            // ha nem lett semmi állítva akkor beállít egy default-ot
+            // ha nem valami hiba folytán null lenne valami akkor kap alap értékeket
             if (GetPlayerSettings() == null)
             {
+                Debug.WriteLine("hiba lépett fel a játékos beállítások belállításánal (null)");
                 this.playerSettings = new PlayerSetting[]
                 {
                     new PlayerSetting().SetDefaultValues().SetPlayerName("Player1"),
@@ -54,11 +68,21 @@ namespace Cowboy
                 };
             }
 
-            if (!checkBox1.Checked)
+            if (GetInputSettings() == null)
             {
-                return new GameSettings(playerSettings, new Size((int)numericUpDown1.Value, (int)numericUpDown2.Value), checkBox2.Checked);
+                Debug.WriteLine("hiba lépett fel a bemeneti billenytűk belállításánal (null)");
+                this.inputSettings = new InputSetting[]
+                {
+                    new InputSetting(Keys.W, Keys.S, Keys.D),
+                    new InputSetting(Keys.NumPad8, Keys.NumPad5, Keys.NumPad4)
+                };
             }
-            return new GameSettings(playerSettings, checkBox2.Checked);
+
+            if (!chb_FullScreen.Checked)
+            {
+                return new GameSettings(playerSettings, inputSettings, new Size((int)numericUpDown1.Value, (int)numericUpDown2.Value), chb_BulletCollision.Checked);
+            }
+            return new GameSettings(playerSettings, inputSettings, chb_BulletCollision.Checked);
         }
 
         // player settings
@@ -73,7 +97,7 @@ namespace Cowboy
 
         // input settings
         public void SetInputSettings(InputSetting[] inputSettings)
-        { 
+        {
             this.inputSettings = inputSettings;
         }
         public InputSetting[]? GetInputSettings()
@@ -83,8 +107,8 @@ namespace Cowboy
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            numericUpDown1.Enabled = !checkBox1.Checked;
-            numericUpDown2.Enabled = !checkBox1.Checked;
+            numericUpDown1.Enabled = !chb_FullScreen.Checked;
+            numericUpDown2.Enabled = !chb_FullScreen.Checked;
         }
 
         private void btn_Advnaced_Click(object sender, EventArgs e)

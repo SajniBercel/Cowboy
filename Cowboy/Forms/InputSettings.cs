@@ -1,4 +1,5 @@
 ﻿using Cowboy.Settings;
+using System.Diagnostics;
 
 namespace Cowboy.Forms
 {
@@ -8,6 +9,7 @@ namespace Cowboy.Forms
         private Dictionary<Button, Keys> AllButtons = new Dictionary<Button, Keys>();
         private InputSetting[] inputSettings;
         private bool WaitForInput;
+        private List<Button> ChangedKeys = new List<Button>();
 
         public InputSettings(MainMenu mainmenu)
         {
@@ -24,7 +26,7 @@ namespace Cowboy.Forms
         {
             LoadDefaultValues();
 
-            GenerateInputSettings();
+            inputSettings = GenerateInputSettings();
 
             LoadData(inputSettings);
         }
@@ -35,18 +37,20 @@ namespace Cowboy.Forms
             AllButtons.Add(button1, Keys.W);
             AllButtons.Add(button2, Keys.S);
             AllButtons.Add(button3, Keys.D);
-            AllButtons.Add(button4, Keys.Up);
-            AllButtons.Add(button5, Keys.Down);
-            AllButtons.Add(button6, Keys.Left);
+            AllButtons.Add(button4, Keys.NumPad8);
+            AllButtons.Add(button5, Keys.NumPad5);
+            AllButtons.Add(button6, Keys.NumPad4);
+
+            Coloring();
         }
 
         public void LoadData(InputSetting[]? inputsettings)
         {
             if (inputSettings == null)
             {
+                Debug.WriteLine("hiba lépett fel a játékos beállítások belállításánal (null)");
                 LoadDefaultValues();
-                GenerateInputSettings();
-                inputsettings = this.inputSettings;
+                inputSettings = GenerateInputSettings();
             }
 
             button1.Text = inputsettings[0].UpKey.ToString();
@@ -56,6 +60,10 @@ namespace Cowboy.Forms
             button4.Text = inputsettings[1].UpKey.ToString();
             button5.Text = inputsettings[1].DownKey.ToString();
             button6.Text = inputsettings[1].ShootKey.ToString();
+
+            groupBox1.Text = mainMenu.GetPlayerSettings()[0].PlayerName.ToString();
+            groupBox2.Text = mainMenu.GetPlayerSettings()[1].PlayerName.ToString();
+
         }
 
         private void Set_Input(object sender, EventArgs e)
@@ -72,6 +80,7 @@ namespace Cowboy.Forms
         }
         private void DisableButtons(Button button)
         {
+            this.Focus();
             for (int i = 0; i < AllButtons.Count; i++)
             {
                 AllButtons.ElementAt(i).Key.Enabled = AllButtons.Keys.ElementAt(i).Equals(button);
@@ -100,26 +109,36 @@ namespace Cowboy.Forms
 
         private void Coloring()
         {
-
             foreach (var item in AllButtons)
             {
                 int db = 0;
+                item.Key.ForeColor = Color.Black;
                 foreach (var item1 in AllButtons)
                 {
                     if (item.Value == item1.Value)
                         db++;
                 }
-                if(db>1)
+                if (db > 1)
                     item.Key.BackColor = Color.Red;
+                else 
+                    item.Key.BackColor = SystemColors.Control;
+            }
+
+            for (int i = 0; i < ChangedKeys.Count; i++)
+            {
+                ChangedKeys[i].ForeColor = Color.FromArgb(0,150,100);
             }
         }
 
-        private void GenerateInputSettings()
+        private InputSetting[] GenerateInputSettings()
         {
-            inputSettings = new []{
+            InputSetting[] _inputSetting = new InputSetting[]
+            {
                 new InputSetting(AllButtons[button1], AllButtons[button2], AllButtons[button3]),
                 new InputSetting(AllButtons[button4], AllButtons[button5], AllButtons[button6])
             };
+
+            return _inputSetting;
         }
 
         private void Key_Down(object sender, KeyEventArgs e)
@@ -134,6 +153,8 @@ namespace Cowboy.Forms
                         button.Text = e.KeyCode.ToString();
                         AllButtons[button] = e.KeyCode;
 
+                        ChangedKeys.Add(button);
+
                         WaitForInput = false;
                         ActivateAllButtons();
                         Coloring();
@@ -144,12 +165,16 @@ namespace Cowboy.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
-            mainMenu.SetInputSettings(inputSettings);
+            inputSettings = GenerateInputSettings();
+            mainMenu.SetInputSettings(GenerateInputSettings());
+            ChangedKeys.Clear();
+            Coloring();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             LoadDefaultValues();
+            inputSettings = GenerateInputSettings();
             LoadData(this.inputSettings);
             ActivateAllButtons();
         }

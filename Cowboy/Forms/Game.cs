@@ -247,38 +247,27 @@ namespace Cowboy
             }
             if (e.KeyCode == Keys.Space)
             {
-                if (IsPaused)
-                {
-                    MainGameTimer.Start();
-                    this.Text = "Game";
-                    IsPaused = false;
-                }
-                else
-                {
-                    MainGameTimer.Stop();
-                    this.Text = "Paused";
-                    IsPaused = true;
-                }
+                Pause();
             }
 
             // left Player (player 1) input (down) management
-            if (e.KeyCode == Keys.W)
+            if (e.KeyCode == gameSettings.InputSettings[0].UpKey)
                 ((Player)GameComponents[0][0]).MoveUp = true;
-            else if (e.KeyCode == Keys.S)
+            else if (e.KeyCode == gameSettings.InputSettings[0].DownKey)
                 ((Player)GameComponents[0][0]).MoveDown = true;
             //shoot
-            else if (e.KeyCode == Keys.D)
+            if (e.KeyCode == gameSettings.InputSettings[0].ShootKey)
             {
                 Shoot((Player)GameComponents[0][0]);
             }
 
             // right Player (player 2) input (down) management
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == gameSettings.InputSettings[1].UpKey)
                 ((Player)GameComponents[0][1]).MoveUp = true;
-            else if (e.KeyCode == Keys.Down)
+            else if (e.KeyCode == gameSettings.InputSettings[1].DownKey)
                 ((Player)GameComponents[0][1]).MoveDown = true;
             //shoot
-            else if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == gameSettings.InputSettings[1].ShootKey)
             {
                 Shoot((Player)GameComponents[0][1]);
             }
@@ -301,15 +290,15 @@ namespace Cowboy
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             // left player (player 1) input (up) management
-            if (e.KeyCode == Keys.W)
+            if (e.KeyCode == gameSettings.InputSettings[0].UpKey)
                 player1.MoveUp = false;
-            else if (e.KeyCode == Keys.S)
+            else if (e.KeyCode == gameSettings.InputSettings[0].DownKey)
                 player1.MoveDown = false;
 
             // rigth player (player 1) input (up) management
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == gameSettings.InputSettings[1].UpKey)
                 player2.MoveUp = false;
-            else if (e.KeyCode == Keys.Down)
+            else if (e.KeyCode == gameSettings.InputSettings[1].DownKey)
                 player2.MoveDown = false;
         }
 
@@ -329,7 +318,23 @@ namespace Cowboy
             }
             return new Point(0, 0);
         }
-        
+
+        private void Pause()
+        {
+            if (IsPaused)
+            {
+                MainGameTimer.Start();
+                this.Text = "Game";
+                IsPaused = false;
+            }
+            else
+            {
+                MainGameTimer.Stop();
+                this.Text = "Paused";
+                IsPaused = true;
+            }
+        }
+
         private void WinCheck()
         {
             for (int i = 0; i < GameComponents[0].Count; i++)
@@ -340,12 +345,12 @@ namespace Cowboy
 
                     if (i == 0)
                     {
-                        MessageBox.Show("Jobb oldali játékos nyert");
+                        MessageBox.Show(gameSettings.PlayerSettings[1].PlayerName + " nyert");
                         // todo
                     }
                     else
                     {
-                        MessageBox.Show("Bal oldali játékos nyert");
+                        MessageBox.Show(gameSettings.PlayerSettings[0].PlayerName + " nyert");
                         // todo
                     }
                     Reset();

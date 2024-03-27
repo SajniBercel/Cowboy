@@ -3,7 +3,7 @@
     public class GameSettings
     {
         public PlayerSetting[] PlayerSettings { get; set; }
-        public InputSetting[] inputSettings { get; set; }
+        public InputSetting[] InputSettings { get; set; }
         public Size WindowSize { get; set; }
         public bool BulletCollision { get; set; }
 
@@ -13,16 +13,18 @@
         /// <param name="playerSettings">(2) játékos beállításai</param>
         /// <param name="windowSize">Ablak mérete</param>
         /// <param name="bulletCollision">Van-e ütközés a töltények között</param>
-        public GameSettings(PlayerSetting[] playerSettings, Size windowSize, bool bulletCollision)
+        public GameSettings(PlayerSetting[] playerSettings, InputSetting[] inputSettings, Size windowSize, bool bulletCollision)
         {
             PlayerSettings = playerSettings;
+            InputSettings = inputSettings;
             WindowSize = windowSize;
             BulletCollision = bulletCollision;
 
         }
-        public GameSettings(PlayerSetting[] playerSettings, bool bulletCollision)
+        public GameSettings(PlayerSetting[] playerSettings, InputSetting[] inputSettings , bool bulletCollision)
         {
             PlayerSettings = playerSettings;
+            InputSettings = inputSettings;
             BulletCollision = bulletCollision;
         }
 
@@ -39,6 +41,11 @@
             PlayerSettings = new PlayerSetting[2];
             PlayerSettings[0] = new PlayerSetting().SetDefaultValues();
             PlayerSettings[1] = new PlayerSetting().SetDefaultValues();
+            return this;
+        }
+        public GameSettings SetInputSettings(InputSetting[] inputSettings)
+        {
+            InputSettings = inputSettings;
             return this;
         }
     }
