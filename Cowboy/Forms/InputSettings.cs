@@ -37,9 +37,9 @@ namespace Cowboy.Forms
             AllButtons.Add(button1, Keys.W);
             AllButtons.Add(button2, Keys.S);
             AllButtons.Add(button3, Keys.D);
-            AllButtons.Add(button4, Keys.NumPad8);
-            AllButtons.Add(button5, Keys.NumPad5);
-            AllButtons.Add(button6, Keys.NumPad4);
+            AllButtons.Add(button4, Keys.Up);
+            AllButtons.Add(button5, Keys.Down);
+            AllButtons.Add(button6, Keys.Left);
 
             Coloring();
         }
@@ -120,13 +120,13 @@ namespace Cowboy.Forms
                 }
                 if (db > 1)
                     item.Key.BackColor = Color.Red;
-                else 
+                else
                     item.Key.BackColor = SystemColors.Control;
             }
 
             for (int i = 0; i < ChangedKeys.Count; i++)
             {
-                ChangedKeys[i].ForeColor = Color.FromArgb(0,150,100);
+                ChangedKeys[i].ForeColor = Color.FromArgb(0, 150, 100);
             }
         }
 
@@ -163,7 +163,7 @@ namespace Cowboy.Forms
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
             inputSettings = GenerateInputSettings();
             mainMenu.SetInputSettings(GenerateInputSettings());
@@ -171,7 +171,7 @@ namespace Cowboy.Forms
             Coloring();
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Reset_Click(object sender, EventArgs e)
         {
             LoadDefaultValues();
             inputSettings = GenerateInputSettings();
@@ -179,9 +179,28 @@ namespace Cowboy.Forms
             ActivateAllButtons();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Preview_KeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (WaitForInput)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Up:
+                    case Keys.Down:
+                    case Keys.Left:
+                    case Keys.Right:
+                    case Keys.Tab:
+                        e.IsInputKey = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

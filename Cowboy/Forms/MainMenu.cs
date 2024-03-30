@@ -1,4 +1,5 @@
-﻿using Cowboy.Forms;
+﻿using Cowboy.Classes;
+using Cowboy.Forms;
 using Cowboy.Settings;
 using System.Diagnostics;
 
@@ -6,9 +7,11 @@ namespace Cowboy
 {
     public partial class MainMenu : Form
     {
-        private PlayerSetting[] playerSettings;
-        private InputSetting[] inputSettings;
+        private PlayerSetting[]? playerSettings;
+        private InputSetting[]? inputSettings;
         private bool playerClone;
+        
+        
         public MainMenu()
         {
             InitializeComponent();
@@ -16,20 +19,29 @@ namespace Cowboy
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ShowIcon = false;
 
-
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            playerSettings = FileManager.Instance.ReadPlayerSettingsFromFile();
+            inputSettings = FileManager.Instance.ReadInputSettingsFromFile();
+
             // player setting alapbeállítások
-            playerSettings = new PlayerSetting[2];
-            playerSettings[0] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player1");
-            playerSettings[1] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player2");
+            if (inputSettings == null)
+            {
+                MessageBox.Show("baj");
+                playerSettings = new PlayerSetting[2];
+                playerSettings[0] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player1");
+                playerSettings[1] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player2");
+            }
 
             // input setting alapbeállítások
-            inputSettings = new InputSetting[2];
-            inputSettings[0] = new InputSetting(Keys.W, Keys.S, Keys.D);
-            inputSettings[1] = new InputSetting(Keys.NumPad8, Keys.NumPad5, Keys.NumPad4);
+            if (inputSettings == null)
+            {
+                inputSettings = new InputSetting[2];
+                inputSettings[0] = new InputSetting(Keys.W, Keys.S, Keys.D);
+                inputSettings[1] = new InputSetting(Keys.NumPad8, Keys.NumPad5, Keys.NumPad4);
+            }
 
             playerClone = true;
         }
@@ -74,7 +86,7 @@ namespace Cowboy
                 this.inputSettings = new InputSetting[]
                 {
                     new InputSetting(Keys.W, Keys.S, Keys.D),
-                    new InputSetting(Keys.NumPad8, Keys.NumPad5, Keys.NumPad4)
+                    new InputSetting(Keys.Up, Keys.Down, Keys.Left)
                 };
             }
 
@@ -89,6 +101,7 @@ namespace Cowboy
         public void SetPlayerSettings(PlayerSetting[] playerSettings)
         {
             this.playerSettings = playerSettings;
+            FileManager.Instance.SaveToFile(playerSettings);
         }
         public PlayerSetting[]? GetPlayerSettings()
         {
@@ -99,6 +112,7 @@ namespace Cowboy
         public void SetInputSettings(InputSetting[] inputSettings)
         {
             this.inputSettings = inputSettings;
+            FileManager.Instance.SaveToFile(inputSettings);
         }
         public InputSetting[]? GetInputSettings()
         {

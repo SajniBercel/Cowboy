@@ -42,9 +42,9 @@
             label5 = new Label();
             button6 = new Button();
             label6 = new Label();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
+            btn_Save = new Button();
+            btn_Reset = new Button();
+            btn_Back = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -82,6 +82,7 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += Set_Input;
             button3.KeyDown += Key_Down;
+            button3.PreviewKeyDown += Preview_KeyDown;
             // 
             // button2
             // 
@@ -92,6 +93,7 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += Set_Input;
             button2.KeyDown += Key_Down;
+            button2.PreviewKeyDown += Preview_KeyDown;
             // 
             // label2
             // 
@@ -111,6 +113,7 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += Set_Input;
             button1.KeyDown += Key_Down;
+            button1.PreviewKeyDown += Preview_KeyDown;
             // 
             // label1
             // 
@@ -154,6 +157,7 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += Set_Input;
             button4.KeyDown += Key_Down;
+            button4.PreviewKeyDown += Preview_KeyDown;
             // 
             // button5
             // 
@@ -164,6 +168,7 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += Set_Input;
             button5.KeyDown += Key_Down;
+            button5.PreviewKeyDown += Preview_KeyDown;
             // 
             // label5
             // 
@@ -183,6 +188,7 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += Set_Input;
             button6.KeyDown += Key_Down;
+            button6.PreviewKeyDown += Preview_KeyDown;
             // 
             // label6
             // 
@@ -193,44 +199,44 @@
             label6.TabIndex = 0;
             label6.Text = "Mozgás Fel";
             // 
-            // button7
+            // btn_Save
             // 
-            button7.Location = new Point(179, 126);
-            button7.Name = "button7";
-            button7.Size = new Size(75, 23);
-            button7.TabIndex = 3;
-            button7.Text = "Mentés";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            btn_Save.Location = new Point(179, 126);
+            btn_Save.Name = "btn_Save";
+            btn_Save.Size = new Size(75, 23);
+            btn_Save.TabIndex = 3;
+            btn_Save.Text = "Mentés";
+            btn_Save.UseVisualStyleBackColor = true;
+            btn_Save.Click += Save_Click;
             // 
-            // button8
+            // btn_Reset
             // 
-            button8.Location = new Point(179, 155);
-            button8.Name = "button8";
-            button8.Size = new Size(75, 23);
-            button8.TabIndex = 4;
-            button8.Text = "Reset";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
+            btn_Reset.Location = new Point(179, 155);
+            btn_Reset.Name = "btn_Reset";
+            btn_Reset.Size = new Size(75, 23);
+            btn_Reset.TabIndex = 4;
+            btn_Reset.Text = "Reset";
+            btn_Reset.UseVisualStyleBackColor = true;
+            btn_Reset.Click += Reset_Click;
             // 
-            // button9
+            // btn_Back
             // 
-            button9.Location = new Point(179, 184);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 5;
-            button9.Text = "Vissza";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += button9_Click;
+            btn_Back.Location = new Point(179, 184);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(75, 23);
+            btn_Back.TabIndex = 5;
+            btn_Back.Text = "Vissza";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += Back_Click;
             // 
             // InputSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 214);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
+            Controls.Add(btn_Back);
+            Controls.Add(btn_Reset);
+            Controls.Add(btn_Save);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "InputSettings";
@@ -259,8 +265,8 @@
         private Label label5;
         private Button button6;
         private Label label6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
+        private Button btn_Save;
+        private Button btn_Reset;
+        private Button btn_Back;
     }
 }

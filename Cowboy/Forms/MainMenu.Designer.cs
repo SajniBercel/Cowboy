@@ -37,14 +37,18 @@
             btn_Start = new Button();
             btn_AdvancedSettings = new Button();
             btn_InputSettings = new Button();
+            menuStrip1 = new MenuStrip();
+            fájlToolStripMenuItem = new ToolStripMenuItem();
+            beállításokToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 36);
             label1.Name = "label1";
             label1.Size = new Size(113, 15);
             label1.TabIndex = 0;
@@ -53,7 +57,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 38);
+            label2.Location = new Point(12, 65);
             label2.Name = "label2";
             label2.Size = new Size(117, 15);
             label2.TabIndex = 1;
@@ -61,7 +65,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(179, 7);
+            numericUpDown1.Location = new Point(179, 34);
             numericUpDown1.Maximum = new decimal(new int[] { 1900, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -71,7 +75,7 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(179, 36);
+            numericUpDown2.Location = new Point(179, 63);
             numericUpDown2.Maximum = new decimal(new int[] { 1900, 0, 0, 0 });
             numericUpDown2.Minimum = new decimal(new int[] { 200, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
@@ -82,7 +86,7 @@
             // chb_FullScreen
             // 
             chb_FullScreen.AutoSize = true;
-            chb_FullScreen.Location = new Point(12, 65);
+            chb_FullScreen.Location = new Point(12, 92);
             chb_FullScreen.Name = "chb_FullScreen";
             chb_FullScreen.Size = new Size(80, 19);
             chb_FullScreen.TabIndex = 3;
@@ -93,7 +97,7 @@
             // chb_BulletCollision
             // 
             chb_BulletCollision.AutoSize = true;
-            chb_BulletCollision.Location = new Point(98, 65);
+            chb_BulletCollision.Location = new Point(98, 92);
             chb_BulletCollision.Name = "chb_BulletCollision";
             chb_BulletCollision.Size = new Size(105, 19);
             chb_BulletCollision.TabIndex = 4;
@@ -102,7 +106,7 @@
             // 
             // btn_Start
             // 
-            btn_Start.Location = new Point(12, 147);
+            btn_Start.Location = new Point(12, 174);
             btn_Start.Name = "btn_Start";
             btn_Start.Size = new Size(254, 23);
             btn_Start.TabIndex = 7;
@@ -112,7 +116,7 @@
             // 
             // btn_AdvancedSettings
             // 
-            btn_AdvancedSettings.Location = new Point(12, 89);
+            btn_AdvancedSettings.Location = new Point(12, 116);
             btn_AdvancedSettings.Name = "btn_AdvancedSettings";
             btn_AdvancedSettings.Size = new Size(254, 23);
             btn_AdvancedSettings.TabIndex = 5;
@@ -122,7 +126,7 @@
             // 
             // btn_InputSettings
             // 
-            btn_InputSettings.Location = new Point(12, 118);
+            btn_InputSettings.Location = new Point(12, 145);
             btn_InputSettings.Name = "btn_InputSettings";
             btn_InputSettings.Size = new Size(254, 23);
             btn_InputSettings.TabIndex = 6;
@@ -130,11 +134,33 @@
             btn_InputSettings.UseVisualStyleBackColor = true;
             btn_InputSettings.Click += btn_InputSettings_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.BackColor = SystemColors.ControlLight;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fájlToolStripMenuItem, beállításokToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(278, 24);
+            menuStrip1.TabIndex = 8;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fájlToolStripMenuItem
+            // 
+            fájlToolStripMenuItem.Name = "fájlToolStripMenuItem";
+            fájlToolStripMenuItem.Size = new Size(37, 20);
+            fájlToolStripMenuItem.Text = "Fájl";
+            // 
+            // beállításokToolStripMenuItem
+            // 
+            beállításokToolStripMenuItem.Name = "beállításokToolStripMenuItem";
+            beállításokToolStripMenuItem.Size = new Size(75, 20);
+            beállításokToolStripMenuItem.Text = "Beállítások";
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(278, 178);
+            ClientSize = new Size(278, 205);
             Controls.Add(btn_InputSettings);
             Controls.Add(btn_AdvancedSettings);
             Controls.Add(btn_Start);
@@ -144,12 +170,16 @@
             Controls.Add(numericUpDown1);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             MinimumSize = new Size(294, 192);
             Name = "MainMenu";
             Text = "MainMenu";
             Load += MainMenu_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,5 +195,8 @@
         private Button btn_Start;
         private Button btn_AdvancedSettings;
         private Button btn_InputSettings;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fájlToolStripMenuItem;
+        private ToolStripMenuItem beállításokToolStripMenuItem;
     }
 }

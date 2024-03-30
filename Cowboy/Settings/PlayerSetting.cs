@@ -10,6 +10,16 @@
         public int ReloadSpeed { get; set; }
         public bool Bot { get; set; }
 
+        /// <summary>
+        /// Tárolja a játékos beállításait
+        /// </summary>
+        /// <param name="playerName"></param>
+        /// <param name="playerSpeed"></param>
+        /// <param name="playerHP"></param>
+        /// <param name="bulletSpeed"></param>
+        /// <param name="bulletDamage"></param>
+        /// <param name="reloadSpeed"></param>
+        /// <param name="bot"></param>
         public PlayerSetting(string playerName ,int playerSpeed, int playerHP, int bulletSpeed, int bulletDamage, int reloadSpeed, bool bot)
         {
             PlayerName = playerName;
@@ -55,6 +65,11 @@
         {
             PlayerName = name;
             return this;
+        }
+
+        public string FileFormat()
+        {
+            return $"{PlayerName};{PlayerSpeed};{PlayerHP};{BulletSpeed};{BulletDamage};{ReloadSpeed};{Bot}";
         }
     }
 }
