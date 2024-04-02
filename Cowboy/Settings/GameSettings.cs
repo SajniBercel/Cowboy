@@ -38,14 +38,15 @@
         {
             BulletCollision = false;
             WindowSize = new Size(600, 600);
+
             PlayerSettings = new PlayerSetting[2];
             PlayerSettings[0] = new PlayerSetting().SetDefaultValues();
             PlayerSettings[1] = new PlayerSetting().SetDefaultValues();
-            return this;
-        }
-        public GameSettings SetInputSettings(InputSetting[] inputSettings)
-        {
-            InputSettings = inputSettings;
+
+            InputSettings = new InputSetting[2];
+            InputSettings[0] = new InputSetting(Keys.W, Keys.S, Keys.D);
+            InputSettings[0] = new InputSetting(Keys.Up, Keys.Down, Keys.Left);
+
             return this;
         }
     }

@@ -61,8 +61,8 @@ namespace Cowboy.Forms
             button5.Text = inputsettings[1].DownKey.ToString();
             button6.Text = inputsettings[1].ShootKey.ToString();
 
-            groupBox1.Text = mainMenu.GetPlayerSettings()[0].PlayerName.ToString();
-            groupBox2.Text = mainMenu.GetPlayerSettings()[1].PlayerName.ToString();
+            groupBox1.Text = mainMenu.GetGameSettings().PlayerSettings[0].PlayerName.ToString();
+            groupBox2.Text = mainMenu.GetGameSettings().PlayerSettings[1].PlayerName.ToString();
 
         }
 

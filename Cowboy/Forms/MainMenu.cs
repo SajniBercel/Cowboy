@@ -1,6 +1,6 @@
-﻿using Cowboy.Classes;
-using Cowboy.Forms;
+﻿using Cowboy.Forms;
 using Cowboy.Settings;
+using Cowboy.Utilities;
 using System.Diagnostics;
 
 namespace Cowboy
@@ -23,6 +23,9 @@ namespace Cowboy
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            DbManager asd = DbManager.Instance;
+            asd.Save();
+
             playerSettings = FileManager.Instance.ReadPlayerSettingsFromFile();
             inputSettings = FileManager.Instance.ReadInputSettingsFromFile();
 
@@ -67,7 +70,7 @@ namespace Cowboy
             return playerClone;
         }
 
-        private GameSettings GetGameSettings()
+        public GameSettings GetGameSettings()
         {
             // ha nem valami hiba folytán null lenne valami akkor kap alap értékeket
             if (GetPlayerSettings() == null)

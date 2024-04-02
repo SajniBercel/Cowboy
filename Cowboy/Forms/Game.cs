@@ -1,6 +1,7 @@
 ﻿using Cowboy.Classes;
 using Cowboy.Interfaces;
 using Cowboy.Settings;
+using Cowboy.Utilities;
 
 namespace Cowboy
 {
@@ -63,14 +64,13 @@ namespace Cowboy
             this.mainMenu = mainMenu;
         }
 
-        private Player player1;
-        private Player player2;
-
         /// <summary>
         /// A konstruktorban átvett beállítások alapján elvégzi a szükséges beállítások / felépíti az alap komponenseket
         /// </summary>
         public void Setup()
         {
+            Player player1;
+            Player player2;
             //window size
             if (gameSettings.WindowSize.Width < 10 && gameSettings.WindowSize.Height < 10)
             {
@@ -291,15 +291,15 @@ namespace Cowboy
         {
             // left player (player 1) input (up) management
             if (e.KeyCode == gameSettings.InputSettings[0].UpKey)
-                player1.MoveUp = false;
+                ((Player)GameComponents[0][0]).MoveUp = false;
             else if (e.KeyCode == gameSettings.InputSettings[0].DownKey)
-                player1.MoveDown = false;
+                ((Player)GameComponents[0][0]).MoveDown = false;
 
-            // rigth player (player 1) input (up) management
+            // rigth player (player 2) input (up) management
             if (e.KeyCode == gameSettings.InputSettings[1].UpKey)
-                player2.MoveUp = false;
+                ((Player)GameComponents[0][1]).MoveUp = false;
             else if (e.KeyCode == gameSettings.InputSettings[1].DownKey)
-                player2.MoveDown = false;
+                ((Player)GameComponents[0][1]).MoveDown = false;
         }
 
         private Point GetPlayerStartPos(Player player, string side)

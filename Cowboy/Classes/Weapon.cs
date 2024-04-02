@@ -1,4 +1,5 @@
-﻿using Timer = System.Windows.Forms.Timer;
+﻿using Cowboy.Utilities;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Cowboy.Classes
 {

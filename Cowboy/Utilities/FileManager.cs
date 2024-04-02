@@ -1,15 +1,15 @@
 ﻿using Cowboy.Settings;
 
-namespace Cowboy.Classes
+namespace Cowboy.Utilities
 {
     public class FileManager
     {
         private static readonly FileManager instance = new FileManager();
         public static FileManager Instance { get { return instance; } }
-        
+
 
         private string Folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Cowboy";
-        
+
         private string InputSettingsPath;
         private string PlayerSettingsPath;
 
@@ -79,7 +79,18 @@ namespace Cowboy.Classes
             {
                 using (StreamReader sr = new StreamReader(InputSettingsPath))
                 {
-                    string[] lines = sr.ReadToEnd().Split("\n");
+                    string[] lines = new string[2];
+                    int index = 0;
+                    while (!sr.EndOfStream)
+                    { 
+                        string line = sr.ReadLine();
+                        if (line != null && line.Length>1)
+                        {
+                            lines[index] = line;
+                            index++;
+                        }
+                    }
+
                     string[] parts1;
                     string[] parts2;
                     if (lines.Length == 2)
@@ -140,7 +151,7 @@ namespace Cowboy.Classes
                     {
                         new PlayerSetting(
                             parts1[0],
-                            int.Parse(parts1[1]), 
+                            int.Parse(parts1[1]),
                             int.Parse(parts1[2]),
                             int.Parse(parts1[3]),
                             int.Parse(parts1[4]),

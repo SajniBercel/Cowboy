@@ -1,4 +1,4 @@
-﻿namespace Cowboy.Classes
+﻿namespace Cowboy.Utilities
 {
     public class Create
     {
@@ -56,7 +56,7 @@
         /// <param name="text">Felirat</param>
         /// <param name="location">Hely</param>
         /// <returns></returns>
-        public static Label label(string name, string text ,Point location)
+        public static Label label(string name, string text, Point location)
         {
             Label label = new Label
             {

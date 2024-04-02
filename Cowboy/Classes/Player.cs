@@ -1,5 +1,6 @@
 ﻿using Cowboy.Interfaces;
 using Cowboy.Settings;
+using Cowboy.Utilities;
 
 namespace Cowboy.Classes
 {
