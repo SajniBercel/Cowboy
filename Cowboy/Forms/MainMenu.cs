@@ -23,9 +23,6 @@ namespace Cowboy
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            DbManager asd = DbManager.Instance;
-            asd.Save();
-
             playerSettings = FileManager.Instance.ReadPlayerSettingsFromFile();
             inputSettings = FileManager.Instance.ReadInputSettingsFromFile();
 
