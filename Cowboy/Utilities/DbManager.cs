@@ -12,7 +12,7 @@ namespace Cowboy.Utilities
         private MySqlConnection MyConnection;
         private DbManager() 
         {
-            Open("localhost", "root", "", "Cowboy");
+            Open("localhost", "root", "", "cowboy");
         }
 
         private void Open(string server, string user, string password, string db)
@@ -30,19 +30,25 @@ namespace Cowboy.Utilities
                 if (ex.ErrorCode == MySqlErrorCode.UnknownDatabase)
                 {
                     MySqlConnection tempconn = new MySqlConnection($"server={server};uid={user};pwd={password};");
-                    MySqlCommand command = new MySqlCommand("CREATE DATABASE IF NOT EXISTS cowboy;", tempconn);
+                    MySqlCommand command = new MySqlCommand($"CREATE DATABASE IF NOT EXISTS {db};", tempconn);
                     tempconn.Open();
                     command.ExecuteNonQuery();
 
-                    command = new MySqlCommand("");
+                    command = new MySqlCommand($"USE {db} CREATE TABLE IF NOT EXISTS rounds (" +
+                        "player1_name varchar(20), player2_name varchar(20), game_time float" +
+                        ")",
+                        tempconn);
+                    command.ExecuteNonQuery();
+
                     tempconn.Close();
 
-
+                    Open(server, user, password, db);
                     connected = true;
                 }
                 if (ex.ErrorCode == MySqlErrorCode.UnableToConnectToHost)
                 {
-                    MessageBox.Show("Sikertelen adatbázis kapcsolat, (ellenörízze a szolgáltatást, minden müködni fog de nem fog adatbázisba menteni)");
+                    MessageBox.Show("Sikertelen adatbázis kapcsolat, ellenörízze a szolgáltatást\n" +
+                        "(minden müködni fog de nem fog adatbázisba menteni, fájlba történik a mentés és legközelebbi sikeres kapcsolatkor átíródik az adatbázisba)");
                 }
             }
         }
