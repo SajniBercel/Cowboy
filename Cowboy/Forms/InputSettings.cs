@@ -24,11 +24,7 @@ namespace Cowboy.Forms
 
         private void InputSettings_Load(object sender, EventArgs e)
         {
-            LoadDefaultValues();
 
-            inputSettings = GenerateInputSettings();
-
-            LoadData(inputSettings);
         }
 
         private void LoadDefaultValues()
@@ -44,7 +40,7 @@ namespace Cowboy.Forms
             Coloring();
         }
 
-        public void LoadData(InputSetting[]? inputsettings)
+        public void LoadData(InputSetting[]? _inputsettings)
         {
             if (inputSettings == null)
             {
@@ -53,13 +49,13 @@ namespace Cowboy.Forms
                 inputSettings = GenerateInputSettings();
             }
 
-            button1.Text = inputsettings[0].UpKey.ToString();
-            button2.Text = inputsettings[0].DownKey.ToString();
-            button3.Text = inputsettings[0].ShootKey.ToString();
+            button1.Text = _inputsettings[0].UpKey.ToString();
+            button2.Text = _inputsettings[0].DownKey.ToString();
+            button3.Text = _inputsettings[0].ShootKey.ToString();
 
-            button4.Text = inputsettings[1].UpKey.ToString();
-            button5.Text = inputsettings[1].DownKey.ToString();
-            button6.Text = inputsettings[1].ShootKey.ToString();
+            button4.Text = _inputsettings[1].UpKey.ToString();
+            button5.Text = _inputsettings[1].DownKey.ToString();
+            button6.Text = _inputsettings[1].ShootKey.ToString();
 
             groupBox1.Text = mainMenu.GetGameSettings().PlayerSettings[0].PlayerName.ToString();
             groupBox2.Text = mainMenu.GetGameSettings().PlayerSettings[1].PlayerName.ToString();

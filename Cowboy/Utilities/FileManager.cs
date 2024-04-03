@@ -44,9 +44,8 @@ namespace Cowboy.Utilities
 
             using (StreamWriter sw = new StreamWriter(InputSettingsPath))
             {
-
                 sw.WriteLine($"{inputSettings[0].UpKey};{inputSettings[0].DownKey};{inputSettings[0].ShootKey}");
-                sw.WriteLine($"{inputSettings[1].UpKey};{inputSettings[0].DownKey};{inputSettings[0].ShootKey}");
+                sw.WriteLine($"{inputSettings[1].UpKey};{inputSettings[1].DownKey};{inputSettings[1].ShootKey}");
                 sw.Close();
             }
         }
@@ -93,7 +92,7 @@ namespace Cowboy.Utilities
 
                     string[] parts1;
                     string[] parts2;
-                    if (lines.Length == 2)
+                    if (lines.Length == 2 && lines[0] != null && lines[1] != null)
                     {
                         parts1 = lines[0].Split(";");
                         parts2 = lines[1].Split(";");
@@ -135,7 +134,7 @@ namespace Cowboy.Utilities
                     string[] lines = data.Split("\r\n");
                     string[] parts1;
                     string[] parts2;
-                    if (lines.Length == 2)
+                    if (lines.Length == 2 && lines[0] != null && lines[1] != null)
                     {
                         parts1 = lines[0].Split(";");
                         parts2 = lines[1].Split(";");

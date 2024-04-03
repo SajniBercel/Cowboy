@@ -30,9 +30,8 @@ namespace Cowboy
             inputSettings = FileManager.Instance.ReadInputSettingsFromFile();
 
             // player setting alapbeállítások
-            if (inputSettings == null)
+            if (playerSettings == null)
             {
-                MessageBox.Show("baj");
                 playerSettings = new PlayerSetting[2];
                 playerSettings[0] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player1");
                 playerSettings[1] = new PlayerSetting().SetDefaultValues().SetPlayerName("Player2");
@@ -43,7 +42,7 @@ namespace Cowboy
             {
                 inputSettings = new InputSetting[2];
                 inputSettings[0] = new InputSetting(Keys.W, Keys.S, Keys.D);
-                inputSettings[1] = new InputSetting(Keys.NumPad8, Keys.NumPad5, Keys.NumPad4);
+                inputSettings[1] = new InputSetting(Keys.Up, Keys.Down, Keys.Left);
             }
 
             playerClone = true;
