@@ -44,7 +44,7 @@ namespace Cowboy.Forms
         {
             if (inputSettings == null)
             {
-                Debug.WriteLine("hiba lépett fel a játékos beállítások belállításánal (null)");
+                Debug.WriteLine("hiba lépett fel a játékos input beállítások belállításánal (null)");
                 LoadDefaultValues();
                 inputSettings = GenerateInputSettings();
             }
@@ -57,9 +57,18 @@ namespace Cowboy.Forms
             button5.Text = _inputsettings[1].DownKey.ToString();
             button6.Text = _inputsettings[1].ShootKey.ToString();
 
+            AllButtons.Clear();
+            AllButtons.Add(button1, _inputsettings[0].UpKey);
+            AllButtons.Add(button2, _inputsettings[0].DownKey);
+            AllButtons.Add(button3, _inputsettings[0].ShootKey);
+            AllButtons.Add(button4, _inputsettings[1].UpKey);
+            AllButtons.Add(button5, _inputsettings[1].DownKey);
+            AllButtons.Add(button6, _inputsettings[1].ShootKey);
+
             groupBox1.Text = mainMenu.GetGameSettings().PlayerSettings[0].PlayerName.ToString();
             groupBox2.Text = mainMenu.GetGameSettings().PlayerSettings[1].PlayerName.ToString();
 
+            Coloring();
         }
 
         private void Set_Input(object sender, EventArgs e)

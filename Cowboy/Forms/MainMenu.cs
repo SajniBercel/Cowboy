@@ -11,7 +11,6 @@ namespace Cowboy
         private InputSetting[]? inputSettings;
         private bool playerClone;
         
-        
         public MainMenu()
         {
             InitializeComponent();
