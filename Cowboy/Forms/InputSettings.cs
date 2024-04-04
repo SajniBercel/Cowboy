@@ -49,7 +49,7 @@ namespace Cowboy.Forms
 
         public void LoadData(InputSetting[]? _inputsettings)
         {
-            if (inputSettings == null)
+            if (_inputsettings == null)
             {
                 LoadDefaultValues();
                 inputSettings = GenerateInputSettings();
