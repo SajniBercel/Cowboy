@@ -37,12 +37,15 @@
             btn_Start = new Button();
             btn_AdvancedSettings = new Button();
             btn_InputSettings = new Button();
-            menuStrip1 = new MenuStrip();
-            fájlToolStripMenuItem = new ToolStripMenuItem();
-            beállításokToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip = new MenuStrip();
+            tms_File = new ToolStripMenuItem();
+            tsm_OpenConfig = new ToolStripMenuItem();
+            tsm_Settings = new ToolStripMenuItem();
+            tsm_OpenAdvancedSettings = new ToolStripMenuItem();
+            tsm_InputSettings = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            menuStrip1.SuspendLayout();
+            menuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -86,22 +89,22 @@
             // chb_FullScreen
             // 
             chb_FullScreen.AutoSize = true;
-            chb_FullScreen.Location = new Point(12, 92);
+            chb_FullScreen.Location = new Point(160, 91);
             chb_FullScreen.Name = "chb_FullScreen";
-            chb_FullScreen.Size = new Size(80, 19);
+            chb_FullScreen.Size = new Size(106, 19);
             chb_FullScreen.TabIndex = 3;
-            chb_FullScreen.Text = "FullScreen";
+            chb_FullScreen.Text = "Teljes képernyő";
             chb_FullScreen.UseVisualStyleBackColor = true;
             chb_FullScreen.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // chb_BulletCollision
             // 
             chb_BulletCollision.AutoSize = true;
-            chb_BulletCollision.Location = new Point(98, 92);
+            chb_BulletCollision.Location = new Point(12, 91);
             chb_BulletCollision.Name = "chb_BulletCollision";
-            chb_BulletCollision.Size = new Size(105, 19);
+            chb_BulletCollision.Size = new Size(140, 19);
             chb_BulletCollision.TabIndex = 4;
-            chb_BulletCollision.Text = "Bullet Collision";
+            chb_BulletCollision.Text = "Ütközés (\"Robbanás\")";
             chb_BulletCollision.UseVisualStyleBackColor = true;
             // 
             // btn_Start
@@ -120,7 +123,7 @@
             btn_AdvancedSettings.Name = "btn_AdvancedSettings";
             btn_AdvancedSettings.Size = new Size(254, 23);
             btn_AdvancedSettings.TabIndex = 5;
-            btn_AdvancedSettings.Text = "Advanced Settings";
+            btn_AdvancedSettings.Text = "Speciális Beállítások";
             btn_AdvancedSettings.UseVisualStyleBackColor = true;
             btn_AdvancedSettings.Click += btn_Advnaced_Click;
             // 
@@ -130,31 +133,54 @@
             btn_InputSettings.Name = "btn_InputSettings";
             btn_InputSettings.Size = new Size(254, 23);
             btn_InputSettings.TabIndex = 6;
-            btn_InputSettings.Text = "Input Settings";
+            btn_InputSettings.Text = "Billettyűzet Beállítások";
             btn_InputSettings.UseVisualStyleBackColor = true;
             btn_InputSettings.Click += btn_InputSettings_Click;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            menuStrip1.BackColor = SystemColors.ControlLight;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fájlToolStripMenuItem, beállításokToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(278, 24);
-            menuStrip1.TabIndex = 8;
-            menuStrip1.Text = "menuStrip1";
+            menuStrip.BackColor = SystemColors.ControlLight;
+            menuStrip.Items.AddRange(new ToolStripItem[] { tms_File, tsm_Settings });
+            menuStrip.Location = new Point(0, 0);
+            menuStrip.Name = "menuStrip";
+            menuStrip.Size = new Size(278, 24);
+            menuStrip.TabIndex = 8;
+            menuStrip.Text = "menuStrip1";
             // 
-            // fájlToolStripMenuItem
+            // tms_File
             // 
-            fájlToolStripMenuItem.Name = "fájlToolStripMenuItem";
-            fájlToolStripMenuItem.Size = new Size(37, 20);
-            fájlToolStripMenuItem.Text = "Fájl";
+            tms_File.DropDownItems.AddRange(new ToolStripItem[] { tsm_OpenConfig });
+            tms_File.Name = "tms_File";
+            tms_File.Size = new Size(37, 20);
+            tms_File.Text = "Fájl";
             // 
-            // beállításokToolStripMenuItem
+            // tsm_OpenConfig
             // 
-            beállításokToolStripMenuItem.Name = "beállításokToolStripMenuItem";
-            beállításokToolStripMenuItem.Size = new Size(75, 20);
-            beállításokToolStripMenuItem.Text = "Beállítások";
+            tsm_OpenConfig.Name = "tsm_OpenConfig";
+            tsm_OpenConfig.Size = new Size(251, 22);
+            tsm_OpenConfig.Text = "Konfigurációs mappa Megnyitása";
+            tsm_OpenConfig.Click += tsm_OpenConfig_Click;
+            // 
+            // tsm_Settings
+            // 
+            tsm_Settings.DropDownItems.AddRange(new ToolStripItem[] { tsm_OpenAdvancedSettings, tsm_InputSettings });
+            tsm_Settings.Name = "tsm_Settings";
+            tsm_Settings.Size = new Size(75, 20);
+            tsm_Settings.Text = "Beállítások";
+            // 
+            // tsm_OpenAdvancedSettings
+            // 
+            tsm_OpenAdvancedSettings.Name = "tsm_OpenAdvancedSettings";
+            tsm_OpenAdvancedSettings.Size = new Size(191, 22);
+            tsm_OpenAdvancedSettings.Text = "Speciális Beállítások";
+            tsm_OpenAdvancedSettings.Click += btn_Advnaced_Click;
+            // 
+            // tsm_InputSettings
+            // 
+            tsm_InputSettings.Name = "tsm_InputSettings";
+            tsm_InputSettings.Size = new Size(191, 22);
+            tsm_InputSettings.Text = "Billettyűzet Beállítások";
+            tsm_InputSettings.Click += btn_InputSettings_Click;
             // 
             // MainMenu
             // 
@@ -170,16 +196,16 @@
             Controls.Add(numericUpDown1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            Controls.Add(menuStrip);
+            MainMenuStrip = menuStrip;
             MinimumSize = new Size(294, 192);
             Name = "MainMenu";
             Text = "MainMenu";
             Load += MainMenu_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -195,8 +221,11 @@
         private Button btn_Start;
         private Button btn_AdvancedSettings;
         private Button btn_InputSettings;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fájlToolStripMenuItem;
-        private ToolStripMenuItem beállításokToolStripMenuItem;
+        private MenuStrip menuStrip;
+        private ToolStripMenuItem tms_File;
+        private ToolStripMenuItem tsm_Settings;
+        private ToolStripMenuItem tsm_OpenConfig;
+        private ToolStripMenuItem tsm_OpenAdvancedSettings;
+        private ToolStripMenuItem tsm_InputSettings;
     }
 }

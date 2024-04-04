@@ -10,7 +10,7 @@ namespace Cowboy
         private PlayerSetting[]? playerSettings;
         private InputSetting[]? inputSettings;
         private bool playerClone;
-        
+
         public MainMenu()
         {
             InitializeComponent();
@@ -22,8 +22,8 @@ namespace Cowboy
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            DbManager db = DbManager.Instance;
-            
+            DbManager.Instance.Save("hello");
+
 
             playerSettings = FileManager.Instance.ReadPlayerSettingsFromFile();
             inputSettings = FileManager.Instance.ReadInputSettingsFromFile();
@@ -73,7 +73,6 @@ namespace Cowboy
             // ha nem valami hiba folytán null lenne valami akkor kap alap értékeket
             if (GetPlayerSettings() == null)
             {
-                Debug.WriteLine("hiba lépett fel a játékos beállítások belállításánal (null)");
                 this.playerSettings = new PlayerSetting[]
                 {
                     new PlayerSetting().SetDefaultValues().SetPlayerName("Player1"),
@@ -135,7 +134,6 @@ namespace Cowboy
             advancedSettings.SetPlayerClone(playerClone);
 
             advancedSettings.ShowDialog();
-
         }
 
         private void btn_InputSettings_Click(object sender, EventArgs e)
@@ -144,6 +142,11 @@ namespace Cowboy
             inputSettingsForm.LoadData(GetInputSettings());
 
             inputSettingsForm.ShowDialog();
+        }
+
+        private void tsm_OpenConfig_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", FileManager.Instance.Folder);
         }
     }
 }
