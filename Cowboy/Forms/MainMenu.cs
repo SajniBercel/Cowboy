@@ -10,7 +10,7 @@ namespace Cowboy
         private PlayerSetting[]? playerSettings;
         private InputSetting[]? inputSettings;
         private bool playerClone;
-        
+
         public MainMenu()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace Cowboy
         private void MainMenu_Load(object sender, EventArgs e)
         {
             DbManager db = DbManager.Instance;
-            
+
 
             playerSettings = FileManager.Instance.ReadPlayerSettingsFromFile();
             inputSettings = FileManager.Instance.ReadInputSettingsFromFile();
@@ -46,6 +46,7 @@ namespace Cowboy
 
             playerClone = true;
         }
+
         private void btn_Start_Click(object sender, EventArgs e)
         {
             // open game \\
@@ -144,6 +145,22 @@ namespace Cowboy
             inputSettingsForm.LoadData(GetInputSettings());
 
             inputSettingsForm.ShowDialog();
+        }
+
+        private void tsm_OpenConfigFolder_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", FileManager.Instance.Folder);
+        }
+
+        private void tsm_Info_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Készítette: Sajni Bercel\n" +
+                "Felkészítő tanár: Pető Zsolt (hatalmas köszönet neki)\n" +
+                "Harmadik féltől származó források: \n" +
+                "\t-Karakter kinézet: (chat gpt) Dall-e\n" +
+                "\t-Töltény kinézet: (chat gpt) Dall-e\n","Info"
+                );
         }
     }
 }

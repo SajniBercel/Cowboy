@@ -24,11 +24,6 @@ namespace Cowboy.Forms
 
         private void InputSettings_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void LoadDefaultValues()
-        {
             AllButtons.Clear();
             AllButtons.Add(button1);
             AllButtons.Add(button2);
@@ -37,14 +32,17 @@ namespace Cowboy.Forms
             AllButtons.Add(button5);
             AllButtons.Add(button6);
 
+            Coloring();
+        }
+
+        private void LoadDefaultValues()
+        {
             button1.Text = Keys.W.ToString();
             button2.Text = Keys.S.ToString();
             button3.Text = Keys.D.ToString();
             button4.Text = Keys.Up.ToString();
             button5.Text = Keys.Down.ToString();
             button6.Text = Keys.Left.ToString();
-
-            Coloring();
         }
 
         public void LoadData(InputSetting[]? _inputsettings)
@@ -70,6 +68,7 @@ namespace Cowboy.Forms
             groupBox1.Text = mainMenu.GetGameSettings().PlayerSettings[0].PlayerName.ToString();
             groupBox2.Text = mainMenu.GetGameSettings().PlayerSettings[1].PlayerName.ToString();
 
+            Coloring();
         }
 
         private void Set_Input(object sender, EventArgs e)

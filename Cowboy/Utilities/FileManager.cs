@@ -7,31 +7,34 @@ namespace Cowboy.Utilities
         private static readonly FileManager instance = new FileManager();
         public static FileManager Instance { get { return instance; } }
 
+        public string Folder { get { return folder; } }
 
-        private string Folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Cowboy";
 
-        private string InputSettingsPath;
-        private string PlayerSettingsPath;
+        private string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Cowboy";
+
+        private string inputSettingsPath;
+        private string playerSettingsPath;
+
 
 
         private FileManager()
         {
-            InputSettingsPath = Folder + "/InputSettings.txt";
-            PlayerSettingsPath = Folder + "/PlayerSettings.txt";
+            inputSettingsPath = Folder + "/InputSettings.txt";
+            playerSettingsPath = Folder + "/PlayerSettings.txt";
 
             if (!Directory.Exists(Folder))
                 Directory.CreateDirectory(Folder);
 
-            if (!File.Exists(InputSettingsPath))
-                File.Create(InputSettingsPath);
+            if (!File.Exists(inputSettingsPath))
+                File.Create(inputSettingsPath);
 
-            if (!File.Exists(PlayerSettingsPath))
-                File.Create(PlayerSettingsPath);
+            if (!File.Exists(playerSettingsPath))
+                File.Create(playerSettingsPath);
         }
 
         public void SaveToFile(InputSetting[] inputSettings)
         {
-            if (!File.Exists(InputSettingsPath))
+            if (!File.Exists(inputSettingsPath))
             {
                 MessageBox.Show("Hiba nem létezik a file (i)");
             }
@@ -42,7 +45,7 @@ namespace Cowboy.Utilities
                 return;
             }
 
-            using (StreamWriter sw = new StreamWriter(InputSettingsPath))
+            using (StreamWriter sw = new StreamWriter(inputSettingsPath))
             {
                 sw.WriteLine($"{inputSettings[0].UpKey};{inputSettings[0].DownKey};{inputSettings[0].ShootKey}");
                 sw.WriteLine($"{inputSettings[1].UpKey};{inputSettings[1].DownKey};{inputSettings[1].ShootKey}");
@@ -52,7 +55,7 @@ namespace Cowboy.Utilities
 
         public void SaveToFile(PlayerSetting[] playerSettings)
         {
-            if (!File.Exists(PlayerSettingsPath))
+            if (!File.Exists(playerSettingsPath))
             {
                 MessageBox.Show("Hiba nem létezik a file (i)");
             }
@@ -63,7 +66,7 @@ namespace Cowboy.Utilities
                 return;
             }
 
-            using (StreamWriter sw = new StreamWriter(PlayerSettingsPath))
+            using (StreamWriter sw = new StreamWriter(playerSettingsPath))
             {
 
                 sw.WriteLine(playerSettings[0].FileFormat());
@@ -74,9 +77,9 @@ namespace Cowboy.Utilities
 
         public InputSetting[]? ReadInputSettingsFromFile()
         {
-            if (File.Exists(InputSettingsPath))
+            if (File.Exists(inputSettingsPath))
             {
-                using (StreamReader sr = new StreamReader(InputSettingsPath))
+                using (StreamReader sr = new StreamReader(inputSettingsPath))
                 {
                     string[] lines = new string[2];
                     int index = 0;
@@ -126,9 +129,9 @@ namespace Cowboy.Utilities
 
         public PlayerSetting[]? ReadPlayerSettingsFromFile()
         {
-            if (File.Exists(PlayerSettingsPath))
+            if (File.Exists(playerSettingsPath))
             {
-                using (StreamReader sr = new StreamReader(PlayerSettingsPath))
+                using (StreamReader sr = new StreamReader(playerSettingsPath))
                 {
                     string[] lines = new string[2];
                     int index = 0;
