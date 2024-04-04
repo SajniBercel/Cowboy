@@ -1,4 +1,5 @@
 ﻿using Cowboy.Settings;
+using Cowboy.Utilities;
 
 namespace Cowboy
 {
@@ -69,7 +70,7 @@ namespace Cowboy
             // validálás? (nem sok értelme van)
             if (txt_PlayerName_1.Text == txt_PlayerName_2.Text)
             {
-                MessageBox.Show("!A két játékosnak nem lehet ugyan az a neve!");
+                MessageBox.Show("A két játékosnak nem lehet ugyan az a neve");
             }
 
             // player 1
@@ -92,6 +93,7 @@ namespace Cowboy
             //adat visszaadás a main-re
             mainMenu.SetPlayerSettings(playerSettings);
             mainMenu.SetPlayerClone(PlayerClone.Checked);
+            FileManager.Instance.SaveToFile(playerSettings);
         }
 
         private void btn_AdvsBack_Click(object sender, EventArgs e)

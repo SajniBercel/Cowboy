@@ -47,7 +47,7 @@ namespace Cowboy.Forms
             Coloring();
         }
 
-        public void LoadData(InputSetting[]? inputsettings)
+        public void LoadData(InputSetting[]? _inputsettings)
         {
             if (inputSettings == null)
             {
@@ -56,7 +56,7 @@ namespace Cowboy.Forms
             }
             else
             {
-                this.inputSettings = inputsettings;
+                this.inputSettings = _inputsettings;
             }
 
             button1.Text = inputSettings[0].UpKey.ToString();
