@@ -47,7 +47,7 @@ namespace Cowboy.Forms
             Coloring();
         }
 
-        public void LoadData(InputSetting[]? inputsettings)
+        public void LoadData(InputSetting[]? _inputsettings)
         {
             if (inputSettings == null)
             {

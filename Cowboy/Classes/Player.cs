@@ -97,7 +97,7 @@ namespace Cowboy.Classes
                     if (HP < 0)
                     {
                         return;
-                    }    
+                    }
                     Hpbar.Value = HP;
                 }
             }
