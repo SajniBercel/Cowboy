@@ -366,6 +366,7 @@
             Ch_Bot_1.TabIndex = 9;
             Ch_Bot_1.Text = "Bot";
             Ch_Bot_1.UseVisualStyleBackColor = true;
+            Ch_Bot_1.CheckedChanged += Ch_Bot_1_CheckedChanged;
             // 
             // Ch_Bot_2
             // 
@@ -376,6 +377,7 @@
             Ch_Bot_2.TabIndex = 10;
             Ch_Bot_2.Text = "Bot";
             Ch_Bot_2.UseVisualStyleBackColor = true;
+            Ch_Bot_2.CheckedChanged += Ch_Bot_2_CheckedChanged;
             // 
             // AdvancedSettings
             // 

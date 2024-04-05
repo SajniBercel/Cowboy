@@ -7,6 +7,10 @@ namespace Cowboy
     {
         public PlayerSetting[] playerSettings = new PlayerSetting[2];
         private MainMenu mainMenu;
+
+        private string PlayerName1;
+        private string PlayerName2;
+
         public AdvancedSettings(MainMenu mainMenu)
         {
             InitializeComponent();
@@ -114,6 +118,32 @@ namespace Cowboy
         private void PlayerClone_CheckedChanged(object sender, EventArgs e)
         {
             groupBox2.Visible = PlayerClone.Checked;
+        }
+
+        private void Ch_Bot_1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(txt_PlayerName_1.Enabled)
+                PlayerName1 = txt_PlayerName_1.Text;
+
+            txt_PlayerName_1.Enabled = !Ch_Bot_1.Checked;
+
+            if(txt_PlayerName_1.Enabled)
+                txt_PlayerName_1.Text = PlayerName1;
+            else
+                txt_PlayerName_1.Text = "Bot";
+        }
+
+        private void Ch_Bot_2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txt_PlayerName_2.Enabled)
+                PlayerName1 = txt_PlayerName_2.Text;
+
+            txt_PlayerName_2.Enabled = !Ch_Bot_2.Checked;
+
+            if (txt_PlayerName_2.Enabled)
+                txt_PlayerName_2.Text = PlayerName1;
+            else
+                txt_PlayerName_2.Text = "Bot";
         }
     }
 }
