@@ -11,13 +11,15 @@ namespace Cowboy.Utilities
         private string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Cowboy";
 
         private string inputSettingsPath;
-        private string layerSettingsPath;
+        private string playerSettingsPath;
+        private string gameLogsPath;
 
 
         private FileManager()
         {
-            inputSettingsPath = folder + "/InputSettings.txt";
-            layerSettingsPath = folder + "/PlayerSettings.txt";
+            inputSettingsPath = folder + @"\InputSettings.txt";
+            playerSettingsPath = folder + @"\PlayerSettings.txt";
+            gameLogsPath = folder + @"\GamesLog.txt";
 
             if (!Directory.Exists(folder))
                 Directory.CreateDirectory(folder);
@@ -25,8 +27,11 @@ namespace Cowboy.Utilities
             if (!File.Exists(inputSettingsPath))
                 File.Create(inputSettingsPath);
 
-            if (!File.Exists(layerSettingsPath))
-                File.Create(layerSettingsPath);
+            if (!File.Exists(playerSettingsPath))
+                File.Create(playerSettingsPath);
+
+            if (!File.Exists(gameLogsPath))
+                File.Create(gameLogsPath);
         }
 
         public void SaveToFile(InputSetting[] inputSettings)
@@ -52,18 +57,18 @@ namespace Cowboy.Utilities
 
         public void SaveToFile(PlayerSetting[] playerSettings)
         {
-            if (!File.Exists(layerSettingsPath))
+            if (!File.Exists(playerSettingsPath))
             {
-                MessageBox.Show("Hiba nem létezik a file (i)");
+                MessageBox.Show("Hiba nem létezik a file (p)");
             }
 
             if (playerSettings.Length != 2)
             {
-                MessageBox.Show("Hiba a file-ba mentés közben \n(a beállítások müködni fognak de nem újraindításokor elvesznek)");
+                MessageBox.Show("Hiba a file-ba mentés közben \n(a beállítások müködni fognak de újraindításokor elvesznek)");
                 return;
             }
 
-            using (StreamWriter sw = new StreamWriter(layerSettingsPath))
+            using (StreamWriter sw = new StreamWriter(playerSettingsPath))
             {
 
                 sw.WriteLine(playerSettings[0].FileFormat());
@@ -72,12 +77,50 @@ namespace Cowboy.Utilities
             }
         }
 
+        public void SaveToFile(string game)
+        {
+            if (!File.Exists(gameLogsPath))
+            {
+                MessageBox.Show("Hiba nem létezik a file (g)");
+            }
+
+            using (StreamWriter sw = new StreamWriter(gameLogsPath))
+            {
+                sw.WriteLine(game);
+                sw.Close();
+            }
+        }
+        public string[]? ReadGameLogs()
+        {
+            if (File.Exists(gameLogsPath))
+            {
+                using (StreamReader sr = new StreamReader(gameLogsPath))
+                {
+                    if (sr.EndOfStream)
+                        return null;
+
+                    List<string> output = new List<string>();
+                    while (!sr.EndOfStream)
+                    {
+                        output.Add(sr.ReadLine());
+                    }
+                    sr.Close();
+
+                    return output.ToArray();
+                }
+            }
+            return null;
+        }
+
         public InputSetting[]? ReadInputSettingsFromFile()
         {
             if (File.Exists(inputSettingsPath))
             {
                 using (StreamReader sr = new StreamReader(inputSettingsPath))
                 {
+                    if (sr.EndOfStream)
+                        return null;
+
                     string[] lines = new string[2];
                     int index = 0;
                     while (!sr.EndOfStream)
@@ -92,7 +135,7 @@ namespace Cowboy.Utilities
 
                     string[] parts1;
                     string[] parts2;
-                    if (lines.Length == 2 && lines[0] != null && lines[1] != null)
+                    if (lines.Length == 2)
                     {
                         parts1 = lines[0].Split(";");
                         parts2 = lines[1].Split(";");
@@ -126,10 +169,13 @@ namespace Cowboy.Utilities
 
         public PlayerSetting[]? ReadPlayerSettingsFromFile()
         {
-            if (File.Exists(layerSettingsPath))
+            if (File.Exists(playerSettingsPath))
             {
-                using (StreamReader sr = new StreamReader(layerSettingsPath))
+                using (StreamReader sr = new StreamReader(playerSettingsPath))
                 {
+                    if (sr.EndOfStream)
+                        return null;
+
                     string[] lines = new string[2];
                     int index = 0;
                     while (!sr.EndOfStream)
@@ -141,11 +187,11 @@ namespace Cowboy.Utilities
                             index++;
                         }
                     }
+                    sr.Close();
 
                     string[] parts1 = lines[0].Split(";");
                     string[] parts2 = lines[1].Split(";");
-
-                    sr.Close();
+;
 
                     PlayerSetting[] inputSettings = new PlayerSetting[]
                     {

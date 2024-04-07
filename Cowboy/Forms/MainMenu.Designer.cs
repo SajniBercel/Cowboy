@@ -38,11 +38,13 @@
             btn_AdvancedSettings = new Button();
             btn_InputSettings = new Button();
             menuStrip = new MenuStrip();
-            tms_File = new ToolStripMenuItem();
+            tms_Game = new ToolStripMenuItem();
             tsm_OpenConfig = new ToolStripMenuItem();
+            tsm_ScoreBoard = new ToolStripMenuItem();
             tsm_Settings = new ToolStripMenuItem();
             tsm_OpenAdvancedSettings = new ToolStripMenuItem();
             tsm_InputSettings = new ToolStripMenuItem();
+            tsm_Info = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             menuStrip.SuspendLayout();
@@ -140,19 +142,19 @@
             // menuStrip
             // 
             menuStrip.BackColor = SystemColors.ControlLight;
-            menuStrip.Items.AddRange(new ToolStripItem[] { tms_File, tsm_Settings });
+            menuStrip.Items.AddRange(new ToolStripItem[] { tms_Game, tsm_Settings });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Size = new Size(278, 24);
             menuStrip.TabIndex = 8;
             menuStrip.Text = "menuStrip1";
             // 
-            // tms_File
+            // tms_Game
             // 
-            tms_File.DropDownItems.AddRange(new ToolStripItem[] { tsm_OpenConfig });
-            tms_File.Name = "tms_File";
-            tms_File.Size = new Size(37, 20);
-            tms_File.Text = "Fájl";
+            tms_Game.DropDownItems.AddRange(new ToolStripItem[] { tsm_OpenConfig, tsm_ScoreBoard, tsm_Info });
+            tms_Game.Name = "tms_Game";
+            tms_Game.Size = new Size(45, 20);
+            tms_Game.Text = "Játék";
             // 
             // tsm_OpenConfig
             // 
@@ -160,6 +162,13 @@
             tsm_OpenConfig.Size = new Size(251, 22);
             tsm_OpenConfig.Text = "Konfigurációs mappa Megnyitása";
             tsm_OpenConfig.Click += tsm_OpenConfig_Click;
+            // 
+            // tsm_ScoreBoard
+            // 
+            tsm_ScoreBoard.Name = "tsm_ScoreBoard";
+            tsm_ScoreBoard.Size = new Size(251, 22);
+            tsm_ScoreBoard.Text = "Eremény Lista";
+            tsm_ScoreBoard.Click += tsm_ScoreBoard_Click;
             // 
             // tsm_Settings
             // 
@@ -181,6 +190,13 @@
             tsm_InputSettings.Size = new Size(191, 22);
             tsm_InputSettings.Text = "Billettyűzet Beállítások";
             tsm_InputSettings.Click += btn_InputSettings_Click;
+            // 
+            // tsm_Info
+            // 
+            tsm_Info.Name = "tsm_Info";
+            tsm_Info.Size = new Size(251, 22);
+            tsm_Info.Text = "Info";
+            tsm_Info.Click += tsm_Info_Click;
             // 
             // MainMenu
             // 
@@ -222,10 +238,12 @@
         private Button btn_AdvancedSettings;
         private Button btn_InputSettings;
         private MenuStrip menuStrip;
-        private ToolStripMenuItem tms_File;
+        private ToolStripMenuItem tms_Game;
         private ToolStripMenuItem tsm_Settings;
         private ToolStripMenuItem tsm_OpenConfig;
         private ToolStripMenuItem tsm_OpenAdvancedSettings;
         private ToolStripMenuItem tsm_InputSettings;
+        private ToolStripMenuItem tsm_ScoreBoard;
+        private ToolStripMenuItem tsm_Info;
     }
 }

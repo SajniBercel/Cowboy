@@ -1,4 +1,7 @@
 ﻿using MySqlConnector;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Xml.Schema;
 
 namespace Cowboy.Utilities
 {
@@ -10,6 +13,11 @@ namespace Cowboy.Utilities
         private string MyConnectionString;
         bool connected = false;
         private MySqlConnection MyConnection;
+
+        /// <summary>
+        /// Ide ment ha nincs adatbázis kapcsolat (ha lesz kapcsolatm akkor feltölti)
+        /// </summary>
+        private string FilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Cowboy";
 
         private DbManager() 
         {
@@ -31,64 +39,107 @@ namespace Cowboy.Utilities
                 MyConnection = new MySqlConnection(MyConnectionString);
 
                 MyConnection.Open();
+
                 connected = true;
             }
             catch (MySqlException ex)
             {
                 if (ex.ErrorCode == MySqlErrorCode.UnknownDatabase)
                 {
-                    MySqlConnection tempconn = new MySqlConnection($"server={server};uid={user};pwd={password};");
-                    MySqlCommand command = new MySqlCommand($"CREATE DATABASE IF NOT EXISTS {db};", tempconn);
-                    tempconn.Open();
-                    command.ExecuteNonQuery();
-                    tempconn.Close();
+                    MySqlConnection MyConnection = new MySqlConnection($"server={server};uid={user};pwd={password};");
+                    MyConnection.Open();
 
-                    tempconn.Open();
-                    command = new MySqlCommand($"USE {db}; CREATE TABLE IF NOT EXISTS games (" +
-                        "gyoztes varchar(20), vesztes varchar(20), time float" +
-                        ")",
-                        tempconn);
+                    MySqlCommand command = new MySqlCommand($"CREATE DATABASE IF NOT EXISTS {db};", MyConnection);
                     command.ExecuteNonQuery();
-                    tempconn.Close();
+
+                    command = new MySqlCommand($"USE {db}; CREATE TABLE IF NOT EXISTS games (" +
+                        "win varchar(20), lose varchar(20), time float" +
+                        ")",
+                        MyConnection);
+                    command.ExecuteNonQuery();
+                    command.Dispose();
 
                     MyConnection = new MySqlConnection(MyConnectionString);
-                    MyConnection.Open();
+
                     connected = true;
                 }
+
                 if (ex.ErrorCode == MySqlErrorCode.UnableToConnectToHost)
                 {
                     MessageBox.Show("Sikertelen adatbázis kapcsolat, ellenörízze a szolgáltatást\n" +
                         "(minden müködni fog de nem fog adatbázisba menteni, fájlba történik a mentés és legközelebbi sikeres kapcsolatkor átíródik az adatbázisba)");
                 }
             }
+            MyConnection.Close();
         }
 
-        public void Save(string sor)
+        public void Save(string win, string lose, float time)
         {
+            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+
             if (!connected)
             {
+                FileManager.Instance.SaveToFile($"{win};{lose};{time}");
                 return;
             }
-
             try
             {
+                MyConnection.Open();
 
-                MySqlCommand cmd = new MySqlCommand("select * from games", MyConnection);
-                MySqlDataReader data = cmd.ExecuteReader();
-                while (data.Read())
-                {
-                    //MessageBox.Show(data["ads"]);
-                }
+                string sql = $"INSERT INTO games (win, lose, time) VALUES ('{win}', '{lose}', {time});";
+                MySqlCommand command = new MySqlCommand(sql, MyConnection);
+
+                command.ExecuteNonQuery();
+                command.Dispose();
+                
+                MyConnection.Close();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("ez:"+ex.ErrorCode.ToString());
+                MessageBox.Show("Save error:"+ex.ErrorCode.ToString());
             }
+
+            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+        }
+        public string[] GetScoreBoard()
+        {
+            List<string> output = new List<string>();
+
+            if (!connected)
+            {
+                output.Add("nem lehet kapcsolódni az adatbázishoz");
+                return output.ToArray();
+            }
+            
+            MyConnection = new MySqlConnection(MyConnectionString);
+            MyConnection.Open();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM games", MyConnection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while(reader.Read()) 
+            {
+                output.Add($"{reader[0]};{reader[1]};{reader[2]}");
+            }
+
+            MyConnection.Close();
+
+            return output.ToArray();
         }
 
-        public void Close()
+        public void SyncDb()
         {
-            MyConnection.Close();
+            if (connected)
+            {
+                string[] GameLogs = FileManager.Instance.ReadGameLogs();
+                if (GameLogs != null)
+                {
+                    for (int i = 0; i < GameLogs.Length; i++)
+                    {
+                        string row = GameLogs[i];
+                        string[] parts = row.Split(";");
+                        Save(parts[0], parts[1], float.Parse(parts[2]));
+                    }
+                }
+            }
         }
     }
 }

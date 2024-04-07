@@ -22,8 +22,8 @@ namespace Cowboy
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            DbManager.Instance.Save("hello");
-
+            DbManager.Instance.Save("Bercel", "olivér", 1.3f);
+            //DbManager.Instance.SyncDb();
 
             playerSettings = FileManager.Instance.ReadPlayerSettingsFromFile();
             inputSettings = FileManager.Instance.ReadInputSettingsFromFile();
@@ -147,6 +147,23 @@ namespace Cowboy
         private void tsm_OpenConfig_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", FileManager.Instance.Folder);
+        }
+
+        private void tsm_ScoreBoard_Click(object sender, EventArgs e)
+        {
+            DbManager.Instance.SyncDb();
+            ScoreBoard scoreBoard = new ScoreBoard(DbManager.Instance.GetScoreBoard());
+            scoreBoard.ShowDialog();
+        }
+
+        private void tsm_Info_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Készítette: Sajni Bercel\n" +
+                "Felkészítő Tanár: Pető Zsolt (hatalmas köszönet neki)\n" +
+                "Harmadik féltől származő forrásanyagok:\n" +
+                "\tKarakter kép: DALL-E (chat gpt)\n" +
+                "\tTöltény kép:  DALL-E (chat gpt)", "Info");
         }
     }
 }
