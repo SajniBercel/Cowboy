@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             MainGameTimer = new System.Windows.Forms.Timer(components);
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // MainGameTimer
@@ -37,12 +38,16 @@
             MainGameTimer.Interval = 10;
             MainGameTimer.Tick += MainGame_Update;
             // 
-            // Form1
+            // timer1
+            // 
+            timer1.Tick += StopWatch_tick;
+            // 
+            // Game
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(284, 261);
-            Name = "Form1";
+            Name = "Game";
             Text = "Game";
             FormClosed += Form1_FormClosed;
             Load += Form1_Load;
@@ -54,5 +59,6 @@
         #endregion
 
         private System.Windows.Forms.Timer MainGameTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

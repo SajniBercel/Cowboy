@@ -19,6 +19,7 @@ namespace Cowboy
 
         private int GC_count = 0;
         private bool IsPaused = false;
+        private float GameTime = 0;
 
         /// <summary>
         /// Átveszi a Beállításokat, ha null akkor egy alapot generál/használ
@@ -69,8 +70,10 @@ namespace Cowboy
         /// </summary>
         public void Setup()
         {
+            GameTime = 0;
             Player player1;
             Player player2;
+
             //window size
             if (gameSettings.WindowSize.Width < 10 && gameSettings.WindowSize.Height < 10)
             {
@@ -87,7 +90,7 @@ namespace Cowboy
                 gameSettings.PlayerSettings[0]);
 
             // Create Player 2 \\
-            Player  temp_player2 = new Player(2, gameSettings.PlayerSettings[1].PlayerName,
+            Player temp_player2 = new Player(2, gameSettings.PlayerSettings[1].PlayerName,
                 Create.pictureBox("PB_player2", new Size(60, 60), new Point(0, 0),
                 Properties.Resources.player),
                 gameSettings.PlayerSettings[1]);
@@ -128,6 +131,7 @@ namespace Cowboy
             GameComponents.Add(new List<GameComponent>());
 
             MainGameTimer.Enabled = true;
+            timer1.Enabled = true;
         }
 
         /// <summary>
@@ -142,7 +146,7 @@ namespace Cowboy
                     ((Player)GameComponents[0][i]).MoveUp = false;
 
                 if (GameComponents[0][i].pictureBox.Location.Y + 100 > this.Height)
-                    ((Player)GameComponents[0][i]).MoveDown = false;;
+                    ((Player)GameComponents[0][i]).MoveDown = false; ;
             }
 
             // --- MAIN UPDATE --- \\
@@ -194,8 +198,8 @@ namespace Cowboy
                         if (bullet.pictureBox.Bounds.IntersectsWith(tempBullet.pictureBox.Bounds) &&
                             bullet.PlayerID != tempBullet.PlayerID)
                         {
-                            Explosion explo = new Explosion(-1, 
-                                Create.pictureBox("explo", new Size(40, 40), new Point(0, 0), Properties.Resources.explo), 
+                            Explosion explo = new Explosion(-1,
+                                Create.pictureBox("explo", new Size(40, 40), new Point(0, 0), Properties.Resources.explo),
                                 bullet, tempBullet, 10);
 
                             GameComponents[2].Add(explo);
@@ -217,7 +221,7 @@ namespace Cowboy
             for (int i = 0; i < GameComponents[2].Count; i++)
             {
                 Explosion explo = (Explosion)GameComponents[2][i];
-                if(explo.UpdatesLeft == 0)
+                if (explo.UpdatesLeft == 0)
                 {
                     explo.pictureBox.Dispose();
                     GameComponents[2].RemoveAt(i);
@@ -278,7 +282,7 @@ namespace Cowboy
             Bullet? bullet = player.weapon.Shoot();
             if (bullet != null)
             {
-                if(player.weapon.BulletSpeed<0)
+                if (player.weapon.BulletSpeed < 0)
                     bullet.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                 GameComponents[1].Add(bullet);
             }
@@ -346,12 +350,14 @@ namespace Cowboy
                     if (i == 0)
                     {
                         MessageBox.Show(gameSettings.PlayerSettings[1].PlayerName + " nyert");
-                        // todo
+
+                        DbManager.Instance.Save(gameSettings.PlayerSettings[1].PlayerName, gameSettings.PlayerSettings[0].PlayerName, MathF.Round(GameTime, 2));
                     }
                     else
                     {
                         MessageBox.Show(gameSettings.PlayerSettings[0].PlayerName + " nyert");
-                        // todo
+
+                        DbManager.Instance.Save(gameSettings.PlayerSettings[0].PlayerName, gameSettings.PlayerSettings[1].PlayerName, MathF.Round(GameTime, 2));
                     }
                     Reset();
                     Setup();
@@ -387,6 +393,12 @@ namespace Cowboy
         {
             GameComponents.Clear();
             mainMenu.Show();
+        }
+
+        private void StopWatch_tick(object sender, EventArgs e)
+        {
+            if (!IsPaused)
+                GameTime += 0.1f;
         }
     }
 }
