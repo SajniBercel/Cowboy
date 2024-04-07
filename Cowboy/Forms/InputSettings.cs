@@ -66,12 +66,12 @@ namespace Cowboy.Forms
             button6.Text = inputSettings[1].ShootKey.ToString();
 
             AllButtons.Clear();
-            AllButtons.Add(button1, _inputsettings[0].UpKey);
-            AllButtons.Add(button2, _inputsettings[0].DownKey);
-            AllButtons.Add(button3, _inputsettings[0].ShootKey);
-            AllButtons.Add(button4, _inputsettings[1].UpKey);
-            AllButtons.Add(button5, _inputsettings[1].DownKey);
-            AllButtons.Add(button6, _inputsettings[1].ShootKey);
+            AllButtons.Add(button1);
+            AllButtons.Add(button2);
+            AllButtons.Add(button3);
+            AllButtons.Add(button4);
+            AllButtons.Add(button5);
+            AllButtons.Add(button6);
 
             groupBox1.Text = mainMenu.GetGameSettings().PlayerSettings[0].PlayerName.ToString();
             groupBox2.Text = mainMenu.GetGameSettings().PlayerSettings[1].PlayerName.ToString();
