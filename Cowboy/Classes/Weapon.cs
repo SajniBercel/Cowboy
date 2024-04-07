@@ -1,4 +1,6 @@
-﻿using Cowboy.Utilities;
+﻿using Cowboy.Properties;
+using Cowboy.Utilities;
+using System.Media;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Cowboy.Classes
@@ -40,6 +42,10 @@ namespace Cowboy.Classes
         {
             if (CanShoot)
             {
+                SoundPlayer soundPlayer = new SoundPlayer(Resources.shootSound);
+                soundPlayer.Play();
+                soundPlayer.Dispose();
+
                 Bullet bullet = new Bullet(OwnerPlayer.PlayerID, 
                     Create.pictureBox("Bullet", new Size(40, 40), new Point(0, 0), 
                     Properties.Resources.bulletBeta), BulletSpeed, WeaponDamage);

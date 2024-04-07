@@ -17,8 +17,9 @@ namespace Cowboy.Classes
         {
             UpdatesLeft = updatesBerforeDestory;
 
-            SoundPlayer soundPlayer = new SoundPlayer(/* TODO */);
+            SoundPlayer soundPlayer = new SoundPlayer(Resources.exploSound);
             soundPlayer.Play();
+            soundPlayer.Dispose();
 
             this.pictureBox.Location = GetPicBoxPos(GameComponentA,GameComponentB);
         }

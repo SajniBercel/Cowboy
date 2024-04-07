@@ -83,13 +83,13 @@ namespace Cowboy
             // Create Player 1
             Player temp_player1 = new Player(1, gameSettings.PlayerSettings[0].PlayerName,
                 Create.pictureBox("PB_player1", new Size(60, 60), new Point(0, 0),
-                Properties.Resources.PlayerBeta),
+                Properties.Resources.player),
                 gameSettings.PlayerSettings[0]);
 
             // Create Player 2 \\
             Player  temp_player2 = new Player(2, gameSettings.PlayerSettings[1].PlayerName,
                 Create.pictureBox("PB_player2", new Size(60, 60), new Point(0, 0),
-                Properties.Resources.PlayerBeta),
+                Properties.Resources.player),
                 gameSettings.PlayerSettings[1]);
 
             // place to the correct pos \\

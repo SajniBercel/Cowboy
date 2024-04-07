@@ -81,12 +81,30 @@ namespace Cowboy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream exploSound {
+            get {
+                return ResourceManager.GetStream("exploSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PlayerBeta {
+        internal static System.Drawing.Bitmap player {
             get {
-                object obj = ResourceManager.GetObject("PlayerBeta", resourceCulture);
+                object obj = ResourceManager.GetObject("player", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream shootSound {
+            get {
+                return ResourceManager.GetStream("shootSound", resourceCulture);
             }
         }
     }
