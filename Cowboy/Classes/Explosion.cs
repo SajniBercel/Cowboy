@@ -1,4 +1,6 @@
 ﻿using Cowboy.Interfaces;
+using Cowboy.Properties;
+using System.Media;
 
 namespace Cowboy.Classes
 {
@@ -14,6 +16,9 @@ namespace Cowboy.Classes
         public Explosion(int playerID, PictureBox pictureBox, GameComponent GameComponentA, GameComponent GameComponentB, int updatesBerforeDestory) : base(playerID, pictureBox)
         {
             UpdatesLeft = updatesBerforeDestory;
+
+            SoundPlayer soundPlayer = new SoundPlayer(/* TODO */);
+            soundPlayer.Play();
 
             this.pictureBox.Location = GetPicBoxPos(GameComponentA,GameComponentB);
         }
