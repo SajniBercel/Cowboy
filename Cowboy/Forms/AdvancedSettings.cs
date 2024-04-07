@@ -71,8 +71,8 @@ namespace Cowboy
 
         private void btn_AdvsSave_Click(object sender, EventArgs e)
         {
-            // validálás? (nem sok értelme van)
-            if (txt_PlayerName_1.Text == txt_PlayerName_2.Text)
+            // validálás (nem sok értelme van)
+            if (txt_PlayerName_1.Text == txt_PlayerName_2.Text && !(txt_PlayerName_1.Text == "Bot" && txt_PlayerName_2.Text == "Bot"))
             {
                 MessageBox.Show("A két játékosnak nem lehet ugyan az a neve");
             }
@@ -136,12 +136,12 @@ namespace Cowboy
         private void Ch_Bot_2_CheckedChanged(object sender, EventArgs e)
         {
             if (txt_PlayerName_2.Enabled)
-                PlayerName1 = txt_PlayerName_2.Text;
+                PlayerName2 = txt_PlayerName_2.Text;
 
             txt_PlayerName_2.Enabled = !Ch_Bot_2.Checked;
 
             if (txt_PlayerName_2.Enabled)
-                txt_PlayerName_2.Text = PlayerName1;
+                txt_PlayerName_2.Text = PlayerName2;
             else
                 txt_PlayerName_2.Text = "Bot";
         }

@@ -33,8 +33,8 @@ namespace Cowboy
 
             if (gameSettings == null)
             {
-                MessageBox.Show("!Vészhelyzet, a játék beállítások nélkül lett meghívva " +
-                    "(futni fog de egy előre beállított default settings-el)!");
+                MessageBox.Show("Vészhelyzet, a játék beállítások nélkül lett elindítva\n" +
+                    "(futni fog de egy előre beállított default settings-el)!", "Veszély");
 
                 this.gameSettings = new GameSettings().SetDefaultSettings();
             }
@@ -361,9 +361,6 @@ namespace Cowboy
                     }
                     Reset();
                     Setup();
-
-                    // TODO database !!!!!!!!!!
-
                 }
             }
         }
