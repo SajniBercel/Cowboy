@@ -46,6 +46,7 @@ namespace Cowboy
 
             playerClone = true;
         }
+
         private void btn_Start_Click(object sender, EventArgs e)
         {
             // open game \\

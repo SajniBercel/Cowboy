@@ -15,6 +15,8 @@ namespace Cowboy.Utilities
         private string gameLogsPath;
 
 
+
+
         private FileManager()
         {
             inputSettingsPath = folder + @"\InputSettings.txt";

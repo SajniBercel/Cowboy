@@ -6,7 +6,7 @@ namespace Cowboy.Forms
     public partial class InputSettings : Form
     {
         private MainMenu mainMenu;
-        private Dictionary<Button, Keys> AllButtons = new Dictionary<Button, Keys>();
+        private List<Button> AllButtons = new List<Button>();
         private InputSetting[] inputSettings;
         private bool WaitForInput;
         private List<Button> ChangedKeys = new List<Button>();
@@ -24,38 +24,46 @@ namespace Cowboy.Forms
 
         private void InputSettings_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void LoadDefaultValues()
-        {
             AllButtons.Clear();
-            AllButtons.Add(button1, Keys.W);
-            AllButtons.Add(button2, Keys.S);
-            AllButtons.Add(button3, Keys.D);
-            AllButtons.Add(button4, Keys.Up);
-            AllButtons.Add(button5, Keys.Down);
-            AllButtons.Add(button6, Keys.Left);
+            AllButtons.Add(button1);
+            AllButtons.Add(button2);
+            AllButtons.Add(button3);
+            AllButtons.Add(button4);
+            AllButtons.Add(button5);
+            AllButtons.Add(button6);
 
             Coloring();
         }
 
+        private void LoadDefaultValues()
+        {
+            button1.Text = Keys.W.ToString();
+            button2.Text = Keys.S.ToString();
+            button3.Text = Keys.D.ToString();
+            button4.Text = Keys.Up.ToString();
+            button5.Text = Keys.Down.ToString();
+            button6.Text = Keys.Left.ToString();
+        }
+
         public void LoadData(InputSetting[]? _inputsettings)
         {
-            if (inputSettings == null)
+            if (_inputsettings == null)
             {
-                Debug.WriteLine("hiba lépett fel a játékos input beállítások belállításánal (null)");
                 LoadDefaultValues();
                 inputSettings = GenerateInputSettings();
             }
+            else
+            {
+                this.inputSettings = _inputsettings;
+            }
 
-            button1.Text = _inputsettings[0].UpKey.ToString();
-            button2.Text = _inputsettings[0].DownKey.ToString();
-            button3.Text = _inputsettings[0].ShootKey.ToString();
+            button1.Text = inputSettings[0].UpKey.ToString();
+            button2.Text = inputSettings[0].DownKey.ToString();
+            button3.Text = inputSettings[0].ShootKey.ToString();
 
-            button4.Text = _inputsettings[1].UpKey.ToString();
-            button5.Text = _inputsettings[1].DownKey.ToString();
-            button6.Text = _inputsettings[1].ShootKey.ToString();
+            button4.Text = inputSettings[1].UpKey.ToString();
+            button5.Text = inputSettings[1].DownKey.ToString();
+            button6.Text = inputSettings[1].ShootKey.ToString();
 
             AllButtons.Clear();
             AllButtons.Add(button1, _inputsettings[0].UpKey);
@@ -78,9 +86,9 @@ namespace Cowboy.Forms
 
         private void ActivateAllButtons()
         {
-            for (int i = 0; i < AllButtons.Keys.Count; i++)
+            for (int i = 0; i < AllButtons.Count; i++)
             {
-                AllButtons.ElementAt(i).Key.Enabled = true;
+                AllButtons[i].Enabled = true;
             }
         }
         private void DisableButtons(Button button)
@@ -88,7 +96,7 @@ namespace Cowboy.Forms
             this.Focus();
             for (int i = 0; i < AllButtons.Count; i++)
             {
-                AllButtons.ElementAt(i).Key.Enabled = AllButtons.Keys.ElementAt(i).Equals(button);
+                AllButtons[i].Enabled = AllButtons[i].Equals(button);
             }
             WaitForInput = true;
         }
@@ -99,7 +107,7 @@ namespace Cowboy.Forms
             short db = 0;
             for (int i = 0; i < AllButtons.Count; i++)
             {
-                if (AllButtons.ElementAt(i).Key.Enabled)
+                if (AllButtons[i].Enabled)
                 {
                     db++;
                     index = i;
@@ -117,16 +125,16 @@ namespace Cowboy.Forms
             foreach (var item in AllButtons)
             {
                 int db = 0;
-                item.Key.ForeColor = Color.Black;
+                item.ForeColor = Color.Black;
                 foreach (var item1 in AllButtons)
                 {
-                    if (item.Value == item1.Value)
+                    if (item.Text == item1.Text)
                         db++;
                 }
                 if (db > 1)
-                    item.Key.BackColor = Color.Red;
+                    item.BackColor = Color.Red;
                 else
-                    item.Key.BackColor = SystemColors.Control;
+                    item.BackColor = SystemColors.Control;
             }
 
             for (int i = 0; i < ChangedKeys.Count; i++)
@@ -139,8 +147,16 @@ namespace Cowboy.Forms
         {
             InputSetting[] _inputSetting = new InputSetting[]
             {
-                new InputSetting(AllButtons[button1], AllButtons[button2], AllButtons[button3]),
-                new InputSetting(AllButtons[button4], AllButtons[button5], AllButtons[button6])
+                new InputSetting(
+                    (Keys)Enum.Parse(typeof(Keys), button1.Text),
+                    (Keys)Enum.Parse(typeof(Keys), button2.Text),
+                    (Keys)Enum.Parse(typeof(Keys), button3.Text)
+                    ),
+                new InputSetting(
+                    (Keys)Enum.Parse(typeof(Keys), button4.Text),
+                    (Keys)Enum.Parse(typeof(Keys), button5.Text),
+                    (Keys)Enum.Parse(typeof(Keys), button6.Text)
+                    )
             };
 
             return _inputSetting;
@@ -150,13 +166,12 @@ namespace Cowboy.Forms
         {
             if (WaitForInput)
             {
-                Button button = AllButtons.ElementAt(GetActiveButtonIndex()).Key;
+                Button button = AllButtons[GetActiveButtonIndex()];
                 if (button != null)
                 {
                     if (e.KeyCode != Keys.Space && e.KeyCode != Keys.Escape)
                     {
                         button.Text = e.KeyCode.ToString();
-                        AllButtons[button] = e.KeyCode;
 
                         ChangedKeys.Add(button);
 
