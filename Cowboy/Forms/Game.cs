@@ -311,12 +311,12 @@ namespace Cowboy
             // todo, nem jó ez így
             if (side.ToLower() == "left")
             {
-                player.SetWeaponOffSet(new Point(40, 5));
+                player.SetWeaponOffSet(new Point(player.pictureBox.Width, 5));
                 return new Point(80 - player.pictureBox.Width, Height / 2 - player.pictureBox.Height / 2);
             }
             else if (side.ToLower() == "rigth")
             {
-                player.SetWeaponOffSet(new Point(-40, 5));
+                player.SetWeaponOffSet(new Point(0, 5));
                 player.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                 return new Point(Width - 50 - player.pictureBox.Width / 2, Height / 2 - player.pictureBox.Height / 2);
             }

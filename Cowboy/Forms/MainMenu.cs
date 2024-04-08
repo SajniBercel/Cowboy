@@ -22,8 +22,7 @@ namespace Cowboy
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            DbManager.Instance.Save("Bercel", "olivér", 1.3f);
-            //DbManager.Instance.SyncDb();
+            DbManager.Instance.SyncDb();
 
             playerSettings = FileManager.Instance.ReadPlayerSettingsFromFile();
             inputSettings = FileManager.Instance.ReadInputSettingsFromFile();

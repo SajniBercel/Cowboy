@@ -1,7 +1,5 @@
 ﻿using MySqlConnector;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Xml.Schema;
 
 namespace Cowboy.Utilities
 {
@@ -46,7 +44,7 @@ namespace Cowboy.Utilities
             {
                 if (ex.ErrorCode == MySqlErrorCode.UnknownDatabase)
                 {
-                    MySqlConnection MyConnection = new MySqlConnection($"server={server};uid={user};pwd={password};");
+                    MyConnection = new MySqlConnection($"server={server};uid={user};pwd={password};");
                     MyConnection.Open();
 
                     MySqlCommand command = new MySqlCommand($"CREATE DATABASE IF NOT EXISTS {db};", MyConnection);
@@ -62,15 +60,16 @@ namespace Cowboy.Utilities
                     MyConnection = new MySqlConnection(MyConnectionString);
 
                     connected = true;
+                    MyConnection.Close();
                 }
 
                 if (ex.ErrorCode == MySqlErrorCode.UnableToConnectToHost)
                 {
                     MessageBox.Show("Sikertelen adatbázis kapcsolat, ellenörízze a szolgáltatást\n" +
-                        "(minden müködni fog de nem fog adatbázisba menteni, fájlba történik a mentés és legközelebbi sikeres kapcsolatkor átíródik az adatbázisba)");
+                        "(minden müködni fog de nem fog adatbázisba menteni, fájlba történik a mentés és legközelebbi sikeres kapcsolatkor átíródik az adatbázisba\n" +
+                        "egyéb funkciók is csak a lokális adatokat használják fel mint például az Erednény Lista)");
                 }
             }
-            MyConnection.Close();
         }
 
         public void Save(string win, string lose, float time)
@@ -84,7 +83,8 @@ namespace Cowboy.Utilities
             }
             try
             {
-                MyConnection.Open();
+                if(MyConnection.State != System.Data.ConnectionState.Open)
+                    MyConnection.Open();
 
                 string sql = $"INSERT INTO games (win, lose, time) VALUES ('{win}', '{lose}', {time});";
                 MySqlCommand command = new MySqlCommand(sql, MyConnection);
@@ -101,6 +101,7 @@ namespace Cowboy.Utilities
 
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
         }
+
         public string[] GetScoreBoard()
         {
             List<string> output = new List<string>();
@@ -136,7 +137,8 @@ namespace Cowboy.Utilities
                     {
                         string row = GameLogs[i];
                         string[] parts = row.Split(";");
-                        Save(parts[0], parts[1], float.Parse(parts[2]));
+                        Save(parts[0], parts[1], float.Parse(parts[2], CultureInfo.InvariantCulture));
+                        FileManager.Instance.RmGameLogs();
                     }
                 }
             }

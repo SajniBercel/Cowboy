@@ -83,7 +83,7 @@ namespace Cowboy.Utilities
                 MessageBox.Show("Hiba nem létezik a file (g)");
             }
 
-            using (StreamWriter sw = new StreamWriter(gameLogsPath))
+            using (StreamWriter sw = new StreamWriter(gameLogsPath, append:true))
             {
                 sw.WriteLine(game);
                 sw.Close();
@@ -219,5 +219,18 @@ namespace Cowboy.Utilities
             }
             return null;
         }
+
+        public void RmGameLogs()
+        {
+            if (File.Exists(gameLogsPath))
+            {
+                using (StreamWriter sw = new StreamWriter(gameLogsPath))
+                {
+                    sw.Write("");
+                    sw.Close();
+                }
+            }
+        }
+
     }
 }

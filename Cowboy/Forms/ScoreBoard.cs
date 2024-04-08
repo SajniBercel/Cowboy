@@ -16,14 +16,14 @@ namespace Cowboy.Forms
         }
 
         private void LoadDataToListBox(string[] _rows)
-        { 
-            string[] rows = new string[_rows.Length+1];
+        {
+            string[] rows = new string[_rows.Length + 1];
 
-            rows[0] = "Győztes;Vesztes;Idő";
+            rows[0] = "Győztes;Vesztes;Idő(mp)";
 
             for (int i = 0; i < _rows.Length; i++)
             {
-                rows[i+1] = _rows[i];
+                rows[i + 1] = _rows[i];
             }
 
             listBox1.Items.Clear();
@@ -53,9 +53,9 @@ namespace Cowboy.Forms
                 for (int j = 0; j < cols.Length; j++)
                 {
                     rowOutput += cols[j];
-                    int reqSpaces = spaces[j] - cols[j].Length;;
+                    int reqSpaces = spaces[j] - cols[j].Length; ;
 
-                    for (int k = 0; k <= reqSpaces+1; k++)
+                    for (int k = 0; k <= reqSpaces + 1; k++)
                     {
 
                         rowOutput += " ";
@@ -64,6 +64,14 @@ namespace Cowboy.Forms
                 listBox1.Items.Add(rowOutput);
             }
 
+        }
+
+        private void ScoreBoard_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }
