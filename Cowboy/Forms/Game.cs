@@ -2,6 +2,7 @@
 using Cowboy.Interfaces;
 using Cowboy.Settings;
 using Cowboy.Utilities;
+using System.Diagnostics;
 
 namespace Cowboy
 {
@@ -135,6 +136,20 @@ namespace Cowboy
         }
 
         /// <summary>
+        /// becsukja ez az ablakot és vissza rak a főmenübe
+        /// </summary>
+        private void Back()
+        {
+            if (mainMenu != null)
+            {
+                mainMenu.Show();
+                timer1.Stop();
+                MainGameTimer.Stop();
+                this.Close();
+            }
+        }
+
+        /// <summary>
         /// a szíve a játék folyásának, ez adja meg az idő múlását (10ms)
         /// </summary>
         private void MainGame_Update(object sender, EventArgs e)
@@ -245,9 +260,7 @@ namespace Cowboy
             // back to main menu
             if (e.KeyCode == Keys.Escape)
             {
-                mainMenu.Show();
-                this.Hide();
-                MainGameTimer.Stop();
+                Back();
             }
             if (e.KeyCode == Keys.Space)
             {
@@ -341,32 +354,34 @@ namespace Cowboy
 
         private void WinCheck()
         {
-            for (int i = 0; i < GameComponents[0].Count; i++)
+            //MessageBox.Show(GameComponents.Count.ToString());
+            if (GameComponents.Count > 0 && GameComponents[0].Count > 0)
             {
-                if (((Player)GameComponents[0][i]).HP <= 0)
+                for (int i = 0; i < GameComponents[0].Count; i++)
                 {
-                    MainGameTimer.Enabled = false;
-
-                    if (i == 0)
+                    if (((Player)GameComponents[0][i]).HP <= 0)
                     {
-                        MessageBox.Show(gameSettings.PlayerSettings[1].PlayerName + " nyert");
+                        MainGameTimer.Enabled = false;
+                        timer1.Enabled = false;
 
-                        DbManager.Instance.Save(gameSettings.PlayerSettings[1].PlayerName, gameSettings.PlayerSettings[0].PlayerName, MathF.Round(GameTime, 2));
+                        if (i == 0)
+                        {
+                            DbManager.Instance.Save(gameSettings.PlayerSettings[1].PlayerName, gameSettings.PlayerSettings[0].PlayerName, MathF.Round(GameTime, 2));
+                        }
+                        else
+                        {
+                            DbManager.Instance.Save(gameSettings.PlayerSettings[0].PlayerName, gameSettings.PlayerSettings[1].PlayerName, MathF.Round(GameTime, 2));
+                        }
+                        Reset();
+                        break;
                     }
-                    else
-                    {
-                        MessageBox.Show(gameSettings.PlayerSettings[0].PlayerName + " nyert");
-
-                        DbManager.Instance.Save(gameSettings.PlayerSettings[0].PlayerName, gameSettings.PlayerSettings[1].PlayerName, MathF.Round(GameTime, 2));
-                    }
-                    Reset();
-                    Setup();
                 }
             }
         }
 
         private void Reset()
         {
+            GameTime = 0f;
             // Removes every gamecomponent \\
             for (int i = 0; i < GameComponents.Count; i++)
             {
@@ -376,20 +391,42 @@ namespace Cowboy
                 }
             }
 
-            for (int i = 0; i < GameComponents[0].Count; i++)
+            for (int i = 0; i < GameComponents.Count; i++)
             {
-                Player player = (Player)GameComponents[0][i];
-                player.Hpbar.Dispose();
-                player.Name.Dispose();
+                for (int j = 0; j < GameComponents[i].Count; j++)
+                {
+                    if (GameComponents[i][j] is Player)
+                    {
+                        Player player = GameComponents[i][j] as Player;
+                        player.Hpbar.Dispose();
+                        player.Name.Dispose();
+                        player.pictureBox.Dispose();
+                    }
+                    else
+                    {
+                        GameComponents[i][j].pictureBox.Dispose();
+                    }
+                }
+                GameComponents[i].Clear();
             }
 
-            GameComponents.Clear();
+            DialogResult dialogResult = MessageBox.Show("Újra akarja kezdeni a játékot?", "Játék Vége", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Setup();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                Back();
+            }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            GameComponents.Clear();
             mainMenu.Show();
+            this.Hide();
+            MainGameTimer.Stop();
+            timer1.Stop();
         }
 
         private void StopWatch_tick(object sender, EventArgs e)

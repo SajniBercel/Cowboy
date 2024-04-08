@@ -89,6 +89,11 @@ namespace Cowboy.Utilities
                 sw.Close();
             }
         }
+
+        /// <summary>
+        /// Visszaadja a GameLogs fájl tartalmát
+        /// </summary>
+        /// <returns>null-t ad vissza ha üres a file, egyébként a tartalmát, soronként elválasztott string tömbben</returns>
         public string[]? ReadGameLogs()
         {
             if (File.Exists(gameLogsPath))
@@ -111,6 +116,10 @@ namespace Cowboy.Utilities
             return null;
         }
 
+        /// <summary>
+        /// Visszaadja a InputSettings fájl tartalmát
+        /// </summary>
+        /// <returns>null-t ad vissza ha üres a file, egyébként a tartalmát, soronként elválasztott string tömbben</returns>
         public InputSetting[]? ReadInputSettingsFromFile()
         {
             if (File.Exists(inputSettingsPath))
@@ -166,6 +175,10 @@ namespace Cowboy.Utilities
             return null;
         }
 
+        /// <summary>
+        /// Visszaadja a PlayerSettings fájl tartalmát
+        /// </summary>
+        /// <returns>null-t ad vissza ha üres a file, egyébként a tartalmát, soronként elválasztott string tömbben</returns>
         public PlayerSetting[]? ReadPlayerSettingsFromFile()
         {
             if (File.Exists(playerSettingsPath))

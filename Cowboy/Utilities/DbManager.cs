@@ -73,6 +73,12 @@ namespace Cowboy.Utilities
             MyConnection.Close();
         }
 
+        /// <summary>
+        /// Menti az adatokat az adatbázisba (!nem ellenőriz arra hogy az adat létezik-e már az adatbázisban!)
+        /// </summary>
+        /// <param name="win">Gyöztes játékos neve</param>
+        /// <param name="lose">Vesztes játékos neve</param>
+        /// <param name="time">a játék időtartama</param>
         public void Save(string win, string lose, float time)
         {
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
@@ -101,13 +107,19 @@ namespace Cowboy.Utilities
 
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
         }
+
+        /// <summary>
+        /// Ha van adatbázis kapcsolat akkor az adatbázisból szedi le az adatokat (indításkor és mentéskor szinkronizál)
+        /// vagy ha nincs akkor a fájlból olvassa be az ideiglenesen tárolt adatokat
+        /// </summary>
+        /// <returns>";"-vel tagolva visszaadja a mentett adatokat soronként egy string tömbbe</returns>
         public string[] GetScoreBoard()
         {
             List<string> output = new List<string>();
 
             if (!connected)
             {
-                output.Add("nem lehet kapcsolódni az adatbázishoz");
+                output.AddRange(FileManager.Instance.ReadGameLogs());
                 return output.ToArray();
             }
             
