@@ -107,8 +107,8 @@ namespace Cowboy.Utilities
 
             if (!connected)
             {
-                output.Add("nem lehet kapcsolódni az adatbázishoz");
-                return output.ToArray();
+               
+                return FileManager.Instance.ReadGameLogs();
             }
             
             MyConnection = new MySqlConnection(MyConnectionString);

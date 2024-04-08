@@ -1,6 +1,4 @@
-﻿using Cowboy.Utilities;
-using System;
-
+﻿
 namespace Cowboy.Forms
 {
     public partial class ScoreBoard : Form
