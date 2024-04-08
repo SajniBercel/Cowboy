@@ -41,10 +41,10 @@
             tms_Game = new ToolStripMenuItem();
             tsm_OpenConfig = new ToolStripMenuItem();
             tsm_ScoreBoard = new ToolStripMenuItem();
+            tsm_Info = new ToolStripMenuItem();
             tsm_Settings = new ToolStripMenuItem();
             tsm_OpenAdvancedSettings = new ToolStripMenuItem();
             tsm_InputSettings = new ToolStripMenuItem();
-            tsm_Info = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             menuStrip.SuspendLayout();
@@ -55,18 +55,18 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 36);
             label1.Name = "label1";
-            label1.Size = new Size(113, 15);
+            label1.Size = new Size(119, 15);
             label1.TabIndex = 0;
-            label1.Text = "Játékablak Szélesség";
+            label1.Text = "Játékablak Szélessége";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(12, 65);
             label2.Name = "label2";
-            label2.Size = new Size(117, 15);
+            label2.Size = new Size(123, 15);
             label2.TabIndex = 1;
-            label2.Text = "Játékablak Magasság";
+            label2.Text = "Játékablak Magassága";
             // 
             // numericUpDown1
             // 
@@ -93,9 +93,9 @@
             chb_FullScreen.AutoSize = true;
             chb_FullScreen.Location = new Point(160, 91);
             chb_FullScreen.Name = "chb_FullScreen";
-            chb_FullScreen.Size = new Size(106, 19);
+            chb_FullScreen.Size = new Size(107, 19);
             chb_FullScreen.TabIndex = 3;
-            chb_FullScreen.Text = "Teljes képernyő";
+            chb_FullScreen.Text = "Teljes Képernyő";
             chb_FullScreen.UseVisualStyleBackColor = true;
             chb_FullScreen.CheckedChanged += checkBox1_CheckedChanged;
             // 
@@ -135,7 +135,7 @@
             btn_InputSettings.Name = "btn_InputSettings";
             btn_InputSettings.Size = new Size(254, 23);
             btn_InputSettings.TabIndex = 6;
-            btn_InputSettings.Text = "Billettyűzet Beállítások";
+            btn_InputSettings.Text = "Billetyűzet Beállítások";
             btn_InputSettings.UseVisualStyleBackColor = true;
             btn_InputSettings.Click += btn_InputSettings_Click;
             // 
@@ -160,15 +160,22 @@
             // 
             tsm_OpenConfig.Name = "tsm_OpenConfig";
             tsm_OpenConfig.Size = new Size(251, 22);
-            tsm_OpenConfig.Text = "Konfigurációs mappa Megnyitása";
+            tsm_OpenConfig.Text = "Konfigurációs Mappa Megnyitása";
             tsm_OpenConfig.Click += tsm_OpenConfig_Click;
             // 
             // tsm_ScoreBoard
             // 
             tsm_ScoreBoard.Name = "tsm_ScoreBoard";
             tsm_ScoreBoard.Size = new Size(251, 22);
-            tsm_ScoreBoard.Text = "Eremény Lista";
+            tsm_ScoreBoard.Text = "Eredmény Lista";
             tsm_ScoreBoard.Click += tsm_ScoreBoard_Click;
+            // 
+            // tsm_Info
+            // 
+            tsm_Info.Name = "tsm_Info";
+            tsm_Info.Size = new Size(251, 22);
+            tsm_Info.Text = "Info";
+            tsm_Info.Click += tsm_Info_Click;
             // 
             // tsm_Settings
             // 
@@ -180,23 +187,16 @@
             // tsm_OpenAdvancedSettings
             // 
             tsm_OpenAdvancedSettings.Name = "tsm_OpenAdvancedSettings";
-            tsm_OpenAdvancedSettings.Size = new Size(191, 22);
+            tsm_OpenAdvancedSettings.Size = new Size(187, 22);
             tsm_OpenAdvancedSettings.Text = "Speciális Beállítások";
             tsm_OpenAdvancedSettings.Click += btn_Advnaced_Click;
             // 
             // tsm_InputSettings
             // 
             tsm_InputSettings.Name = "tsm_InputSettings";
-            tsm_InputSettings.Size = new Size(191, 22);
-            tsm_InputSettings.Text = "Billettyűzet Beállítások";
+            tsm_InputSettings.Size = new Size(187, 22);
+            tsm_InputSettings.Text = "Billetyűzet Beállítások";
             tsm_InputSettings.Click += btn_InputSettings_Click;
-            // 
-            // tsm_Info
-            // 
-            tsm_Info.Name = "tsm_Info";
-            tsm_Info.Size = new Size(251, 22);
-            tsm_Info.Text = "Info";
-            tsm_Info.Click += tsm_Info_Click;
             // 
             // MainMenu
             // 
