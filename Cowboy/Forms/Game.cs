@@ -134,7 +134,7 @@ namespace Cowboy
             GameComponents.Add(new List<GameComponent>());
 
             MainGameTimer.Enabled = true;
-            timer1.Enabled = true;
+            StopWatch.Enabled = true;
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Cowboy
             if (mainMenu != null)
             {
                 mainMenu.Show();
-                timer1.Stop();
+                StopWatch.Stop();
                 MainGameTimer.Stop();
                 this.Close();
             }
@@ -326,23 +326,25 @@ namespace Cowboy
 
         private Point GetPlayerStartPos(Player player, string side)
         {
-            // todo, nem jó ez így
             if (side.ToLower() == "left")
             {
                 player.SetWeaponOffSet(new Point(
                     player.pictureBox.Width,
-                    (player.pictureBox.Location.Y+player.pictureBox.Height/2)
+                    (player.pictureBox.Location.Y/2+player.pictureBox.Height/2)
                     ));
-                return new Point(90 - player.pictureBox.Width, Height / 2 - player.pictureBox.Height / 2);
+
+                return new Point(50, Height / 2 + player.pictureBox.Height / 2);
             }
             else if (side.ToLower() == "rigth")
             {
                 player.SetWeaponOffSet(new Point(
-                    -player.pictureBox.Width+20,
+                    -player.pictureBox.Width+30,
                     (player.pictureBox.Location.Y + player.pictureBox.Height / 2)
                     ));
+
                 player.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                return new Point(Width - 80 - player.pictureBox.Width / 2, Height / 2 - player.pictureBox.Height / 2);
+
+                return new Point(Width - player.pictureBox.Width - 50, Height / 2 + player.pictureBox.Height / 2);
             }
             return new Point(0, 0);
         }
@@ -374,23 +376,26 @@ namespace Cowboy
                     if (((Player)GameComponents[0][i]).HP <= 0)
                     {
                         MainGameTimer.Enabled = false;
-                        timer1.Enabled = false;
+                        StopWatch.Enabled = false;
+                        string winnerName = "";
 
                         if (i == 0)
                         {
+                            winnerName = gameSettings.PlayerSettings[1].PlayerName;
                             DbManager.Instance.Save(gameSettings.PlayerSettings[1].PlayerName, gameSettings.PlayerSettings[0].PlayerName, MathF.Round(GameTime, 2));
                         }
                         else
                         {
+                            winnerName = gameSettings.PlayerSettings[0].PlayerName;
                             DbManager.Instance.Save(gameSettings.PlayerSettings[0].PlayerName, gameSettings.PlayerSettings[1].PlayerName, MathF.Round(GameTime, 2));
                         }
-                        Reset();
+                        Reset(winnerName);
                     }
                 }
             }
         }
 
-        private void Reset()
+        private void Reset(string winnerName)
         {
             // Removes every gamecomponent \\
             for (int i = 0; i < GameComponents.Count; i++)
@@ -420,7 +425,7 @@ namespace Cowboy
                 GameComponents[i].Clear();
             }
 
-            DialogResult dialogResult = MessageBox.Show("Újra akarja kezdeni a játékot?", "Játék Vége", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show($"{winnerName}, Nyert. Újra akarja kezdeni a játékot?", "Játék Vége", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Setup();
@@ -436,7 +441,7 @@ namespace Cowboy
             mainMenu.Show();
             this.Hide();
             MainGameTimer.Stop();
-            timer1.Stop();
+            StopWatch.Stop();
         }
 
         private void StopWatch_tick(object sender, EventArgs e)

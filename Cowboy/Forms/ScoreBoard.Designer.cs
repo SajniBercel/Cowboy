@@ -39,14 +39,14 @@
             listBox1.ItemHeight = 19;
             listBox1.Location = new Point(0, 0);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(384, 361);
+            listBox1.Size = new Size(499, 361);
             listBox1.TabIndex = 0;
             // 
             // ScoreBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 361);
+            ClientSize = new Size(499, 361);
             Controls.Add(listBox1);
             Name = "ScoreBoard";
             Text = "ScoreBoard";

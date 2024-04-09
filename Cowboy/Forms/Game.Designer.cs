@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             MainGameTimer = new System.Windows.Forms.Timer(components);
-            timer1 = new System.Windows.Forms.Timer(components);
+            StopWatch = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // MainGameTimer
@@ -38,9 +38,9 @@
             MainGameTimer.Interval = 10;
             MainGameTimer.Tick += MainGame_Update;
             // 
-            // timer1
+            // StopWatch
             // 
-            timer1.Tick += StopWatch_tick;
+            StopWatch.Tick += StopWatch_tick;
             // 
             // Game
             // 
@@ -59,6 +59,6 @@
         #endregion
 
         private System.Windows.Forms.Timer MainGameTimer;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer StopWatch;
     }
 }

@@ -46,9 +46,9 @@ namespace Cowboy.Classes
             Name = Create.label(name,name, new Point(0,0));
             Name.SendToBack();
 
-            weapon = new Weapon(this, playerSetting.ReloadSpeed*100, playerSetting.BulletSpeed, playerSetting.BulletDamage);
-
             PlayerSettings = playerSetting;
+
+            weapon = new Weapon(this);
         }
 
         public virtual void Update()

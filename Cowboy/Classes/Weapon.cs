@@ -20,16 +20,16 @@ namespace Cowboy.Classes
         /// <param name="realoadSpeed">idő amennyinek el kell tellnie hogy újra lehessen lőni</param>
         /// <param name="bulletSpeed">a töltény sebessége</param>
         /// <param name="weaponDamage">Sebzés</param>
-        public Weapon(Player player, int realoadSpeed, int bulletSpeed, int weaponDamage)
+        public Weapon(Player player)
         {
             OwnerPlayer = player;
 
-            BulletSpeed = bulletSpeed;
+            BulletSpeed = player.PlayerSettings.BulletSpeed;
 
-            WeaponDamage = weaponDamage;
+            WeaponDamage = player.PlayerSettings.BulletDamage;
 
             MyTimer = new Timer();
-            MyTimer.Interval = realoadSpeed;
+            MyTimer.Interval = player.PlayerSettings.ReloadSpeed*100;
             MyTimer.Tick += new EventHandler(SetShootTrue);
             MyTimer.Start();
         }
@@ -46,8 +46,8 @@ namespace Cowboy.Classes
                 soundPlayer.Play();
                 soundPlayer.Dispose();
 
-                Bullet bullet = new Bullet(OwnerPlayer.PlayerID, 
-                    Create.pictureBox("Bullet", new Size(30, 30), new Point(0, 0), 
+                Bullet bullet = new Bullet(OwnerPlayer.PlayerID,
+                    Create.pictureBox("Bullet", new Size(30, 30), new Point(0, 0),
                     Properties.Resources.bullet), BulletSpeed, WeaponDamage);
                 Point offset = OwnerPlayer.GetWeaponOffSetPoint();
                 offset.Offset(0,-bullet.pictureBox.Height/2);
