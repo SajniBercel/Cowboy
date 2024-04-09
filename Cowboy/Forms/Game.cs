@@ -2,7 +2,6 @@
 using Cowboy.Interfaces;
 using Cowboy.Settings;
 using Cowboy.Utilities;
-using System.Diagnostics;
 
 namespace Cowboy
 {
@@ -21,6 +20,8 @@ namespace Cowboy
         private int GC_count = 0;
         private bool IsPaused = false;
         private float GameTime = 0;
+
+        private bool LockInputs = false;
 
         /// <summary>
         /// Átveszi a Beállításokat, ha null akkor egy alapot generál/használ
@@ -71,6 +72,7 @@ namespace Cowboy
         /// </summary>
         public void Setup()
         {
+            GameComponents.Clear();
             GameTime = 0;
             Player player1;
             Player player2;
@@ -267,26 +269,29 @@ namespace Cowboy
                 Pause();
             }
 
-            // left Player (player 1) input (down) management
-            if (e.KeyCode == gameSettings.InputSettings[0].UpKey)
-                ((Player)GameComponents[0][0]).MoveUp = true;
-            else if (e.KeyCode == gameSettings.InputSettings[0].DownKey)
-                ((Player)GameComponents[0][0]).MoveDown = true;
-            //shoot
-            if (e.KeyCode == gameSettings.InputSettings[0].ShootKey)
+            if (!LockInputs)
             {
-                Shoot((Player)GameComponents[0][0]);
-            }
+                // left Player (player 1) input (down) management
+                if (e.KeyCode == gameSettings.InputSettings[0].UpKey)
+                    ((Player)GameComponents[0][0]).MoveUp = true;
+                else if (e.KeyCode == gameSettings.InputSettings[0].DownKey)
+                    ((Player)GameComponents[0][0]).MoveDown = true;
+                //shoot
+                if (e.KeyCode == gameSettings.InputSettings[0].ShootKey)
+                {
+                    Shoot((Player)GameComponents[0][0]);
+                }
 
-            // right Player (player 2) input (down) management
-            if (e.KeyCode == gameSettings.InputSettings[1].UpKey)
-                ((Player)GameComponents[0][1]).MoveUp = true;
-            else if (e.KeyCode == gameSettings.InputSettings[1].DownKey)
-                ((Player)GameComponents[0][1]).MoveDown = true;
-            //shoot
-            if (e.KeyCode == gameSettings.InputSettings[1].ShootKey)
-            {
-                Shoot((Player)GameComponents[0][1]);
+                // right Player (player 2) input (down) management
+                if (e.KeyCode == gameSettings.InputSettings[1].UpKey)
+                    ((Player)GameComponents[0][1]).MoveUp = true;
+                else if (e.KeyCode == gameSettings.InputSettings[1].DownKey)
+                    ((Player)GameComponents[0][1]).MoveDown = true;
+                //shoot
+                if (e.KeyCode == gameSettings.InputSettings[1].ShootKey)
+                {
+                    Shoot((Player)GameComponents[0][1]);
+                }
             }
         }
 
@@ -324,14 +329,20 @@ namespace Cowboy
             // todo, nem jó ez így
             if (side.ToLower() == "left")
             {
-                player.SetWeaponOffSet(new Point(player.pictureBox.Width, 5));
-                return new Point(80 - player.pictureBox.Width, Height / 2 - player.pictureBox.Height / 2);
+                player.SetWeaponOffSet(new Point(
+                    player.pictureBox.Width,
+                    (player.pictureBox.Location.Y+player.pictureBox.Height/2)
+                    ));
+                return new Point(90 - player.pictureBox.Width, Height / 2 - player.pictureBox.Height / 2);
             }
             else if (side.ToLower() == "rigth")
             {
-                player.SetWeaponOffSet(new Point(0, 5));
+                player.SetWeaponOffSet(new Point(
+                    -player.pictureBox.Width - 10,
+                    (player.pictureBox.Location.Y + player.pictureBox.Height / 2)
+                    ));
                 player.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                return new Point(Width - 50 - player.pictureBox.Width / 2, Height / 2 - player.pictureBox.Height / 2);
+                return new Point(Width - 90 - player.pictureBox.Width / 2, Height / 2 - player.pictureBox.Height / 2);
             }
             return new Point(0, 0);
         }
@@ -343,18 +354,19 @@ namespace Cowboy
                 MainGameTimer.Start();
                 this.Text = "Game";
                 IsPaused = false;
+                LockInputs = false;
             }
             else
             {
                 MainGameTimer.Stop();
                 this.Text = "Paused";
                 IsPaused = true;
+                LockInputs = true;
             }
         }
 
         private void WinCheck()
         {
-            //MessageBox.Show(GameComponents.Count.ToString());
             if (GameComponents.Count > 0 && GameComponents[0].Count > 0)
             {
                 for (int i = 0; i < GameComponents[0].Count; i++)
@@ -373,7 +385,6 @@ namespace Cowboy
                             DbManager.Instance.Save(gameSettings.PlayerSettings[0].PlayerName, gameSettings.PlayerSettings[1].PlayerName, MathF.Round(GameTime, 2));
                         }
                         Reset();
-                        break;
                     }
                 }
             }
@@ -381,7 +392,6 @@ namespace Cowboy
 
         private void Reset()
         {
-            GameTime = 0f;
             // Removes every gamecomponent \\
             for (int i = 0; i < GameComponents.Count; i++)
             {

@@ -86,16 +86,18 @@
             // txt_PlayerName_1
             // 
             txt_PlayerName_1.Location = new Point(12, 12);
+            txt_PlayerName_1.MaxLength = 20;
             txt_PlayerName_1.Name = "txt_PlayerName_1";
-            txt_PlayerName_1.Size = new Size(100, 23);
+            txt_PlayerName_1.Size = new Size(125, 23);
             txt_PlayerName_1.TabIndex = 1;
             txt_PlayerName_1.TextChanged += txt_Player1Name_TextChanged;
             // 
             // txt_PlayerName_2
             // 
             txt_PlayerName_2.Location = new Point(218, 12);
+            txt_PlayerName_2.MaxLength = 20;
             txt_PlayerName_2.Name = "txt_PlayerName_2";
-            txt_PlayerName_2.Size = new Size(100, 23);
+            txt_PlayerName_2.Size = new Size(125, 23);
             txt_PlayerName_2.TabIndex = 2;
             txt_PlayerName_2.TextChanged += txt_Player2Name_TextChanged;
             // 
@@ -360,7 +362,7 @@
             // Ch_Bot_1
             // 
             Ch_Bot_1.AutoSize = true;
-            Ch_Bot_1.Location = new Point(118, 14);
+            Ch_Bot_1.Location = new Point(143, 14);
             Ch_Bot_1.Name = "Ch_Bot_1";
             Ch_Bot_1.Size = new Size(44, 19);
             Ch_Bot_1.TabIndex = 9;
@@ -371,7 +373,7 @@
             // Ch_Bot_2
             // 
             Ch_Bot_2.AutoSize = true;
-            Ch_Bot_2.Location = new Point(324, 14);
+            Ch_Bot_2.Location = new Point(349, 14);
             Ch_Bot_2.Name = "Ch_Bot_2";
             Ch_Bot_2.Size = new Size(44, 19);
             Ch_Bot_2.TabIndex = 10;

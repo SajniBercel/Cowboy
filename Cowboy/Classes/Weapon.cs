@@ -49,8 +49,9 @@ namespace Cowboy.Classes
                 Bullet bullet = new Bullet(OwnerPlayer.PlayerID, 
                     Create.pictureBox("Bullet", new Size(40, 40), new Point(0, 0), 
                     Properties.Resources.bulletBeta), BulletSpeed, WeaponDamage);
-
-                bullet.pictureBox.Location = OwnerPlayer.GetWeaponOffSetPoint();
+                Point offset = OwnerPlayer.GetWeaponOffSetPoint();
+                offset.Offset(0,-bullet.pictureBox.Height/2);
+                bullet.pictureBox.Location = offset;
                 CanShoot = false;
                 MyTimer.Start();
                 return bullet;
