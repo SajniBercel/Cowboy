@@ -338,11 +338,11 @@ namespace Cowboy
             else if (side.ToLower() == "rigth")
             {
                 player.SetWeaponOffSet(new Point(
-                    -player.pictureBox.Width - 10,
+                    -player.pictureBox.Width+20,
                     (player.pictureBox.Location.Y + player.pictureBox.Height / 2)
                     ));
                 player.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                return new Point(Width - 90 - player.pictureBox.Width / 2, Height / 2 - player.pictureBox.Height / 2);
+                return new Point(Width - 80 - player.pictureBox.Width / 2, Height / 2 - player.pictureBox.Height / 2);
             }
             return new Point(0, 0);
         }
