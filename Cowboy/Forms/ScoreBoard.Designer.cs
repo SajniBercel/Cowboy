@@ -51,6 +51,7 @@
             Name = "ScoreBoard";
             Text = "ScoreBoard";
             Load += ScoreBoard_Load;
+            KeyDown += ScoreBoard_KeyDown;
             ResumeLayout(false);
         }
 
