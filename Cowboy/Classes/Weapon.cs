@@ -47,7 +47,7 @@ namespace Cowboy.Classes
                 soundPlayer.Dispose();
 
                 Bullet bullet = new Bullet(OwnerPlayer.PlayerID, 
-                    Create.pictureBox("Bullet", new Size(20, 8), new Point(0, 0), 
+                    Create.pictureBox("Bullet", new Size(30, 30), new Point(0, 0), 
                     Properties.Resources.bullet), BulletSpeed, WeaponDamage);
                 Point offset = OwnerPlayer.GetWeaponOffSetPoint();
                 offset.Offset(0,-bullet.pictureBox.Height/2);
