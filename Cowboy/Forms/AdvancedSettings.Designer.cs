@@ -397,7 +397,6 @@
             Name = "AdvancedSettings";
             Text = "AdvancedSettings";
             Load += AdvancedSettings_Load;
-            KeyDown += AdvancedSettings_KeyDown;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Nu_ReloadSpeed_1).EndInit();

@@ -179,12 +179,19 @@ namespace Cowboy.Forms
                         ActivateAllButtons();
                         Coloring();
                     }
+                    else if (e.KeyCode == Keys.Escape)
+                    {
+                        WaitForInput = false;
+                        ActivateAllButtons();
+                        Coloring();
+                    }
                 }
             }
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
+            ActivateAllButtons();
             inputSettings = GenerateInputSettings();
             mainMenu.SetInputSettings(GenerateInputSettings());
             ChangedKeys.Clear();
@@ -215,6 +222,7 @@ namespace Cowboy.Forms
                     case Keys.Left:
                     case Keys.Right:
                     case Keys.Tab:
+                    case Keys.Escape:
                         e.IsInputKey = true;
                         break;
                     default:

@@ -127,8 +127,11 @@ namespace Cowboy
 
             txt_PlayerName_1.Enabled = !Ch_Bot_1.Checked;
 
-            if (txt_PlayerName_1.Enabled)
+
+            if (txt_PlayerName_1.Enabled && PlayerName1 != "Bot")
                 txt_PlayerName_1.Text = PlayerName1;
+            else if (txt_PlayerName_1.Enabled && PlayerName1 == "Bot")
+                txt_PlayerName_1.Text = "Player1";
             else
                 txt_PlayerName_1.Text = "Bot";
         }
@@ -140,18 +143,12 @@ namespace Cowboy
 
             txt_PlayerName_2.Enabled = !Ch_Bot_2.Checked;
 
-            if (txt_PlayerName_2.Enabled)
+            if (txt_PlayerName_2.Enabled && PlayerName2 != "Bot")
                 txt_PlayerName_2.Text = PlayerName2;
+            else if (txt_PlayerName_2.Enabled && PlayerName2 == "Bot")
+                txt_PlayerName_2.Text = "Player2";
             else
                 txt_PlayerName_2.Text = "Bot";
-        }
-
-        private void AdvancedSettings_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
         }
     }
 }
