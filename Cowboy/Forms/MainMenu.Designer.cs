@@ -216,7 +216,7 @@
             MainMenuStrip = menuStrip;
             MinimumSize = new Size(294, 192);
             Name = "MainMenu";
-            Text = "MainMenu";
+            Text = "Főmenü";
             Load += MainMenu_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();

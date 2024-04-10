@@ -11,6 +11,7 @@
         ///  Tárolja a játékra vonatkozó beállításokat
         /// </summary>
         /// <param name="playerSettings">(2) játékos beállításai</param>
+        /// <param name="inputSettings">(2) játékos input beállításai</param>
         /// <param name="windowSize">Ablak mérete</param>
         /// <param name="bulletCollision">Van-e ütközés a töltények között</param>
         public GameSettings(PlayerSetting[] playerSettings, InputSetting[] inputSettings, Size windowSize, bool bulletCollision)

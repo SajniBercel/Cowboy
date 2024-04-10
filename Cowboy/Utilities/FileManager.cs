@@ -33,6 +33,10 @@ namespace Cowboy.Utilities
                 File.Create(gameLogsPath);
         }
 
+        /// <summary>
+        /// Menti a billentyű beállításokat fájlba
+        /// </summary>
+        /// <param name="inputSettings"></param>
         public void SaveToFile(InputSetting[] inputSettings)
         {
             if (!File.Exists(inputSettingsPath))
@@ -54,6 +58,10 @@ namespace Cowboy.Utilities
             }
         }
 
+        /// <summary>
+        /// Menti a játékos beállításokat fájlba
+        /// </summary>
+        /// <param name="playerSettings"></param>
         public void SaveToFile(PlayerSetting[] playerSettings)
         {
             if (!File.Exists(playerSettingsPath))
@@ -76,6 +84,10 @@ namespace Cowboy.Utilities
             }
         }
 
+        /// <summary>
+        /// Menti a lejátszott meccs adatait ideiglenes fájlba ahonnan majd fel lesz töltve az adatbázisba
+        /// </summary>
+        /// <param name="game">*gyöztes játékos neve*;*vesztes játékos neve*;játék időtartama</param>
         public void SaveToFile(string game)
         {
             if (!File.Exists(gameLogsPath))

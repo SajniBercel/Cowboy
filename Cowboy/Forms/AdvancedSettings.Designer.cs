@@ -397,7 +397,7 @@
             Controls.Add(txt_PlayerName_1);
             Controls.Add(PlayerClone);
             Name = "AdvancedSettings";
-            Text = "AdvancedSettings";
+            Text = "Speciális Beállítások";
             Load += AdvancedSettings_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

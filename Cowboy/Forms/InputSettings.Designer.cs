@@ -240,7 +240,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "InputSettings";
-            Text = "InputSettings";
+            Text = "Billetyűzet Beállítások";
             Load += InputSettings_Load;
             KeyDown += Key_Down;
             groupBox1.ResumeLayout(false);

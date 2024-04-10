@@ -49,7 +49,7 @@
             ClientSize = new Size(499, 361);
             Controls.Add(listBox1);
             Name = "ScoreBoard";
-            Text = "ScoreBoard";
+            Text = "Eredmény Lista";
             Load += ScoreBoard_Load;
             KeyDown += ScoreBoard_KeyDown;
             ResumeLayout(false);

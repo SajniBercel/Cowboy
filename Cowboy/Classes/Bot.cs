@@ -78,6 +78,7 @@ namespace Cowboy.Classes
             MoveUp = false;
             MoveDown = true;
         }
+
         private void Stop()
         {
             MoveUp = false;
