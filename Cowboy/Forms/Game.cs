@@ -138,7 +138,7 @@ namespace Cowboy
         }
 
         /// <summary>
-        /// becsukja ez az ablakot és vissza rak a főmenübe
+        /// becsukja az ablakot és vissza rak a főmenübe
         /// </summary>
         private void Back()
         {
@@ -333,7 +333,7 @@ namespace Cowboy
                     (player.pictureBox.Location.Y/2+player.pictureBox.Height/2)
                     ));
 
-                return new Point(50, Height / 2 + player.pictureBox.Height / 2);
+                return new Point(51, Height / 2 + player.pictureBox.Height / 2);
             }
             else if (side.ToLower() == "rigth")
             {
@@ -344,7 +344,7 @@ namespace Cowboy
 
                 player.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-                return new Point(Width - player.pictureBox.Width - 50, Height / 2 + player.pictureBox.Height / 2);
+                return new Point(Width - player.pictureBox.Width - 51, Height / 2 + player.pictureBox.Height / 2);
             }
             return new Point(0, 0);
         }
