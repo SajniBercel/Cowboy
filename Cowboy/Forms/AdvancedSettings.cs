@@ -20,6 +20,10 @@ namespace Cowboy
 
             this.mainMenu = mainMenu;
         }
+
+        /// <summary>
+        /// A kapott PlayerSetting alapján betölti az adatokat
+        /// </summary>
         public void LoadData(PlayerSetting[]? playerS)
         {
             // átveszi vagy load-oldja az alap beállításokat \\
@@ -71,7 +75,7 @@ namespace Cowboy
 
         private void btn_AdvsSave_Click(object sender, EventArgs e)
         {
-            // validálás (nem sok értelme van)
+            // validálás
             if (txt_PlayerName_1.Text == txt_PlayerName_2.Text && !(txt_PlayerName_1.Text == "Bot" && txt_PlayerName_2.Text == "Bot"))
             {
                 MessageBox.Show("A két játékosnak nem lehet ugyan az a neve");

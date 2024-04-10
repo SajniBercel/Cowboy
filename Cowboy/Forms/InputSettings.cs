@@ -35,6 +35,9 @@ namespace Cowboy.Forms
             Coloring();
         }
 
+        /// <summary>
+        /// betölti az előre meghatározott alap beállításokat
+        /// </summary>
         private void LoadDefaultValues()
         {
             button1.Text = Keys.W.ToString();
@@ -45,6 +48,9 @@ namespace Cowboy.Forms
             button6.Text = Keys.Left.ToString();
         }
 
+        /// <summary>
+        /// A kapott InputSetting alapján betölti az adatokat
+        /// </summary>
         public void LoadData(InputSetting[]? _inputsettings)
         {
             if (_inputsettings == null)
