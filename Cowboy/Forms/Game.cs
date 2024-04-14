@@ -77,7 +77,6 @@ namespace Cowboy
             Player player1;
             Player player2;
 
-            //window size
             if (gameSettings.WindowSize.Width < 10 && gameSettings.WindowSize.Height < 10)
             {
                 this.WindowState = FormWindowState.Maximized;
@@ -86,19 +85,19 @@ namespace Cowboy
             else
                 this.Size = gameSettings.WindowSize;
 
-            // Create Player 1
+            // Player 1
             Player temp_player1 = new Player(1, gameSettings.PlayerSettings[0].PlayerName,
                 Create.pictureBox("PB_player1", new Size(60, 60), new Point(0, 0),
                 Properties.Resources.player),
                 gameSettings.PlayerSettings[0]);
 
-            // Create Player 2 \\
+            // Player 2
             Player temp_player2 = new Player(2, gameSettings.PlayerSettings[1].PlayerName,
                 Create.pictureBox("PB_player2", new Size(60, 60), new Point(0, 0),
                 Properties.Resources.player),
                 gameSettings.PlayerSettings[1]);
 
-            // place to the correct pos \\
+            // elhelyezés
             temp_player1.pictureBox.Location = GetPlayerStartPos(temp_player1, "left");
             temp_player2.pictureBox.Location = GetPlayerStartPos(temp_player2, "rigth");
 
@@ -118,14 +117,13 @@ namespace Cowboy
             // Bullet haladás irány korrekció
             player2.weapon.BulletSpeed *= -1;
 
-            // Create the GameComponents List that holds all of the game objects \\
             List<GameComponent> Players = new List<GameComponent>
             {
                 player1,
                 player2
             };
 
-
+            // GameComponents List feltöltése (tárolja az összes GameComponent-et) \\
             // index 0: Players 
             GameComponents.Add(Players);
             // index 1: Bullets
@@ -207,6 +205,7 @@ namespace Cowboy
                     }
                 }
 
+                // Collision
                 if (gameSettings.BulletCollision)
                 {
                     for (int j = 0; j < GameComponents[1].Count; j++)
@@ -330,10 +329,10 @@ namespace Cowboy
             {
                 player.SetWeaponOffSet(new Point(
                     player.pictureBox.Width,
-                    (player.pictureBox.Location.Y/2+player.pictureBox.Height/2)
+                    (player.pictureBox.Location.Y/2+player.pictureBox.Height / 2)
                     ));
 
-                return new Point(51, Height / 2 + player.pictureBox.Height / 2);
+                return new Point(51, Height / 2 - player.pictureBox.Height / 2);
             }
             else if (side.ToLower() == "rigth")
             {
@@ -344,7 +343,7 @@ namespace Cowboy
 
                 player.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-                return new Point(Width - player.pictureBox.Width - 51, Height / 2 + player.pictureBox.Height / 2);
+                return new Point(Width - player.pictureBox.Width - 51, Height / 2 - player.pictureBox.Height / 2);
             }
             return new Point(0, 0);
         }
@@ -354,14 +353,14 @@ namespace Cowboy
             if (IsPaused)
             {
                 MainGameTimer.Start();
-                this.Text = "Game";
+                this.Text = "Játék";
                 IsPaused = false;
                 LockInputs = false;
             }
             else
             {
                 MainGameTimer.Stop();
-                this.Text = "Paused";
+                this.Text = "Megállítva";
                 IsPaused = true;
                 LockInputs = true;
             }
@@ -397,7 +396,7 @@ namespace Cowboy
 
         private void Reset(string winnerName)
         {
-            // Removes every gamecomponent \\
+            // töröl minden komponenst
             for (int i = 0; i < GameComponents.Count; i++)
             {
                 for (int j = 0; j < GameComponents[i].Count; j++)

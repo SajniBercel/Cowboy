@@ -41,7 +41,7 @@ namespace Cowboy.Utilities
         {
             if (!File.Exists(inputSettingsPath))
             {
-                MessageBox.Show("Hiba nem létezik a file (i)");
+                MessageBox.Show("Hiba, nem létezik a:" + inputSettingsPath + " fájl");
             }
 
             if (inputSettings.Length != 2)
@@ -66,7 +66,7 @@ namespace Cowboy.Utilities
         {
             if (!File.Exists(playerSettingsPath))
             {
-                MessageBox.Show("Hiba nem létezik a file (p)");
+                MessageBox.Show("Hiba, nem létezik a:" + playerSettingsPath + " fájl");
             }
 
             if (playerSettings.Length != 2)
@@ -92,7 +92,7 @@ namespace Cowboy.Utilities
         {
             if (!File.Exists(gameLogsPath))
             {
-                MessageBox.Show("Hiba nem létezik a file (g)");
+                MessageBox.Show("Hiba, nem létezik a:" + gameLogsPath + " fájl");
             }
 
             using (StreamWriter sw = new StreamWriter(gameLogsPath, append:true))

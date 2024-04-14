@@ -203,7 +203,7 @@
             // 
             btn_Save.Location = new Point(179, 126);
             btn_Save.Name = "btn_Save";
-            btn_Save.Size = new Size(75, 23);
+            btn_Save.Size = new Size(80, 25);
             btn_Save.TabIndex = 3;
             btn_Save.Text = "Mentés";
             btn_Save.UseVisualStyleBackColor = true;
@@ -211,19 +211,19 @@
             // 
             // btn_Reset
             // 
-            btn_Reset.Location = new Point(179, 155);
+            btn_Reset.Location = new Point(179, 157);
             btn_Reset.Name = "btn_Reset";
-            btn_Reset.Size = new Size(75, 23);
+            btn_Reset.Size = new Size(80, 25);
             btn_Reset.TabIndex = 4;
-            btn_Reset.Text = "Reset";
+            btn_Reset.Text = "Visszaállítás";
             btn_Reset.UseVisualStyleBackColor = true;
             btn_Reset.Click += Reset_Click;
             // 
             // btn_Back
             // 
-            btn_Back.Location = new Point(179, 184);
+            btn_Back.Location = new Point(179, 188);
             btn_Back.Name = "btn_Back";
-            btn_Back.Size = new Size(75, 23);
+            btn_Back.Size = new Size(80, 25);
             btn_Back.TabIndex = 5;
             btn_Back.Text = "Vissza";
             btn_Back.UseVisualStyleBackColor = true;
@@ -233,14 +233,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(434, 214);
+            ClientSize = new Size(434, 219);
             Controls.Add(btn_Back);
             Controls.Add(btn_Reset);
             Controls.Add(btn_Save);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "InputSettings";
-            Text = "Billetyűzet Beállítások";
+            Text = "Billentyűzet Beállítások";
             Load += InputSettings_Load;
             KeyDown += Key_Down;
             groupBox1.ResumeLayout(false);
