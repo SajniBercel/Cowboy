@@ -78,7 +78,7 @@
             PlayerClone.Location = new Point(12, 41);
             PlayerClone.Name = "PlayerClone";
             PlayerClone.Size = new Size(103, 19);
-            PlayerClone.TabIndex = 0;
+            PlayerClone.TabIndex = 5;
             PlayerClone.Text = "Külön beállítás";
             PlayerClone.UseVisualStyleBackColor = true;
             PlayerClone.CheckedChanged += PlayerClone_CheckedChanged;
@@ -98,7 +98,7 @@
             txt_PlayerName_2.MaxLength = 20;
             txt_PlayerName_2.Name = "txt_PlayerName_2";
             txt_PlayerName_2.Size = new Size(125, 23);
-            txt_PlayerName_2.TabIndex = 2;
+            txt_PlayerName_2.TabIndex = 3;
             txt_PlayerName_2.TextChanged += txt_Player2Name_TextChanged;
             // 
             // groupBox1
@@ -116,7 +116,7 @@
             groupBox1.Location = new Point(12, 66);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(200, 165);
-            groupBox1.TabIndex = 3;
+            groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
@@ -125,9 +125,9 @@
             label9.AutoSize = true;
             label9.Location = new Point(6, 134);
             label9.Name = "label9";
-            label9.Size = new Size(85, 15);
+            label9.Size = new Size(89, 15);
             label9.TabIndex = 8;
-            label9.Text = "Újratöltés Ideje";
+            label9.Text = "Újra Töltés Ideje";
             // 
             // label7
             // 
@@ -152,9 +152,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(6, 47);
             label3.Name = "label3";
-            label3.Size = new Size(64, 15);
+            label3.Size = new Size(84, 15);
             label3.TabIndex = 5;
-            label3.Text = "Játékos HP";
+            label3.Text = "Játékos Életerő";
             // 
             // label1
             // 
@@ -179,11 +179,11 @@
             // 
             Nu_BulletSpeed_1.Location = new Point(152, 74);
             Nu_BulletSpeed_1.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
-            Nu_BulletSpeed_1.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            Nu_BulletSpeed_1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             Nu_BulletSpeed_1.Name = "Nu_BulletSpeed_1";
             Nu_BulletSpeed_1.Size = new Size(42, 23);
             Nu_BulletSpeed_1.TabIndex = 3;
-            Nu_BulletSpeed_1.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            Nu_BulletSpeed_1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // Nu_PlayerHP_1
             // 
@@ -230,7 +230,7 @@
             groupBox2.Location = new Point(218, 66);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(200, 165);
-            groupBox2.TabIndex = 4;
+            groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
             // 
@@ -239,9 +239,9 @@
             label10.AutoSize = true;
             label10.Location = new Point(6, 134);
             label10.Name = "label10";
-            label10.Size = new Size(85, 15);
+            label10.Size = new Size(89, 15);
             label10.TabIndex = 9;
-            label10.Text = "Újratöltés Ideje";
+            label10.Text = "Újra Töltés Ideje";
             // 
             // label8
             // 
@@ -266,9 +266,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(6, 47);
             label4.Name = "label4";
-            label4.Size = new Size(64, 15);
+            label4.Size = new Size(84, 15);
             label4.TabIndex = 6;
-            label4.Text = "Játékos HP";
+            label4.Text = "Játékos Életerő";
             // 
             // label2
             // 
@@ -303,11 +303,11 @@
             // 
             Nu_BulletSpeed_2.Location = new Point(152, 74);
             Nu_BulletSpeed_2.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
-            Nu_BulletSpeed_2.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            Nu_BulletSpeed_2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             Nu_BulletSpeed_2.Name = "Nu_BulletSpeed_2";
             Nu_BulletSpeed_2.Size = new Size(42, 23);
             Nu_BulletSpeed_2.TabIndex = 3;
-            Nu_BulletSpeed_2.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            Nu_BulletSpeed_2.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // Nu_PlayerHP_2
             // 
@@ -331,30 +331,30 @@
             // 
             // btn_Save
             // 
-            btn_Save.Location = new Point(180, 237);
+            btn_Save.Location = new Point(176, 237);
             btn_Save.Name = "btn_Save";
-            btn_Save.Size = new Size(75, 23);
-            btn_Save.TabIndex = 6;
+            btn_Save.Size = new Size(80, 25);
+            btn_Save.TabIndex = 8;
             btn_Save.Text = "Mentés";
             btn_Save.UseVisualStyleBackColor = true;
             btn_Save.Click += btn_AdvsSave_Click;
             // 
             // btn_Reset
             // 
-            btn_Reset.Location = new Point(180, 266);
+            btn_Reset.Location = new Point(176, 268);
             btn_Reset.Name = "btn_Reset";
-            btn_Reset.Size = new Size(75, 23);
-            btn_Reset.TabIndex = 7;
-            btn_Reset.Text = "Reset";
+            btn_Reset.Size = new Size(80, 25);
+            btn_Reset.TabIndex = 9;
+            btn_Reset.Text = "Visszaállítás";
             btn_Reset.UseVisualStyleBackColor = true;
             btn_Reset.Click += btn_advsReset_Click;
             // 
             // btn_Back
             // 
-            btn_Back.Location = new Point(180, 295);
+            btn_Back.Location = new Point(176, 299);
             btn_Back.Name = "btn_Back";
-            btn_Back.Size = new Size(75, 23);
-            btn_Back.TabIndex = 8;
+            btn_Back.Size = new Size(80, 25);
+            btn_Back.TabIndex = 10;
             btn_Back.Text = "Vissza";
             btn_Back.UseVisualStyleBackColor = true;
             btn_Back.Click += btn_AdvsBack_Click;
@@ -365,7 +365,7 @@
             Ch_Bot_1.Location = new Point(143, 14);
             Ch_Bot_1.Name = "Ch_Bot_1";
             Ch_Bot_1.Size = new Size(44, 19);
-            Ch_Bot_1.TabIndex = 9;
+            Ch_Bot_1.TabIndex = 2;
             Ch_Bot_1.Text = "Bot";
             Ch_Bot_1.UseVisualStyleBackColor = true;
             Ch_Bot_1.CheckedChanged += Ch_Bot_1_CheckedChanged;
@@ -376,7 +376,7 @@
             Ch_Bot_2.Location = new Point(349, 14);
             Ch_Bot_2.Name = "Ch_Bot_2";
             Ch_Bot_2.Size = new Size(44, 19);
-            Ch_Bot_2.TabIndex = 10;
+            Ch_Bot_2.TabIndex = 4;
             Ch_Bot_2.Text = "Bot";
             Ch_Bot_2.UseVisualStyleBackColor = true;
             Ch_Bot_2.CheckedChanged += Ch_Bot_2_CheckedChanged;

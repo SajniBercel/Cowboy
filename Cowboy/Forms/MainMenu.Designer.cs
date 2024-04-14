@@ -135,7 +135,7 @@
             btn_InputSettings.Name = "btn_InputSettings";
             btn_InputSettings.Size = new Size(254, 23);
             btn_InputSettings.TabIndex = 6;
-            btn_InputSettings.Text = "Billetyűzet Beállítások";
+            btn_InputSettings.Text = "Billentyűzet Beállítások";
             btn_InputSettings.UseVisualStyleBackColor = true;
             btn_InputSettings.Click += btn_InputSettings_Click;
             // 
