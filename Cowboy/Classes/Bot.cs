@@ -40,7 +40,7 @@ namespace Cowboy.Classes
         /// <summary>
         /// Bot-nak az "agya" itt dől el hogy mit csináljon
         /// </summary>
-        public void Think()
+        private void Think()
         {
 
             if (Target.pictureBox.Location.Y + Target.pictureBox.Height < this.pictureBox.Location.Y)

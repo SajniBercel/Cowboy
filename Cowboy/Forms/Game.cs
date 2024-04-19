@@ -115,7 +115,7 @@ namespace Cowboy
                 player2 = temp_player2;
 
             // Bullet haladás irány korrekció
-            player2.weapon.BulletSpeed *= -1;
+            player2.Pistol.BulletSpeed *= -1;
 
             List<GameComponent> Players = new List<GameComponent>
             {
@@ -296,10 +296,10 @@ namespace Cowboy
 
         internal void Shoot(Player player)
         {
-            Bullet? bullet = player.weapon.Shoot();
+            Bullet? bullet = player.Pistol.Shoot();
             if (bullet != null)
             {
-                if (player.weapon.BulletSpeed < 0)
+                if (player.Pistol.BulletSpeed < 0)
                     bullet.pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                 GameComponents[1].Add(bullet);
             }
@@ -372,7 +372,7 @@ namespace Cowboy
             {
                 for (int i = 0; i < GameComponents[0].Count; i++)
                 {
-                    if (((Player)GameComponents[0][i]).HP <= 0)
+                    if (((Player)GameComponents[0][i]).CurrentHp <= 0)
                     {
                         MainGameTimer.Enabled = false;
                         StopWatch.Enabled = false;
@@ -412,9 +412,7 @@ namespace Cowboy
                     if (GameComponents[i][j] is Player)
                     {
                         Player player = GameComponents[i][j] as Player;
-                        player.Hpbar.Dispose();
-                        player.Name.Dispose();
-                        player.pictureBox.Dispose();
+                        player.Dispose();
                     }
                     else
                     {

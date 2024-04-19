@@ -8,10 +8,10 @@ namespace Cowboy.Classes
     {
         public Label Name { get; set; }
         public ProgressBar Hpbar { get; set; }
-        public Weapon weapon { get; set; }
+        public Weapon Pistol { get; set; }
         public PlayerSetting PlayerSettings { get; }
 
-        private Point WeaponOffSet;
+        private Point WeaponOffSet { get; set; }
 
         //move
         public bool MoveUp = false;
@@ -19,8 +19,8 @@ namespace Cowboy.Classes
         private int MoveLength { get; set; }
 
         //hp
-        private int MaxHP { get; set; }
-        public int HP { get; set; }
+        private int MaxHp { get; set; }
+        public int CurrentHp { get; set; }
 
         /// <summary>
         /// tud fel/le mozogni, lőni, őt írányitja a felhasználó input-okkal, kezeli a hpbar-ját, a fegyvert
@@ -29,11 +29,11 @@ namespace Cowboy.Classes
         public Player(int playerID, string name, PictureBox _pictureBox, PlayerSetting playerSetting) : base(playerID, _pictureBox)
         {
             MoveLength = playerSetting.PlayerSpeed;
-            MaxHP = playerSetting.PlayerHP;
-            HP = MaxHP;
+            MaxHp = playerSetting.PlayerHP;
+            CurrentHp = MaxHp;
 
-            Hpbar = Create.progressBar(name + "HpBar", new Size(50, 10), new Point(0, 0), MaxHP);
-            Hpbar.Value = HP;
+            Hpbar = Create.progressBar(name + "HpBar", new Size(50, 10), new Point(0, 0), MaxHp);
+            Hpbar.Value = CurrentHp;
             Hpbar.SendToBack();
 
             Name = Create.label(name,name, new Point(0,0));
@@ -41,7 +41,7 @@ namespace Cowboy.Classes
 
             PlayerSettings = playerSetting;
 
-            weapon = new Weapon(this);
+            Pistol = new Weapon(this);
         }
 
         public virtual void Update()
@@ -86,14 +86,20 @@ namespace Cowboy.Classes
             {
                 if (Sender is Bullet)
                 {
-                    HP -= ((Bullet)Sender).Damage;
-                    if (HP < 0)
+                    CurrentHp -= ((Bullet)Sender).Damage;
+                    if (CurrentHp < 0)
                     {
                         return;
                     }
-                    Hpbar.Value = HP;
+                    Hpbar.Value = CurrentHp;
                 }
             }
+        }
+        public void Dispose()
+        { 
+            Hpbar.Dispose();
+            Name.Dispose();
+            this.pictureBox.Dispose();
         }
     }
 }
