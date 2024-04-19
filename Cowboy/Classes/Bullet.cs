@@ -2,7 +2,7 @@
 
 namespace Cowboy.Classes
 {
-    public class Bullet : GameComponent, IUpdate
+    public class Bullet : GameComponent, IUpdatable
     {
         private int Speed { get; set; }
         public int Damage { get; set; }

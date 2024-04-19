@@ -4,6 +4,10 @@ namespace Cowboy.Forms
     public partial class ScoreBoard : Form
     {
         private string[] data;
+        /// <summary>
+        /// A kapott adatok alapján csinál egy táblázatot az adatokból
+        /// </summary>
+        /// <param name="data">szeparátor karakter ";"</param>
         public ScoreBoard(string[] data)
         {
             InitializeComponent();

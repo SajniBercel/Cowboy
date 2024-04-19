@@ -1,6 +1,6 @@
 ﻿namespace Cowboy.Interfaces
 {
-    interface IUpdate
+    interface IUpdatable
     {
         void Update();
     }

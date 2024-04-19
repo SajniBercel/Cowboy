@@ -169,9 +169,9 @@ namespace Cowboy
             {
                 for (int j = 0; j < GameComponents[i].Count; j++)
                 {
-                    if (GameComponents[i][j] is IUpdate)
+                    if (GameComponents[i][j] is IUpdatable)
                     {
-                        ((IUpdate)GameComponents[i][j]).Update();
+                        ((IUpdatable)GameComponents[i][j]).Update();
                     }
                 }
             }

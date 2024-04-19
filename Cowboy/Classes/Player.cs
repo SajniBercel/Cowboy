@@ -4,7 +4,7 @@ using Cowboy.Utilities;
 
 namespace Cowboy.Classes
 {
-    public class Player : GameComponent, IUpdate, IHitable
+    public class Player : GameComponent, IUpdatable, IHitable
     {
         public Label Name { get; set; }
         public ProgressBar Hpbar { get; set; }

@@ -4,7 +4,7 @@ using System.Media;
 
 namespace Cowboy.Classes
 {
-    public class Explosion : GameComponent, IUpdate
+    public class Explosion : GameComponent, IUpdatable
     {
         public int UpdatesLeft { get; set; }
 
