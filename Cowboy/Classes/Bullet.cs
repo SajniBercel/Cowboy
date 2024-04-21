@@ -34,7 +34,7 @@ namespace Cowboy.Classes
         /// </summary>
         /// <param name="width"></param>
         /// <returns>bool, a képernyőn van-e</returns>
-        public bool IsInTheSreen(int width)
+        public bool IsInScreen(int width)
         {
             if (pictureBox.Left < -pictureBox.Size.Width || pictureBox.Left > width)
                 return false;

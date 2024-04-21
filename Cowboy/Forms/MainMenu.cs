@@ -92,7 +92,8 @@ namespace Cowboy
 
             if (!chb_FullScreen.Checked)
             {
-                return new GameSettings(playerSettings, inputSettings, new Size((int)numericUpDown1.Value, (int)numericUpDown2.Value), chb_BulletCollision.Checked);
+                return new GameSettings(playerSettings, inputSettings, new Size((int)numericUpDown1.Value, 
+                    (int)numericUpDown2.Value), chb_BulletCollision.Checked);
             }
             return new GameSettings(playerSettings, inputSettings, chb_BulletCollision.Checked);
         }

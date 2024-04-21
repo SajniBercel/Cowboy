@@ -9,13 +9,8 @@ namespace Cowboy.Utilities
         public static DbManager Instance { get { return instance; } }
 
         private string MyConnectionString;
-        bool connected = false;
+        private bool CanConnect = false;
         private MySqlConnection MyConnection;
-
-        /// <summary>
-        /// Ide ment ha nincs adatbázis kapcsolat (ha lesz kapcsolatm akkor feltölti)
-        /// </summary>
-        private string FilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Cowboy";
 
         private DbManager() 
         {
@@ -37,8 +32,9 @@ namespace Cowboy.Utilities
                 MyConnection = new MySqlConnection(MyConnectionString);
 
                 MyConnection.Open();
+                MyConnection.Close();
 
-                connected = true;
+                CanConnect = true;
             }
             catch (MySqlException ex)
             {
@@ -59,7 +55,7 @@ namespace Cowboy.Utilities
 
                     MyConnection = new MySqlConnection(MyConnectionString);
 
-                    connected = true;
+                    CanConnect = true;
                     MyConnection.Close();
                 }
 
@@ -82,7 +78,7 @@ namespace Cowboy.Utilities
         {
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
-            if (!connected)
+            if (!CanConnect)
             {
                 FileManager.Instance.SaveToFile($"{win};{lose};{time}");
                 return;
@@ -117,7 +113,7 @@ namespace Cowboy.Utilities
         {
             List<string> output = new List<string>();
 
-            if (!connected)
+            if (!CanConnect)
             {
                 output.AddRange(FileManager.Instance.ReadGameLogs());
                 return output.ToArray();
@@ -137,9 +133,12 @@ namespace Cowboy.Utilities
             return output.ToArray();
         }
 
+        /// <summary>
+        /// Ha sikeres az adatbázis kapcsolat akkor beolvassa fájból az adatokat amit elment az adatbázisba majd törli a fájl tartalmát
+        /// </summary>
         public void SyncDb()
         {
-            if (connected)
+            if (CanConnect)
             {
                 string[] GameLogs = FileManager.Instance.ReadGameLogs();
                 if (GameLogs != null)

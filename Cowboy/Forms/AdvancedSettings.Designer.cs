@@ -398,7 +398,6 @@
             Controls.Add(PlayerClone);
             Name = "AdvancedSettings";
             Text = "Speciális Beállítások";
-            Load += AdvancedSettings_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Nu_ReloadSpeed_1).EndInit();
