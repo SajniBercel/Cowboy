@@ -17,10 +17,5 @@
             DownKey = down;
             ShootKey = shoot;
         }
-
-        public override string ToString()
-        {
-            return $"UpKey: {UpKey}; DownKey: {DownKey}; ShootKey: {ShootKey}";
-        }
     }
 }
