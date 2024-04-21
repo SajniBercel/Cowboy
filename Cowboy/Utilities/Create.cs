@@ -6,11 +6,10 @@
         /// <summary>
         /// Létrehoz egy PictureBox-ot
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Neve</param>
         /// <param name="size">Méret</param>
         /// <param name="location">Hely</param>
         /// <param name="image">Kép</param>
-        /// <returns></returns>
         public static PictureBox pictureBox(string name, Size size, Point location, Image image)
         {
             PictureBox pic = new PictureBox
@@ -30,11 +29,10 @@
         /// <summary>
         /// Létrehoz egy ProgressBar-ot
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Neve</param>
         /// <param name="size">Méret</param>
         /// <param name="location">Hely</param>
         /// <param name="max">Hány egységre oszlik</param>
-        /// <returns></returns>
         public static ProgressBar progressBar(string name, Size size, Point location, int max)
         {
             ProgressBar progBar = new ProgressBar
@@ -52,10 +50,9 @@
         /// <summary>
         /// Feliratot/(label)-t hoz létre
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Neve</param>
         /// <param name="text">Felirat</param>
         /// <param name="location">Hely</param>
-        /// <returns></returns>
         public static Label label(string name, string text, Point location)
         {
             Label label = new Label

@@ -57,11 +57,6 @@ namespace Cowboy
             Ch_Bot_2.Checked = playerS[1].Bot;
         }
 
-        private void AdvancedSettings_Load(object sender, EventArgs e)
-        {
-            PlayerClone.Checked = mainMenu.GetPlayerClone();
-        }
-
         public void SetPlayerClone(bool value)
         {
             PlayerClone.Checked = value;

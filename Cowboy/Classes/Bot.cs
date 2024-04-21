@@ -1,6 +1,4 @@
-﻿using Cowboy.Settings;
-
-namespace Cowboy.Classes
+﻿namespace Cowboy.Classes
 {
     public class Bot : Player
     {
@@ -48,7 +46,8 @@ namespace Cowboy.Classes
             else if (Target.pictureBox.Location.Y - Target.pictureBox.Height > this.pictureBox.Location.Y)
                 Down();
 
-            else if (Target.pictureBox.Location.Y - Target.pictureBox.Height/2 < this.pictureBox.Location.Y && Target.pictureBox.Location.Y + Target.pictureBox.Height/2 > this.pictureBox.Location.Y)
+            else if (Target.pictureBox.Location.Y - Target.pictureBox.Height/2 < this.pictureBox.Location.Y && 
+                Target.pictureBox.Location.Y + Target.pictureBox.Height/2 > this.pictureBox.Location.Y)
             {
                 GameForm.Shoot(this);
                 Random rnd = new Random();
