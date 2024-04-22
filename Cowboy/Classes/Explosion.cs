@@ -21,7 +21,7 @@ namespace Cowboy.Classes
             soundPlayer.Play();
             soundPlayer.Dispose();
 
-            this.pictureBox.Location = GetPicBoxPos(GameComponentA,GameComponentB);
+            this.pictureBox.Location = GetPicBoxPos(GameComponentA, GameComponentB);
         }
 
         /// <summary>

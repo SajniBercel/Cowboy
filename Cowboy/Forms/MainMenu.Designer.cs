@@ -45,6 +45,7 @@
             tsm_Settings = new ToolStripMenuItem();
             tsm_OpenAdvancedSettings = new ToolStripMenuItem();
             tsm_InputSettings = new ToolStripMenuItem();
+            tsm_Start = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             menuStrip.SuspendLayout();
@@ -151,7 +152,7 @@
             // 
             // tms_Game
             // 
-            tms_Game.DropDownItems.AddRange(new ToolStripItem[] { tsm_OpenConfig, tsm_ScoreBoard, tsm_Info });
+            tms_Game.DropDownItems.AddRange(new ToolStripItem[] { tsm_OpenConfig, tsm_ScoreBoard, tsm_Info, tsm_Start });
             tms_Game.Name = "tms_Game";
             tms_Game.Size = new Size(45, 20);
             tms_Game.Text = "Játék";
@@ -197,6 +198,13 @@
             tsm_InputSettings.Size = new Size(187, 22);
             tsm_InputSettings.Text = "Billetyűzet Beállítások";
             tsm_InputSettings.Click += btn_InputSettings_Click;
+            // 
+            // tsm_Start
+            // 
+            tsm_Start.Name = "tsm_Start";
+            tsm_Start.Size = new Size(251, 22);
+            tsm_Start.Text = "Start";
+            tsm_Start.Click += btn_Start_Click;
             // 
             // MainMenu
             // 
@@ -245,5 +253,6 @@
         private ToolStripMenuItem tsm_InputSettings;
         private ToolStripMenuItem tsm_ScoreBoard;
         private ToolStripMenuItem tsm_Info;
+        private ToolStripMenuItem tsm_Start;
     }
 }

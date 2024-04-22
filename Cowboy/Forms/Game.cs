@@ -45,7 +45,7 @@ namespace Cowboy
         /// <summary>
         /// beállítja a form-ot
         /// </summary>
-        private void Form1_Load(object sender, EventArgs e)
+        private void Game_Load(object sender, EventArgs e)
         {
             // "Render mod" \\
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -150,17 +150,24 @@ namespace Cowboy
         }
 
         /// <summary>
-        /// a szíve a játék folyásának, ez adja meg az idő múlását (10ms)
+        /// Itt történik a frissítés
         /// </summary>
         private void MainGame_Update(object sender, EventArgs e)
         {
+            // ha másik ablakot nyit meg a felhasználó akkor álljon meg a game
+            if (Form.ActiveForm != this && !IsPaused)
+            {
+                Pause();
+            }
+
             // --- PLAYER --- \\
             for (int i = 0; i < GameComponents[0].Count; i++)
             {
                 if (GameComponents[0][i].pictureBox.Location.Y < 0)
                     ((Player)GameComponents[0][i]).MoveUp = false;
 
-                if (GameComponents[0][i].pictureBox.Location.Y + 100 > this.Height)
+                if ((GameComponents[0][i].pictureBox.Location.Y + 
+                    GameComponents[0][i].pictureBox.Height*2) > this.Height)
                     ((Player)GameComponents[0][i]).MoveDown = false; ;
             }
 
@@ -182,7 +189,7 @@ namespace Cowboy
                 Bullet bullet = ((Bullet)GameComponents[1][i]);
 
                 // Destruct
-                if (!bullet.IsInTheSreen(Width))
+                if (!bullet.IsInScreen(Width))
                 {
                     ((Bullet)GameComponents[1][i]).pictureBox.Dispose();
                     GameComponents[1].RemoveAt(i);
@@ -256,7 +263,7 @@ namespace Cowboy
         /// <summary>
         /// Valós időben szedi be az Input-okat a user-től (Down)
         /// </summary>
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Game_KeyDown(object sender, KeyEventArgs e)
         {
             // back to main menu
             if (e.KeyCode == Keys.Escape)
@@ -308,7 +315,7 @@ namespace Cowboy
         /// <summary>
         /// Valós időben szedi be az "Input"-okat a user-től (Up)
         /// </summary>
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        private void Game_KeyUp(object sender, KeyEventArgs e)
         {
             // left player (player 1) input (up) management
             if (e.KeyCode == gameSettings.InputSettings[0].UpKey)
@@ -329,7 +336,7 @@ namespace Cowboy
             {
                 player.SetWeaponOffSet(new Point(
                     player.pictureBox.Width,
-                    (player.pictureBox.Location.Y/2+player.pictureBox.Height / 2)
+                    (player.pictureBox.Location.Y / 2 + player.pictureBox.Height / 2)
                     ));
 
                 return new Point(51, Height / 2 - player.pictureBox.Height / 2);
@@ -337,7 +344,7 @@ namespace Cowboy
             else if (side.ToLower() == "rigth")
             {
                 player.SetWeaponOffSet(new Point(
-                    -player.pictureBox.Width+30,
+                    -player.pictureBox.Width + 30,
                     (player.pictureBox.Location.Y + player.pictureBox.Height / 2)
                     ));
 
@@ -433,7 +440,7 @@ namespace Cowboy
             }
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
             mainMenu.Show();
             this.Hide();

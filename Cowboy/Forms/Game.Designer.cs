@@ -49,10 +49,10 @@
             ClientSize = new Size(284, 261);
             Name = "Game";
             Text = "Game";
-            FormClosed += Form1_FormClosed;
-            Load += Form1_Load;
-            KeyDown += Form1_KeyDown;
-            KeyUp += Form1_KeyUp;
+            FormClosed += Game_FormClosed;
+            Load += Game_Load;
+            KeyDown += Game_KeyDown;
+            KeyUp += Game_KeyUp;
             ResumeLayout(false);
         }
 
