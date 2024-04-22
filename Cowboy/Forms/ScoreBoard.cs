@@ -57,7 +57,7 @@ namespace Cowboy.Forms
                 for (int j = 0; j < cols.Length; j++)
                 {
                     rowOutput += cols[j];
-                    int reqSpaces = spaces[j] - cols[j].Length; ;
+                    int reqSpaces = spaces[j] - cols[j].Length;
 
                     for (int k = 0; k <= reqSpaces + 1; k++)
                     {
