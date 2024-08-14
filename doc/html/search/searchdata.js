@@ -1,13 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: ".abcdefghilmprstuw",
-  1: "abcefgimpw",
+  0: "abcdefgilmprsuw",
+  1: "abcdefgimpsw",
   2: "c",
-  3: ".abcefgimprw",
-  4: "abdefghilmpsuw",
-  5: "mp",
-  6: "t",
-  7: "bdhpruw"
+  3: "bdegilprsuw"
 };
 
 var indexSectionNames =
@@ -15,22 +11,14 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "namespaces",
-  3: "files",
-  4: "functions",
-  5: "variables",
-  6: "typedefs",
-  7: "properties"
+  3: "functions"
 };
 
 var indexSectionLabels =
 {
-  0: "Összes",
-  1: "Osztályok",
-  2: "Névterek",
-  3: "Fájlok",
-  4: "Függvények",
-  5: "Változók",
-  6: "Típusdefiníciók",
-  7: "Tulajdonságok"
+  0: "All",
+  1: "Classes",
+  2: "Namespaces",
+  3: "Functions"
 };
 

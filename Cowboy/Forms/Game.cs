@@ -136,7 +136,7 @@ namespace Cowboy
         }
 
         /// <summary>
-        /// becsukja az ablakot és vissza rak a főmenübe
+        /// Becsukja az ablakot, vissza rak a főmenübe
         /// </summary>
         private void Back()
         {
@@ -282,6 +282,7 @@ namespace Cowboy
                     ((Player)GameComponents[0][0]).MoveUp = true;
                 else if (e.KeyCode == gameSettings.InputSettings[0].DownKey)
                     ((Player)GameComponents[0][0]).MoveDown = true;
+
                 //shoot
                 if (e.KeyCode == gameSettings.InputSettings[0].ShootKey)
                 {
@@ -293,6 +294,7 @@ namespace Cowboy
                     ((Player)GameComponents[0][1]).MoveUp = true;
                 else if (e.KeyCode == gameSettings.InputSettings[1].DownKey)
                     ((Player)GameComponents[0][1]).MoveDown = true;
+
                 //shoot
                 if (e.KeyCode == gameSettings.InputSettings[1].ShootKey)
                 {
@@ -352,6 +354,7 @@ namespace Cowboy
 
                 return new Point(Width - player.pictureBox.Width - 51, Height / 2 - player.pictureBox.Height / 2);
             }
+
             return new Point(0, 0);
         }
 

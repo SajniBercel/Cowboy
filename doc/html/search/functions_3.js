@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['explosion_0',['Explosion',['../class_cowboy_1_1_classes_1_1_explosion.html#a3443d8627c1b3a5a6fd923790993b29b',1,'Cowboy::Classes::Explosion']]]
+  ['game_0',['Game',['../class_cowboy_1_1_game.html#a59a3112dccc41eef859fd0bd15332c52',1,'Cowboy::Game']]],
+  ['gamecomponent_1',['GameComponent',['../class_cowboy_1_1_classes_1_1_game_component.html#a3fbc75c0e48eebd1e2ee5c653d6ec4f7',1,'Cowboy::Classes::GameComponent']]],
+  ['gamesettings_2',['GameSettings',['../class_cowboy_1_1_settings_1_1_game_settings.html#a7bd0d0bd09928e5bd0d368c615ac13de',1,'Cowboy::Settings::GameSettings']]],
+  ['getscoreboard_3',['GetScoreBoard',['../class_cowboy_1_1_utilities_1_1_db_manager.html#ab64ef6f9020db1ebb20f058825bda6b9',1,'Cowboy::Utilities::DbManager']]]
 ];

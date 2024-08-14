@@ -13,7 +13,7 @@
         /// a game form a lövés létrehozásához
         /// </summary>
         /// <param name="player">Őt Írányítja</param>
-        /// <param name="target">őt Támadja</param>
+        /// <param name="target">Őt Támadja</param>
         /// <param name="gameFrom">Aktuális Game Form (lövéshez)</param>
         public Bot(Player player, Player target, Game gameFrom) : base(player.PlayerID, player.Name.Text,player.pictureBox, player.PlayerSettings)
         {
@@ -26,7 +26,7 @@
         }
 
         /// <summary>
-        /// eredeti Player Update-et használja, 
+        /// Az eredeti Player Update-et használja, 
         /// ahelyett hogy külső input alapján cselekedne ő "gondolja végig" hogy mit csináljon
         /// </summary>
         public override void Update()

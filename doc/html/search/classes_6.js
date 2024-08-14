@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ihitable_0',['IHitable',['../interface_cowboy_1_1_interfaces_1_1_i_hitable.html',1,'Cowboy::Interfaces']]],
-  ['iupdate_1',['IUpdate',['../interface_cowboy_1_1_interfaces_1_1_i_update.html',1,'Cowboy::Interfaces']]]
+  ['game_0',['Game',['../class_cowboy_1_1_game.html',1,'Cowboy']]],
+  ['gamecomponent_1',['GameComponent',['../class_cowboy_1_1_classes_1_1_game_component.html',1,'Cowboy::Classes']]],
+  ['gamesettings_2',['GameSettings',['../class_cowboy_1_1_settings_1_1_game_settings.html',1,'Cowboy::Settings']]]
 ];

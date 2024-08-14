@@ -25,7 +25,7 @@ namespace Cowboy.Classes
         }
 
         /// <summary>
-        /// intézi hogy csökkenjen a vissza lévő idő
+        /// Intézi hogy csökkenjen a vissza lévő idő
         /// </summary>
         public void Update()
         {

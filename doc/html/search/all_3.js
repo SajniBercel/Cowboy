@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['cowboy_0',['Cowboy',['../namespace_cowboy.html',1,'']]],
-  ['cowboy_2eassemblyinfo_2ecs_1',['Cowboy.AssemblyInfo.cs',['../_debug_2net8_80-windows_2_cowboy_8_assembly_info_8cs.html',1,'(Globális névtér)'],['../_release_2net8_80-windows_2_cowboy_8_assembly_info_8cs.html',1,'(Globális névtér)']]],
-  ['cowboy_2eglobalusings_2eg_2ecs_2',['Cowboy.GlobalUsings.g.cs',['../_debug_2net8_80-windows_2_cowboy_8_global_usings_8g_8cs.html',1,'(Globális névtér)'],['../_release_2net8_80-windows_2_cowboy_8_global_usings_8g_8cs.html',1,'(Globális névtér)']]],
-  ['cowboy_3a_3aclasses_3',['Classes',['../namespace_cowboy_1_1_classes.html',1,'Cowboy']]],
-  ['cowboy_3a_3ainterfaces_4',['Interfaces',['../namespace_cowboy_1_1_interfaces.html',1,'Cowboy']]],
-  ['cowboy_3a_3aproperties_5',['Properties',['../namespace_cowboy_1_1_properties.html',1,'Cowboy']]],
-  ['cowboy_3a_3asettings_6',['Settings',['../namespace_cowboy_1_1_settings.html',1,'Cowboy']]],
-  ['create_7',['Create',['../class_cowboy_1_1_classes_1_1_create.html',1,'Cowboy::Classes']]],
-  ['create_2ecs_8',['Create.cs',['../_create_8cs.html',1,'']]]
+  ['dbmanager_0',['DbManager',['../class_cowboy_1_1_utilities_1_1_db_manager.html',1,'Cowboy::Utilities']]],
+  ['dispose_1',['Dispose',['../class_cowboy_1_1_advanced_settings.html#ad80e7dbacc8254c7e758a82659dac412',1,'Cowboy.AdvancedSettings.Dispose()'],['../class_cowboy_1_1_game.html#ab8e5e5a64faf310436f0852049f09e63',1,'Cowboy.Game.Dispose()'],['../class_cowboy_1_1_forms_1_1_input_settings.html#a4c17efad4f54892064b1bd7beef20fcd',1,'Cowboy.Forms.InputSettings.Dispose()'],['../class_cowboy_1_1_main_menu.html#a5290fcf2207788d80528c7bf6bf2cf4e',1,'Cowboy.MainMenu.Dispose()'],['../class_cowboy_1_1_forms_1_1_score_board.html#adbc4dd1a39100e3d3e99dab4fb03a6cf',1,'Cowboy.Forms.ScoreBoard.Dispose()']]]
 ];

@@ -1,5 +1,4 @@
 ﻿using Cowboy.Settings;
-using System.Diagnostics;
 
 namespace Cowboy.Forms
 {

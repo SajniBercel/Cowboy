@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['picturebox_0',['pictureBox',['../class_cowboy_1_1_classes_1_1_game_component.html#afcb31739f42b9a651f2b1d3d7c04700c',1,'Cowboy.Classes.GameComponent.pictureBox'],['../class_cowboy_1_1_classes_1_1_create.html#a844154c7aa9de2777816993f5f621a10',1,'Cowboy.Classes.Create.pictureBox()']]],
-  ['player_1',['Player',['../class_cowboy_1_1_classes_1_1_player.html',1,'Cowboy.Classes.Player'],['../class_cowboy_1_1_classes_1_1_player.html#a1a823aabd6892fa9141250a0bfb70a8c',1,'Cowboy.Classes.Player.Player()']]],
-  ['player_2ecs_2',['Player.cs',['../_player_8cs.html',1,'']]],
-  ['playerhp_3',['PlayerHP',['../class_cowboy_1_1_settings_1_1_player_setting.html#af8439e6bd4b693a2165b62d1ca3af85b',1,'Cowboy::Settings::PlayerSetting']]],
-  ['playerid_4',['PlayerID',['../class_cowboy_1_1_classes_1_1_game_component.html#aa87d28c7973ee32ee44b941d7d6a142b',1,'Cowboy::Classes::GameComponent']]],
-  ['playername_5',['PlayerName',['../class_cowboy_1_1_settings_1_1_player_setting.html#ad8cd1c96d61186a0d8c4476cde2e9137',1,'Cowboy::Settings::PlayerSetting']]],
-  ['playersetting_6',['PlayerSetting',['../class_cowboy_1_1_settings_1_1_player_setting.html',1,'Cowboy.Settings.PlayerSetting'],['../class_cowboy_1_1_settings_1_1_game_settings.html#ae3f5886a3466e70b2614973c5505545e',1,'Cowboy.Settings.GameSettings.PlayerSetting'],['../class_cowboy_1_1_settings_1_1_player_setting.html#a0cd3969a731b4609a981cd53f4635b50',1,'Cowboy.Settings.PlayerSetting.PlayerSetting(string playerName, int playerSpeed, int playerHP, int bulletSpeed, int bulletDamage, int reloadSpeed)'],['../class_cowboy_1_1_settings_1_1_player_setting.html#affb0385bc569df2500acecf5c7f0225c',1,'Cowboy.Settings.PlayerSetting.PlayerSetting(PlayerSetting playerS)'],['../class_cowboy_1_1_settings_1_1_player_setting.html#a1aac28b84fa6bd7ef0964c95e0cb33c7',1,'Cowboy.Settings.PlayerSetting.PlayerSetting()']]],
-  ['playersetting_2ecs_7',['PlayerSetting.cs',['../_player_setting_8cs.html',1,'']]],
-  ['playersettings_8',['playerSettings',['../class_cowboy_1_1_advanced_settings.html#a978540e11420390d6d9b9403050b84a8',1,'Cowboy::AdvancedSettings']]],
-  ['playerspeed_9',['PlayerSpeed',['../class_cowboy_1_1_settings_1_1_player_setting.html#aefbe1559ef4d92642a94b01e5a0ea2da',1,'Cowboy::Settings::PlayerSetting']]],
-  ['program_2ecs_10',['Program.cs',['../_program_8cs.html',1,'']]],
-  ['progressbar_11',['progressBar',['../class_cowboy_1_1_classes_1_1_create.html#a599692af8214a9ed89607abcd5e7315e',1,'Cowboy::Classes::Create']]]
+  ['save_0',['Save',['../class_cowboy_1_1_utilities_1_1_db_manager.html#a2090fa5c57edd83c556ea953f930d3bf',1,'Cowboy::Utilities::DbManager']]],
+  ['savetofile_1',['SaveToFile',['../class_cowboy_1_1_utilities_1_1_file_manager.html#a922517201c05af99403167578384d4c3',1,'Cowboy.Utilities.FileManager.SaveToFile(InputSetting[] inputSettings)'],['../class_cowboy_1_1_utilities_1_1_file_manager.html#ae22a83cb15f64f47896e37db857ce545',1,'Cowboy.Utilities.FileManager.SaveToFile(PlayerSetting[] playerSettings)'],['../class_cowboy_1_1_utilities_1_1_file_manager.html#ab95065bb6e9006fb5564889c65b4650f',1,'Cowboy.Utilities.FileManager.SaveToFile(string game)']]],
+  ['scoreboard_2',['ScoreBoard',['../class_cowboy_1_1_forms_1_1_score_board.html',1,'Cowboy.Forms.ScoreBoard'],['../class_cowboy_1_1_forms_1_1_score_board.html#a6902ca1706e7ab60f9a999426a5214ab',1,'Cowboy.Forms.ScoreBoard.ScoreBoard()']]],
+  ['setdefaultsettings_3',['SetDefaultSettings',['../class_cowboy_1_1_settings_1_1_game_settings.html#a7dc6f1e935c128836fb1708b02bf898b',1,'Cowboy::Settings::GameSettings']]],
+  ['setdefaultvalues_4',['SetDefaultValues',['../class_cowboy_1_1_settings_1_1_player_setting.html#a596aa03f4a859ec835dacd572df8ef67',1,'Cowboy::Settings::PlayerSetting']]],
+  ['setup_5',['Setup',['../class_cowboy_1_1_game.html#a19967e1f8f101d695c141e2fd19a9528',1,'Cowboy::Game']]],
+  ['shoot_6',['Shoot',['../class_cowboy_1_1_classes_1_1_weapon.html#a92263b219406a9c4387d7e4282cbf9fb',1,'Cowboy::Classes::Weapon']]],
+  ['syncdb_7',['SyncDb',['../class_cowboy_1_1_utilities_1_1_db_manager.html#a166d5ac9d060d5478923e7928adcf7d1',1,'Cowboy::Utilities::DbManager']]]
 ];

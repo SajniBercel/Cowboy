@@ -30,7 +30,7 @@ namespace Cowboy.Classes
         }
 
         /// <summary>
-        /// a törlésnél lesz szerepe
+        /// Törlésnél lesz szerepe
         /// </summary>
         /// <param name="width"></param>
         /// <returns>bool, a képernyőn van-e</returns>

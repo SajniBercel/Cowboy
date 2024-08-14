@@ -1,5 +1,4 @@
-﻿
-namespace Cowboy.Forms
+﻿namespace Cowboy.Forms
 {
     public partial class ScoreBoard : Form
     {

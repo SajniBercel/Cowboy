@@ -256,6 +256,5 @@ namespace Cowboy.Utilities
                 }
             }
         }
-
     }
 }

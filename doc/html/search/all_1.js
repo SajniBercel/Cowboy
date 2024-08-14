@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['advancedsettings_0',['AdvancedSettings',['../class_cowboy_1_1_advanced_settings.html',1,'Cowboy.AdvancedSettings'],['../class_cowboy_1_1_advanced_settings.html#ace35c248fd459a5217df0e07bc94a479',1,'Cowboy.AdvancedSettings.AdvancedSettings()']]],
-  ['advancedsettings_2ecs_1',['AdvancedSettings.cs',['../_advanced_settings_8cs.html',1,'']]],
-  ['advancedsettings_2edesigner_2ecs_2',['AdvancedSettings.Designer.cs',['../_advanced_settings_8_designer_8cs.html',1,'']]]
+  ['bot_0',['Bot',['../class_cowboy_1_1_classes_1_1_bot.html',1,'Cowboy.Classes.Bot'],['../class_cowboy_1_1_classes_1_1_bot.html#a90c489ef581753eabc2a18d9e5259f9f',1,'Cowboy.Classes.Bot.Bot()']]],
+  ['bullet_1',['Bullet',['../class_cowboy_1_1_classes_1_1_bullet.html',1,'Cowboy.Classes.Bullet'],['../class_cowboy_1_1_classes_1_1_bullet.html#a6be6a496068ba93b11d9b902b7c9bdde',1,'Cowboy.Classes.Bullet.Bullet()']]]
 ];
