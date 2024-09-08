@@ -55,6 +55,20 @@ namespace Cowboy
             Nu_BulletDamage_2.Value = playerS[1].BulletDamage;
             Nu_ReloadSpeed_2.Value = playerS[1].ReloadSpeed;
             Ch_Bot_2.Checked = playerS[1].Bot;
+
+            // GFX 
+            Image player1Img = Properties.Resources.player;
+            Image player2Img = Properties.Resources.player;
+
+            if (playerS[0].PlayerImgPath.Length > 1)
+                player1Img = Image.FromFile(playerS[0].PlayerImgPath);
+            if (playerS[1].PlayerImgPath.Length > 1)
+                player2Img = Image.FromFile(playerS[1].PlayerImgPath);
+
+            player2Img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+
+            Player1Pic.Image = player1Img;
+            Player2Pic.Image = player2Img;
         }
 
         public void SetPlayerClone(bool value)
@@ -76,15 +90,15 @@ namespace Cowboy
                 MessageBox.Show("A két játékosnak nem lehet ugyan az a neve");
             }
 
-            // player 1
+            // player 1 --TODO--
             playerSettings[0] = new PlayerSetting(txt_PlayerName_1.Text, (int)Nu_PlayerSpeed_1.Value, (int)Nu_PlayerHP_1.Value,
-                    (int)Nu_BulletSpeed_1.Value, (int)Nu_BulletDamage_1.Value, (int)Nu_ReloadSpeed_1.Value, Ch_Bot_1.Checked);
+                    (int)Nu_BulletSpeed_1.Value, (int)Nu_BulletDamage_1.Value, (int)Nu_ReloadSpeed_1.Value, Ch_Bot_1.Checked, "");
 
-            // player 2 (ha más akkor azt kapja meg ha ugyan az akkor másolja)
+            // player 2 (ha más akkor azt kapja meg ha ugyan az akkor másolja) --TODO--
             if (PlayerClone.Checked)
             {
                 playerSettings[1] = new PlayerSetting(txt_PlayerName_2.Text, (int)Nu_PlayerSpeed_2.Value, (int)Nu_PlayerHP_2.Value,
-                    (int)Nu_BulletSpeed_2.Value, (int)Nu_BulletDamage_2.Value, (int)Nu_ReloadSpeed_2.Value, Ch_Bot_2.Checked);
+                    (int)Nu_BulletSpeed_2.Value, (int)Nu_BulletDamage_2.Value, (int)Nu_ReloadSpeed_2.Value, Ch_Bot_2.Checked, "");
             }
             else
             {
@@ -117,6 +131,7 @@ namespace Cowboy
         private void PlayerClone_CheckedChanged(object sender, EventArgs e)
         {
             groupBox2.Visible = PlayerClone.Checked;
+            Player2Pic.Visible = PlayerClone.Checked;
         }
 
         private void Ch_Bot_1_CheckedChanged(object sender, EventArgs e)
@@ -148,6 +163,54 @@ namespace Cowboy
                 txt_PlayerName_2.Text = "Player2";
             else
                 txt_PlayerName_2.Text = "Bot";
+        }
+
+        private void Player1PicChange_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Player1Pic.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
+
+        private void Player2PicChange_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Image temp = Image.FromFile(openFileDialog.FileName);
+                temp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+
+                Player2Pic.Image = temp;
+            }
+        }
+
+        private void Player1PicReset_Click(object sender, EventArgs e)
+        {
+            Player1Pic.Image = Properties.Resources.player;
+        }
+
+        private void Player2PicReset_Click(object sender, EventArgs e)
+        {
+            Image temp = Properties.Resources.player;
+            temp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+
+            Player2Pic.Image = temp;
+        }
+
+        private void Player1PicFlip_Click(object sender, EventArgs e)
+        {
+            Image temp = Player1Pic.Image;
+            temp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            Player1Pic.Image = temp;
+        }
+
+        private void Player2PicFlip_Click(object sender, EventArgs e)
+        {
+            Image temp = Player2Pic.Image;
+            temp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            Player2Pic.Image = temp;
         }
     }
 }

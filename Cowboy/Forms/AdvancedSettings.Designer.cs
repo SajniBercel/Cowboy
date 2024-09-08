@@ -58,6 +58,14 @@
             btn_Back = new Button();
             Ch_Bot_1 = new CheckBox();
             Ch_Bot_2 = new CheckBox();
+            Player1Pic = new PictureBox();
+            Player2Pic = new PictureBox();
+            Player1PicChange = new Button();
+            Player1PicReset = new Button();
+            Player2PicChange = new Button();
+            Player2PicReset = new Button();
+            Player1PicFlip = new Button();
+            Player2PicFlip = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Nu_ReloadSpeed_1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Nu_BulletSpeed_1).BeginInit();
@@ -70,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)Nu_BulletSpeed_2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Nu_PlayerHP_2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Nu_PlayerSpeed_2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Player1Pic).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Player2Pic).BeginInit();
             SuspendLayout();
             // 
             // PlayerClone
@@ -113,7 +123,7 @@
             groupBox1.Controls.Add(Nu_PlayerHP_1);
             groupBox1.Controls.Add(Nu_BulletDamage_1);
             groupBox1.Controls.Add(Nu_PlayerSpeed_1);
-            groupBox1.Location = new Point(12, 66);
+            groupBox1.Location = new Point(12, 132);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(200, 165);
             groupBox1.TabIndex = 6;
@@ -227,7 +237,7 @@
             groupBox2.Controls.Add(Nu_BulletSpeed_2);
             groupBox2.Controls.Add(Nu_PlayerHP_2);
             groupBox2.Controls.Add(Nu_PlayerSpeed_2);
-            groupBox2.Location = new Point(218, 66);
+            groupBox2.Location = new Point(218, 132);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(200, 165);
             groupBox2.TabIndex = 7;
@@ -331,7 +341,7 @@
             // 
             // btn_Save
             // 
-            btn_Save.Location = new Point(176, 237);
+            btn_Save.Location = new Point(176, 303);
             btn_Save.Name = "btn_Save";
             btn_Save.Size = new Size(80, 25);
             btn_Save.TabIndex = 8;
@@ -341,7 +351,7 @@
             // 
             // btn_Reset
             // 
-            btn_Reset.Location = new Point(176, 268);
+            btn_Reset.Location = new Point(176, 334);
             btn_Reset.Name = "btn_Reset";
             btn_Reset.Size = new Size(80, 25);
             btn_Reset.TabIndex = 9;
@@ -351,7 +361,7 @@
             // 
             // btn_Back
             // 
-            btn_Back.Location = new Point(176, 299);
+            btn_Back.Location = new Point(176, 365);
             btn_Back.Name = "btn_Back";
             btn_Back.Size = new Size(80, 25);
             btn_Back.TabIndex = 10;
@@ -381,11 +391,97 @@
             Ch_Bot_2.UseVisualStyleBackColor = true;
             Ch_Bot_2.CheckedChanged += Ch_Bot_2_CheckedChanged;
             // 
+            // Player1Pic
+            // 
+            Player1Pic.Location = new Point(12, 66);
+            Player1Pic.Name = "Player1Pic";
+            Player1Pic.Size = new Size(60, 60);
+            Player1Pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            Player1Pic.TabIndex = 11;
+            Player1Pic.TabStop = false;
+            // 
+            // Player2Pic
+            // 
+            Player2Pic.Location = new Point(356, 66);
+            Player2Pic.Name = "Player2Pic";
+            Player2Pic.Size = new Size(60, 60);
+            Player2Pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            Player2Pic.TabIndex = 12;
+            Player2Pic.TabStop = false;
+            // 
+            // Player1PicChange
+            // 
+            Player1PicChange.Location = new Point(78, 66);
+            Player1PicChange.Name = "Player1PicChange";
+            Player1PicChange.Size = new Size(75, 23);
+            Player1PicChange.TabIndex = 13;
+            Player1PicChange.Text = "Csere";
+            Player1PicChange.UseVisualStyleBackColor = true;
+            Player1PicChange.Click += Player1PicChange_Click;
+            // 
+            // Player1PicReset
+            // 
+            Player1PicReset.Location = new Point(78, 103);
+            Player1PicReset.Name = "Player1PicReset";
+            Player1PicReset.Size = new Size(75, 23);
+            Player1PicReset.TabIndex = 14;
+            Player1PicReset.Text = "Alap";
+            Player1PicReset.UseVisualStyleBackColor = true;
+            Player1PicReset.Click += Player1PicReset_Click;
+            // 
+            // Player2PicChange
+            // 
+            Player2PicChange.Location = new Point(275, 66);
+            Player2PicChange.Name = "Player2PicChange";
+            Player2PicChange.Size = new Size(75, 23);
+            Player2PicChange.TabIndex = 15;
+            Player2PicChange.Text = "Csere";
+            Player2PicChange.UseVisualStyleBackColor = true;
+            Player2PicChange.Click += Player2PicChange_Click;
+            // 
+            // Player2PicReset
+            // 
+            Player2PicReset.Location = new Point(275, 103);
+            Player2PicReset.Name = "Player2PicReset";
+            Player2PicReset.Size = new Size(75, 23);
+            Player2PicReset.TabIndex = 16;
+            Player2PicReset.Text = "Alap";
+            Player2PicReset.UseVisualStyleBackColor = true;
+            Player2PicReset.Click += Player2PicReset_Click;
+            // 
+            // Player1PicFlip
+            // 
+            Player1PicFlip.Location = new Point(159, 84);
+            Player1PicFlip.Name = "Player1PicFlip";
+            Player1PicFlip.Size = new Size(53, 23);
+            Player1PicFlip.TabIndex = 17;
+            Player1PicFlip.Text = "Tükröz";
+            Player1PicFlip.UseVisualStyleBackColor = true;
+            Player1PicFlip.Click += Player1PicFlip_Click;
+            // 
+            // Player2PicFlip
+            // 
+            Player2PicFlip.Location = new Point(216, 84);
+            Player2PicFlip.Name = "Player2PicFlip";
+            Player2PicFlip.Size = new Size(53, 23);
+            Player2PicFlip.TabIndex = 18;
+            Player2PicFlip.Text = "Tükröz";
+            Player2PicFlip.UseVisualStyleBackColor = true;
+            Player2PicFlip.Click += Player2PicFlip_Click;
+            // 
             // AdvancedSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(428, 334);
+            ClientSize = new Size(428, 399);
+            Controls.Add(Player2PicFlip);
+            Controls.Add(Player1PicFlip);
+            Controls.Add(Player2PicReset);
+            Controls.Add(Player2PicChange);
+            Controls.Add(Player1PicReset);
+            Controls.Add(Player1PicChange);
+            Controls.Add(Player2Pic);
+            Controls.Add(Player1Pic);
             Controls.Add(Ch_Bot_2);
             Controls.Add(Ch_Bot_1);
             Controls.Add(btn_Back);
@@ -412,6 +508,8 @@
             ((System.ComponentModel.ISupportInitialize)Nu_BulletSpeed_2).EndInit();
             ((System.ComponentModel.ISupportInitialize)Nu_PlayerHP_2).EndInit();
             ((System.ComponentModel.ISupportInitialize)Nu_PlayerSpeed_2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Player1Pic).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Player2Pic).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -448,5 +546,13 @@
         private Label label6;
         private CheckBox Ch_Bot_1;
         private CheckBox Ch_Bot_2;
+        private PictureBox Player1Pic;
+        private PictureBox Player2Pic;
+        private Button Player1PicChange;
+        private Button Player1PicReset;
+        private Button Player2PicChange;
+        private Button Player2PicReset;
+        private Button Player1PicFlip;
+        private Button Player2PicFlip;
     }
 }

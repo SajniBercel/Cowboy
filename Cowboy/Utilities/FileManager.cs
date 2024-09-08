@@ -226,7 +226,8 @@ namespace Cowboy.Utilities
                             int.Parse(parts1[3]),
                             int.Parse(parts1[4]),
                             int.Parse(parts1[5]),
-                            parts1[6] == "True"
+                            parts1[6] == "True",
+                            parts1[7]
                             ),
                         new PlayerSetting(
                             parts2[0],
@@ -235,7 +236,8 @@ namespace Cowboy.Utilities
                             int.Parse(parts2[3]),
                             int.Parse(parts2[4]),
                             int.Parse(parts2[5]),
-                            parts2[6] == "True"
+                            parts2[6] == "True",
+                            parts2[7]
                             ),
                     };
 

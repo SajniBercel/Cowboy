@@ -1,4 +1,6 @@
-﻿namespace Cowboy.Settings
+﻿using Cowboy.Utilities;
+
+namespace Cowboy.Settings
 { 
     public class PlayerSetting
     {
@@ -9,6 +11,7 @@
         public int BulletDamage { get; set; }
         public int ReloadSpeed { get; set; }
         public bool Bot { get; set; }
+        public string PlayerImgPath { get; set; }
 
         /// <summary>
         /// Tárolja a játékos beállításait
@@ -20,7 +23,7 @@
         /// <param name="bulletDamage"></param>
         /// <param name="reloadSpeed"></param>
         /// <param name="bot"></param>
-        public PlayerSetting(string playerName ,int playerSpeed, int playerHP, int bulletSpeed, int bulletDamage, int reloadSpeed, bool bot)
+        public PlayerSetting(string playerName ,int playerSpeed, int playerHP, int bulletSpeed, int bulletDamage, int reloadSpeed, bool bot, string playerimgpath)
         {
             PlayerName = playerName;
             PlayerSpeed = playerSpeed;
@@ -29,6 +32,7 @@
             BulletDamage = bulletDamage;
             ReloadSpeed = reloadSpeed;
             Bot = bot;
+            PlayerImgPath = playerimgpath;
         }
 
         public PlayerSetting(PlayerSetting playerS)
@@ -40,6 +44,7 @@
             BulletDamage = playerS.BulletDamage;
             ReloadSpeed = playerS.ReloadSpeed;
             Bot = playerS.Bot;
+            PlayerImgPath = playerS.PlayerImgPath;
         }
 
         public PlayerSetting()
@@ -57,6 +62,7 @@
             BulletDamage = 1;
             ReloadSpeed = 5;
             Bot = false;
+            PlayerImgPath = "";
 
             return this;
         }
@@ -69,7 +75,7 @@
 
         public string FileFormat()
         {
-            return $"{PlayerName};{PlayerSpeed};{PlayerHP};{BulletSpeed};{BulletDamage};{ReloadSpeed};{Bot}";
+            return $"{PlayerName};{PlayerSpeed};{PlayerHP};{BulletSpeed};{BulletDamage};{ReloadSpeed};{Bot};{PlayerImgPath}";
         }
     }
 }
