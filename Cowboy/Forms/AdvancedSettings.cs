@@ -1,5 +1,7 @@
 ﻿using Cowboy.Settings;
 using Cowboy.Utilities;
+using System.Drawing;
+using System.Xml.Linq;
 
 namespace Cowboy
 {
