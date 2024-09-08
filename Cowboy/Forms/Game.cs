@@ -77,6 +77,14 @@ namespace Cowboy
             Player player1;
             Player player2;
 
+            Image player1GFX = Properties.Resources.player;
+            Image player2GFX = Properties.Resources.player;
+
+            if (gameSettings.PlayerSettings[0].PlayerImgPath.Length > 1)
+                player1GFX = Image.FromFile(gameSettings.PlayerSettings[0].PlayerImgPath);
+            if(gameSettings.PlayerSettings[1].PlayerImgPath.Length > 1)
+                player2GFX = Image.FromFile(gameSettings.PlayerSettings[1].PlayerImgPath);
+           
             if (gameSettings.WindowSize.Width < 10 && gameSettings.WindowSize.Height < 10)
             {
                 this.WindowState = FormWindowState.Maximized;
@@ -88,13 +96,13 @@ namespace Cowboy
             // Player 1
             Player temp_player1 = new Player(1, gameSettings.PlayerSettings[0].PlayerName,
                 Create.pictureBox("PB_player1", new Size(60, 60), new Point(0, 0),
-                Properties.Resources.player),
+                player1GFX),
                 gameSettings.PlayerSettings[0]);
 
             // Player 2
             Player temp_player2 = new Player(2, gameSettings.PlayerSettings[1].PlayerName,
                 Create.pictureBox("PB_player2", new Size(60, 60), new Point(0, 0),
-                Properties.Resources.player),
+                player2GFX),
                 gameSettings.PlayerSettings[1]);
 
             // elhelyezés
